@@ -1,84 +1,41 @@
-from flask import Flask, request, jsonify, render_template
-from io import BytesIO
-import subprocess
-from groq import Groq
+import os
+import tempfile
+from flask import Flask, render_template, request, jsonify
+from logic import convert_mp4_to_mp3, transcribe_audio
 
 app = Flask(__name__)
 
-
 @app.route('/')
 def index():
-    return render_template("index.html")
+    return render_template('index.html')
 
+@app.route('/transcribe', methods=['POST'])
+def transcribe():
+    mp4_file = request.files['video']
+    api_key = "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"
+    start_time = request.form['start']
+    end_time = request.form['end']
 
-UPLOAD_FOLDER = 'uploads'  # Optional, falls du doch Dateien speichern möchtest
+    # Erstelle ein temporäres File für das Video
+    with tempfile.NamedTemporaryFile(suffix=".mp4", delete=False) as temp_video:
+        mp4_file.save(temp_video)
+        temp_video_path = temp_video.name
 
-def convert_video_to_mp3(input_file, output_file):
-    ffmpeg_cmd = [
-        "ffmpeg",
-        "-i", input_file,
-        "-vn",  # Video ausschließen
-        "-acodec", "libmp3lame",  # MP3 Codec
-        "-ab", "192k",  # Bitrate
-        "-ar", "44100",  # Abtastrate
-        "-y",  # Überschreiben, falls Datei existiert
-        output_file
-    ]
-    
-    try:
-        subprocess.run(ffmpeg_cmd, check=True)
-        print("Video zu MP3 konvertiert")
-    except subprocess.CalledProcessError:
-        print("Fehler bei der Konvertierung von Video zu MP3")
-        raise
-
-def transcribe_audio(mp3_file):
-    client = Groq(api_key="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")
-    
-    with open(mp3_file, "rb") as file:
-        transcription = client.audio.transcriptions.create(
-            file=(mp3_file, file.read()),
-            model="whisper-large-v3-turbo",
-            prompt="transcribe the following audio, note punctuation",
-            language="de",
-        )
-        return transcription.text
-
-
-
-@app.route('/upload', methods=['POST'])
-def upload_video():
-    # Überprüfen, ob eine Datei im POST-Request enthalten ist
-    if 'video' not in request.files:
-        return jsonify({'error': 'Keine Datei gesendet'}), 400
-    
-    video_file = request.files['video']
-    
-    if not video_file:
-        return jsonify({'error': 'Keine Videodatei gefunden'}), 400
-    
-    # Temporäre In-Memory-Datei erstellen
-    video_bytes = video_file.read()
-    video_in_memory = BytesIO(video_bytes)
-    
-    # Konvertiere das Video in MP3 (mit FFmpeg direkt aus dem Memory Stream)
-    mp3_filename = "audio.mp3"
-    mp3_path = BytesIO()
+    # Erstelle ein temporäres File für die Audioausgabe
+    with tempfile.NamedTemporaryFile(suffix=".mp3", delete=False) as temp_audio:
+        temp_audio_path = temp_audio.name
 
     try:
-        convert_video_to_mp3(video_in_memory, mp3_path)
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500
+        # Konvertiere das Video in Audio
+        convert_mp4_to_mp3(temp_video_path, temp_audio_path, start_time, end_time)
+        # Transkribiere die erzeugte Audiodatei
+        text = transcribe_audio(temp_audio_path, api_key)
+    finally:
+        # Lösche die temporären Dateien
+        os.remove(temp_video_path)
+        os.remove(temp_audio_path)
 
-    # Transkribieren der MP3-Datei aus dem Speicher
-    try:
-        transcript = transcribe_audio(mp3_path)
-    except Exception as e:
-        return jsonify({'error': 'Fehler bei der Transkription'}), 500
-    
-    return jsonify({
-        'transcript': transcript
-    })
+    return jsonify({"transcript": text})
 
 if __name__ == '__main__':
     app.run(debug=True)

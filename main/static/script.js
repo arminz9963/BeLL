@@ -11,6 +11,7 @@ const totalDuration = document.getElementById("totalDuration");
 const videoContainer = document.getElementById("videoContainer");
 const controls = document.getElementById("controls");
 const transcriptElement = document.getElementById("transcript");
+const transcriptButton = document.getElementById("transcriptButton");
 
 let startTrim = 0;
 let endTrim = 0;
@@ -38,10 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 totalDuration.textContent = formatTime(endTrim - startTrim);
                 updateTrimTimes();
             });
-
-            uploadVideo();
-        }   
-    
+        }
     });
 
     removeVideoButton.addEventListener("click", function () {
@@ -138,58 +136,35 @@ document.addEventListener("DOMContentLoaded", function () {
 
         startRange.value = startTrim;
         endRange.value = endTrim;
-
         updateTrimTimes();
     }
 
+    function formatTimestamp(seconds) {
+        const h = Math.floor(seconds / 3600);
+        const m = Math.floor((seconds % 3600) / 60);
+        const s = (seconds % 60).toFixed(2);
+        return `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}:${String(s).padStart(5, "0")}`;
+    }
+
+    transcriptButton.addEventListener("click", function () {
+        const formData = new FormData();
+        formData.append("video", videoFile);
+
+        const startTrimFormatted = formatTimestamp(startTrim);
+        const endTrimFormatted = formatTimestamp(endTrim);
+
+        formData.append("start", startTrimFormatted);
+        formData.append("end", endTrimFormatted);
+
+        fetch("/transcribe", {
+            method: "POST",
+            body: formData,
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                transcriptElement.innerText = data.transcript;
+            })            
+            .catch((error) => console.error("Error:", error));
+    });    
 });
 
-function trimVideo() {
-    console.log("Start trimming video");
-    
-    // Überprüfen, ob startTrim und endTrim gültig sind:
-    console.log("Start Trim:", startTrim);
-    console.log("End Trim:", endTrim);
-    
-    // Weitere Überprüfungen der URL oder der zu sendenden Daten
-    const videoData = { start: startTrim, end: endTrim };
-    console.log("Video Data to send:", videoData);
-
-    // Hier könnte eine Fetch-Anfrage an den Server sein:
-    fetch(`/trim_video`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(videoData)
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log("Video trimmed", data);
-    })
-    .catch(error => console.error('Error:', error));
-}
-
-
-function uploadVideo() {
-    const formData = new FormData();
-    formData.append("video", videoFile);
-    formData.append("start_time", startTrim);
-    formData.append("end_time", endTrim);
-
-    fetch("/upload", {
-        method: "POST",
-        body: formData,
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log("Transkript:", data.transcript);
-        transcriptElement.innerText = data.transcript;
-        // Zeige das geschnittene Video
-        videoPlayer.src = data.output_video;
-        videoPlayer.style.display = "block";
-    })
-    .catch(error => {
-        console.error("Fehler:", error);
-    });
-}
