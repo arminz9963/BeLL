@@ -17,9 +17,43 @@ const transcriptButton = document.getElementById("transcriptButton"); // Der But
 let startTrim = 0; // Der Startzeitpunkt des Schnitts in Sekunden
 let endTrim = 0; // Der Endzeitpunkt des Schnitts in Sekunden
 
+
+let cutSectionCount = 0;  // Zählt die Anzahl der Schnittbereiche
+
+function addCutSection() {
+  cutSectionCount++;  // Erhöht den Zähler
+
+  const schnittBereich = document.createElement('div');
+  schnittBereich.classList.add('schnittbereich');
+  schnittBereich.id = `schnitt-${cutSectionCount}`;
+
+  // HTML für den Schnittbereich
+  schnittBereich.innerHTML = `
+    <label>Trimmen:</label>
+    <input type="range" class="startRange" min="0" step="0.01" style="width: 40%" value="0"/>
+    <input type="range" class="endRange" min="0" step="0.01" style="width: 40%" value="0"/>
+    <br />
+    <span>Start: <input type="text" class="startInput" maxlength="8" value="00:00.00" /></span>
+    <span style="margin-left: 20px">Ende: <input type="text" class="endInput" maxlength="8" value="00:00.00" /></span>
+    <br /><br />
+  `;
+
+  // Füge den neuen Schnittbereich in den Container ein
+  document.getElementById('schnitte-container').appendChild(schnittBereich);
+  
+  // Füge Event-Listener zu den neuen Schiebereglern und Textfeldern hinzu
+  setupCutSection(schnittBereich);
+}
+
+document.getElementById("addcutSectionButton").addEventListener("click", addCutSection);
+
+
+
+
 // Diese Funktion wird ausgeführt, wenn das Dokument vollständig geladen wurde
 document.addEventListener("DOMContentLoaded", function () {
 
+    
     // Wenn der Benutzer eine Datei auswählt (Video hochlädt)
     videoInput.addEventListener("change", function (event) {
         videoFile = event.target.files[0]; // Die ausgewählte Videodatei wird gespeichert
