@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>BeLL</title>
+  </head>
+  <body>
+    <h1>Videoschnitt KI</h1>
+    <main>
+      <div class="informationen">
+        <p>
+          Helfen Sie mit, Trainingsdaten für meine Besondere Lernleistung zu
+          sammeln!
+        </p>
+        <p>
+          Mein Ziel ist es, eine KI zu entwickeln, die in einem gegebenen Video
+          – zum Beispiel einem Interview – automatisch bis zu zwei Schnitte
+          setzt, um Versprecher und Pausen zu entfernen.
+        </p>
+        <p>So funktioniert es:</p>
+        <ol>
+          <li>Wählen Sie ein Video aus.</li>
+          <li>
+            Setzen Sie mithilfe des Schiebereglers die gewünschten Schnitt.
+          </li>
+          <li>Senden Sie die bearbeitete Version ab.</li>
+        </ol>
+        <p>Vielen Dank für Ihre Unterstützung!</p>
+      </div>
+
+      <div class="Schnitt">
+        <h2 id="uploadTitle">Video hochladen</h2>
+        <div id="videoContainer">
+          <input
+            type="file"
+            id="videoInput"
+            accept="video/mp4, video/avi, video/mov, video/x-matroska"
+          />
+          <button id="uploadButton">
+            Video auswählen (*.mp4, *.avi, *.mov, *.mkv)
+          </button>
+          <video id="videoPlayer"></video>
+          <button id="removeVideo">Video entfernen</button>
+        </div>
+        <div id="controls">
+          <p>Gesamtdauer: <span id="totalDuration">00:00.00</span></p>
+          <div id="TrimmContainer">
+            <label>Trimmen:</label>
+            <input type="range" id="startRange" min="0" step="0.01" value="0" />
+            <input type="range" id="endRange" min="0" step="0.01" value="0"/>
+            <span>Start:<input type="text" id="startInput" maxlength="8" value="00:00.00"/></span>
+            <span>Ende:<input type="text" id="endInput" maxlength="8" value="00:00.00"/></span>
+          </div>
+          <button id="addcutSectionButton">Schnitt hinzufügen</button>
+          <button id="transcriptButton">Transkript erstellen</button>
+          <button id="sendingButton" onclick="">Video abschicken</button>
+          <p id="transcript">Wird geladen...</p>
+        </div>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
