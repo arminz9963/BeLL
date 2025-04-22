@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abschnitt hinzufügen</title>
+</head>
+<body>
+
+    <button id="addcutSectionButton">Abschnitt hinzufügen</button>
+
+    <div id="TrimmContainer"></div>
+
+    <script>
+        const addcutSectionButton = document.getElementById('addcutSectionButton');
+        const trimmContainer = document.getElementById('TrimmContainer');
+
+        document.addEventListener('DOMContentLoaded', function() {
+            addcutSectionButton.addEventListener('click', function() {
+                const newDiv = document.createElement('div'); // Neues div für jeden Abschnitt erstellen
+                newDiv.innerHTML = `
+                    <div id="cutSection">
+                        <label>Trimmen:</label>
+                        <input type="range" id="startRange" min="0" step="0.01" style="width: 40%;" value="0">
+                        <input type="range" id="endRange" min="0" step="0.01" style="width: 40%;" value="0">
+                        <br>
+                        <span>Start: <input type="text" id="startInput" maxlength="8" value="00:00.00"></span>
+                        <span style="margin-left: 20px;">Ende: <input type="text" id="endInput" maxlength="8" value="00:00.00"></span>
+                    </div>
+                `;
+                // Füge den neuen Abschnitt zum Container hinzu
+                trimmContainer.appendChild(newDiv);
+            });
+        });
+    </script>
+
+</body>
+</html>
