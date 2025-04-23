@@ -1,6 +1,7 @@
 const VideoInput = document.getElementById('VideoInput');
 const VideoPlayer = document.getElementById('VideoPlayer');
 const VideoInputLabel = document.getElementById('VideoInputLabel');
+const restContainer = document.getElementById('restContainer');
 
 VideoInput.addEventListener('change', function () {
     const file = this.files[0];
@@ -14,6 +15,7 @@ VideoInput.addEventListener('change', function () {
     VideoInput.style.display = "none"; // Versteckt den Datei-Input nach Auswahl
     VideoPlayer.style.display = "block"; // Zeigt den Video-Player an
     VideoInputLabel.style.display = "none"; // Versteckt das Label
+    restContainer.style.display = "block"; // Zeigt den Rest-Container an
 });
 
 const addNewCutBtn = document.getElementById('addNewCutBtn');
@@ -27,6 +29,7 @@ addNewCutBtn.addEventListener('click', function () {
     cutSection.id = `Schnitt${cutSectionCount}`; // Setzt die ID für den neuen Schnitt-Container
     cutSection.innerHTML = `
     <h3>Schnitt ${cutSectionCount}</h3>
+    <button class="deleteCutBtn" style="margin-right: 20px">X</button>
     <label>Trimmen:</label>
     <input type="range" class="startRange" min="0" step="0.01" style="width: 40%" value="0"/>
     <input type="range" class="endRange" min="0" step="0.01" style="width: 40%" value="0"/>
