@@ -54,7 +54,7 @@ videoPlayer.addEventListener('loadedmetadata', function () {
 });
 
 geschnittenesVideoPlayBtn.addEventListener('click', function () {
-    Schnitte = [[19.1, 19.2], [25.1, 25.2], [34.5, 34.6]]; // Beispiel Schnitte
+    Schnitte = [[19.1, 19.2], [25.1, 25.2], [34.5, 34.6], [5.2, 6.7], [340.9, 342.1]]; // Beispiel Schnitte
 
     let i = 0; // Index des aktuellen Schnitts, wir starten bei 0
 
