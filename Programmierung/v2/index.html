@@ -7,12 +7,19 @@
 </head>
 <body>
   <div class="Informationen"></div>
-  <div class="Video"></div>
+  <div class="Video">
+    <input type="file" id="VideoInput" accept="video/mp4" style="display: none;"/>
+    <label for="VideoInput" id="VideoInputLabel">Video auswählen</label>
+    <video id="VideoPlayer" controls style="width: 70%; display: none;"></video>
+  </div>
   <div class="SchnittContainer">
     <div class="Schnitt1"></div>
     <button id="AddNewCutBtn">Schnitt hinzufügen</button>
   </div>
   <div class="Beschreibung"></div>
   <button id="AbsendenBtn">Absenden</button>
+
+  
+  <script src="script.js"></script>
 </body>
 </html>
