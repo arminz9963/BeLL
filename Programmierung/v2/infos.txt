@@ -1,0 +1,7 @@
+=========================== Was fehlt nun noch ===========================
+- die Schnittdaten in die Schnitte speichern 
+- Schieberegler sollen sich gegeneinader beachten 
+    zb wenn erster Schieberegler von 00:10:00 bis 00:15.34 dann darf der nächste erst ab 00:15.34 starten
+- Backend erstellen
+- die Daten des Schnitts speichern und senden an Backend
+- Design

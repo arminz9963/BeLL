@@ -21,28 +21,28 @@ let endTrim = 0; // Der Endzeitpunkt des Schnitts in Sekunden
 let cutSectionCount = 0;  // Zählt die Anzahl der Schnittbereiche
 
 function addCutSection() {
-  cutSectionCount++;  // Erhöht den Zähler
+    cutSectionCount++;  // Erhöht den Zähler
 
-  const schnittBereich = document.createElement('div');
-  schnittBereich.classList.add('schnittbereich');
-  schnittBereich.id = `schnitt-${cutSectionCount}`;
+    const schnittBereich = document.createElement('div');
+    schnittBereich.classList.add('schnittbereich');
+    schnittBereich.id = `schnitt-${cutSectionCount}`;
 
-  // HTML für den Schnittbereich
-  schnittBereich.innerHTML = `
-    <label>Trimmen:</label>
+    // HTML für den Schnittbereich
+    schnittBereich.innerHTML = `
+    <p>Trimmen:</p>
     <input type="range" class="startRange" min="0" step="0.01" style="width: 40%" value="0"/>
     <input type="range" class="endRange" min="0" step="0.01" style="width: 40%" value="0"/>
     <br />
     <span>Start: <input type="text" class="startInput" maxlength="8" value="00:00.00" /></span>
     <span style="margin-left: 20px">Ende: <input type="text" class="endInput" maxlength="8" value="00:00.00" /></span>
-    <br /><br />
+    <br/><br/>
   `;
 
-  // Füge den neuen Schnittbereich in den Container ein
-  document.getElementById('schnitte-container').appendChild(schnittBereich);
-  
-  // Füge Event-Listener zu den neuen Schiebereglern und Textfeldern hinzu
-  setupCutSection(schnittBereich);
+    // Füge den neuen Schnittbereich in den Container ein
+    document.getElementById('schnitte-container').appendChild(schnittBereich);
+
+    // Füge Event-Listener zu den neuen Schiebereglern und Textfeldern hinzu
+    setupCutSection(schnittBereich);
 }
 
 document.getElementById("addcutSectionButton").addEventListener("click", addCutSection);
@@ -53,7 +53,7 @@ document.getElementById("addcutSectionButton").addEventListener("click", addCutS
 // Diese Funktion wird ausgeführt, wenn das Dokument vollständig geladen wurde
 document.addEventListener("DOMContentLoaded", function () {
 
-    
+
     // Wenn der Benutzer eine Datei auswählt (Video hochlädt)
     videoInput.addEventListener("change", function (event) {
         videoFile = event.target.files[0]; // Die ausgewählte Videodatei wird gespeichert
@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
         videoContainer.style.border = "2px dashed black"; // Der Container bekommt wieder einen gestrichelten Rand
         transcriptElement.innerText = ""; // Die Transkription wird gelöscht
     });
-    
+
     // Diese Funktion aktualisiert die angezeigten Zeiten für Start und Ende des Schnitts
     function updateTrimTimes() {
         startInput.value = formatTime(startTrim); // Das Startzeitfeld wird formatiert und aktualisiert
