@@ -4,11 +4,10 @@ const videoInputLabel = document.getElementById('VideoInputLabel');
 const restContainer = document.getElementById('restContainer');
 const geschnittenesVideoPlayBtn = document.getElementById('geschnittenesVideoPlayBtn');
 let Schnitte = []; // Array für die Schnitte
-let duration = 0; // Variable für die Dauer des Videos
 
 
-videoInput.addEventListener('loadedmetadata', function () {
-    duration = videoPlayer.duration; // Dauer des Videos wird gespeichert
+videoPlayer.addEventListener('loadedmetadata', function () {
+    const duration = videoPlayer.duration; // Dauer des Videos wird gespeichert
     console.log("Dauer des Videos:", duration); // Dauer des Videos wird in der Konsole ausgegeben
 });
 
@@ -33,7 +32,7 @@ const SchnittContainer = document.getElementById('SchnittContainer');
 
 addNewCutBtn.addEventListener('click', function () {
     cutSectionCount++; // Erhöht den Zähler für die Schnitte
-
+    Schnitte.push([])
     const cutSection = document.createElement('div');
     cutSection.id = `Schnitt${cutSectionCount}`; // Setzt die ID für den neuen Schnitt-Container
     cutSection.innerHTML = `
@@ -43,7 +42,7 @@ addNewCutBtn.addEventListener('click', function () {
     <input type="range" class="endRange" min="0" step="0.01" style="width: 40%" value="0"/>
     <br/>
     <span>Start: <input type="text" class="startInput" maxlength="8" value="00:00.00" /></span>
-    <span style="margin-left: 20px">Ende: <input type="text" class="endInput" maxlength="8" value="00:00.00" /></span>
+    <span style="margin-left: 20px">Ende: <input type="text" class="endInput" maxlength="8" value="00:00.01" /></span>
     <br/><br/>
   `;
 
@@ -56,8 +55,15 @@ addNewCutBtn.addEventListener('click', function () {
     const startInput = cutSection.querySelector('.startInput');
     const endInput = cutSection.querySelector('.endInput');
 
-    startRange.max = videoPlayer.duration;
+    // Trimm-Variablen einstellen
+    startRange.min = 0; // StartRange Schieberegler Minimum auf 0 setzen
+    startRange.max = videoPlayer.duration - 0.01;
+    endRange.min = 0.01; // EndRange Schieberegler Minimum auf 0 setzen
     endRange.max = videoPlayer.duration;
+    endRange.value = videoPlayer.duration; // setzt EndRange Schieberegler am Anfang auf max Dauer
+    endInput.value = formatTime(endRange.value); // setzt EndInput am Anfang auf max Dauer
+    startRange.value = 0; // setzt StartRange Schieberegler am Anfang auf 0
+    startInput.value = formatTime(startRange.value); // setzt StartInput am Anfang auf 0
 
     // Start-Slider Event
     startRange.addEventListener("input", function () {
@@ -77,29 +83,23 @@ addNewCutBtn.addEventListener('click', function () {
 
     // Start-Eingabe Event
     startInput.addEventListener("blur", function () {
-        const seconds = parseTime(startInput.value);
-        if (seconds >= parseFloat(endRange.value)) {
-            startRange.value = parseFloat(endRange.value) - 0.01;
-        } else {
-            startRange.value = seconds;
-        }
+        console.log("Start-Eingabe:", startInput.value); // Debugging-Ausgabe
+        const time = checkTimeFromInput(startInput.value);
+        startInput.value = time; // Debugging-Ausgabe
+        console.log("Start-Eingabe:", time); // Debugging-Ausgabe
+        startRange.value = formatTimeToSeconds(time);
     });
 
     // End-Eingabe Event
     endInput.addEventListener("blur", function () {
-        const seconds = parseTime(endInput.value);
-        if (seconds <= parseFloat(startRange.value)) {
-            endRange.value = parseFloat(startRange.value) + 0.01;
-        } else {
-            endRange.value = seconds;
-        }
+        console.log("End-Eingabe:", endInput.value); // Debugging-Ausgabe
+        const time = checkTimeFromInput(endInput.value);
+        endInput.value = time; // Debugging-Ausgabe
+        console.log("End-Eingabe:", time); // Debugging-Ausgabe
+        endRange.value = formatTimeToSeconds(time);
     });
 
 
-
-});
-
-videoPlayer.addEventListener('loadedmetadata', function () {
 
 });
 
@@ -145,65 +145,35 @@ geschnittenesVideoPlayBtn.addEventListener('click', function () {
 // ==================== Funktionen ==================== //
 
 
-// Diese Funktion aktualisiert die angezeigten Zeiten für Start und Ende des Schnitts
-function updateTrimTimes() {
-    startInput.value = formatTime(startTrim); // Das Startzeitfeld wird formatiert und aktualisiert
-    endInput.value = formatTime(endTrim); // Das Endzeitfeld wird formatiert und aktualisiert
-    totalDuration.textContent = formatTime(endTrim - startTrim); // Die Gesamtdauer des Schnitts wird aktualisiert
-}
-
-// Diese Funktion formatiert eine Zeit (in Sekunden) in das Format MM:SS:MS
 function formatTime(seconds) {
+    /* Konvertiert Sekunden in das Format MM:SS.mm */
     const min = Math.floor(seconds / 60); // Minuten berechnen
     const sec = Math.floor(seconds % 60); // Sekunden berechnen
     const ms = Math.floor((seconds % 1) * 100); // Millisekunden berechnen
     return `${String(min).padStart(2, "0")}:${String(sec).padStart(2, "0")}.${String(ms).padStart(2, "0")}`; // Zeit im Format MM:SS.ms zurückgeben
 }
 
-// Diese Funktion verarbeitet die Eingabewerte und aktualisiert den Start- oder Endzeitpunkt
-function updateTimeFromInput(input, type) {
-    let value = input.value; // Der Wert aus dem Eingabefeld wird gespeichert
-    value = value.replace(/[^0-9:.]/g, ""); // Ungültige Zeichen werden entfernt
-
-    const parts = value.split(":"); // Der Wert wird in Minuten, Sekunden und Millisekunden unterteilt
-    let minutes = "00";
-    let seconds = "00";
-    let milliseconds = "00";
-
-    if (parts[0]) minutes = parts[0].padStart(2, "0"); // Minuten werden gesetzt
-    if (parts[1]) {
-        let secondParts = parts[1].split(".");
-        seconds = secondParts[0].padStart(2, "0"); // Sekunden werden gesetzt
-        if (secondParts[1]) milliseconds = secondParts[1].padEnd(2, "0"); // Millisekunden werden gesetzt
-    }
-
-    if (parseInt(seconds) > 59) seconds = "59"; // Wenn die Sekunden größer als 59 sind, werden sie auf 59 gesetzt
-    if (parseInt(minutes) > 59) minutes = "59"; // Wenn die Minuten größer als 59 sind, werden sie auf 59 gesetzt
-
-    const formattedTime = `${minutes}:${seconds}.${milliseconds}`; // Formatierte Zeit wird zusammengesetzt
-    input.value = formattedTime; // Das Eingabefeld wird mit der formatierten Zeit aktualisiert
-
-    let totalSeconds = parseInt(minutes) * 60 + parseInt(seconds) + parseInt(milliseconds) / 100; // Gesamte Zeit in Sekunden berechnen
-
-    if (type === "start") {
-        startTrim = Math.min(totalSeconds, videoPlayer.duration); // Der Startzeitpunkt wird aktualisiert
-    } else {
-        endTrim = Math.min(totalSeconds, videoPlayer.duration); // Der Endzeitpunkt wird aktualisiert
-    }
-
-    if (startTrim >= endTrim) {
-        startTrim = endTrim - 0.01; // Sicherstellen, dass der Startzeitpunkt vor dem Endzeitpunkt bleibt
-    }
-
-    startRange.value = startTrim; // Der Wert des Start-Schiebereglers wird aktualisiert
-    endRange.value = endTrim; // Der Wert des End-Schiebereglers wird aktualisiert
-    updateTrimTimes(); // Die angezeigten Zeiten werden aktualisiert
+function formatTimeToSeconds(timeString) {
+    /* Konvertiert eine Zeit im Format MM:SS.mm in Sekunden */
+    const parts = timeString.split(/[:.]/); // Teilt den String in Minuten, Sekunden und Millisekunden
+    const minutes = parseInt(parts[0], 10); // Minuten
+    const seconds = parseInt(parts[1], 10); // Sekunden
+    const milliseconds = parseInt(parts[2], 10); // Millisekunden
+    return minutes * 60 + seconds + milliseconds / 100; // Gesamtzeit in Sekunden zurückgeben
 }
 
-// Diese Funktion formatiert die Zeitstempel in Stunden:Minuten:Sekunden.Millisekunden
-function formatTimestamp(seconds) {
-    const h = Math.floor(seconds / 3600);
-    const m = Math.floor((seconds % 3600) / 60);
-    const s = (seconds % 60).toFixed(2);
-    return `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}:${String(s).padStart(5, "0")}`;
+function checkTimeFromInput(inputString) {
+    /* Checkt den Input des Users, wenn dieser dem Fromat nicht enstpricht wird die Zeit zurück auf 00:00.00 gesetzt */
+    const regex = /^([0-9]{1,2}):([0-5][0-9])\.(\d{2})$/; // Regex für das Format MM:SS.ms
+    if (regex.test(inputString)) {
+        if (formatTimeToSeconds(inputString) > videoPlayer.duration) {
+            return "00:00.00" // Wenn die Zeit größer als die Videolänge ist, wird Zeit zurückgesetzt
+        }
+        else {
+            return inputString; // Wenn das Format korrekt ist, gib den Wert zurück
+        }
+    }
+    else {
+        return "00:00.00"
+    }
 }
