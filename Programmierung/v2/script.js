@@ -32,7 +32,7 @@ const SchnittContainer = document.getElementById('SchnittContainer');
 
 addNewCutBtn.addEventListener('click', function () {
     cutSectionCount++; // Erhöht den Zähler für die Schnitte
-    Schnitte.push([])
+    Schnitte.push([0, videoPlayer.duration])
     const cutSection = document.createElement('div');
     cutSection.id = `Schnitt${cutSectionCount}`; // Setzt die ID für den neuen Schnitt-Container
     cutSection.innerHTML = `
@@ -55,6 +55,12 @@ addNewCutBtn.addEventListener('click', function () {
     const startInput = cutSection.querySelector('.startInput');
     const endInput = cutSection.querySelector('.endInput');
 
+    startRange.dataset.index = cutSectionCount - 1;
+    endRange.dataset.index = cutSectionCount - 1;
+    startInput.dataset.index = cutSectionCount - 1;
+    endInput.dataset.index = cutSectionCount - 1;
+
+
     // Trimm-Variablen einstellen
     startRange.min = 0; // StartRange Schieberegler Minimum auf 0 setzen
     startRange.max = videoPlayer.duration - 0.01;
@@ -71,6 +77,7 @@ addNewCutBtn.addEventListener('click', function () {
             startRange.value = parseFloat(endRange.value) - 0.01;
         }
         startInput.value = formatTime(startRange.value);
+        Schnitte[startRange.dataset.index][0] = parseFloat(startRange.value); // Speichert den Startzeitpunkt im Schnitte-Array
     });
 
     // End-Slider Event
@@ -79,6 +86,7 @@ addNewCutBtn.addEventListener('click', function () {
             endRange.value = parseFloat(startRange.value) + 0.01;
         }
         endInput.value = formatTime(endRange.value);
+        Schnitte[endRange.dataset.index][1] = parseFloat(endRange.value); // Speichert den Endzeitpunkt im Schnitte-Array
     });
 
     // Start-Eingabe Event
@@ -88,6 +96,7 @@ addNewCutBtn.addEventListener('click', function () {
         startInput.value = time; // Debugging-Ausgabe
         console.log("Start-Eingabe:", time); // Debugging-Ausgabe
         startRange.value = formatTimeToSeconds(time);
+        Schnitte[startInput.dataset.index][0] = parseFloat(startRange.value); // Speichert den Startzeitpunkt im Schnitte-Array
     });
 
     // End-Eingabe Event
@@ -97,6 +106,7 @@ addNewCutBtn.addEventListener('click', function () {
         endInput.value = time; // Debugging-Ausgabe
         console.log("End-Eingabe:", time); // Debugging-Ausgabe
         endRange.value = formatTimeToSeconds(time);
+        Schnitte[endInput.dataset.index][1] = parseFloat(endRange.value); // Speichert den Endzeitpunkt im Schnitte-Array
     });
 
 
@@ -104,7 +114,8 @@ addNewCutBtn.addEventListener('click', function () {
 });
 
 geschnittenesVideoPlayBtn.addEventListener('click', function () {
-    Schnitte = [[19.1, 19.2], [25.1, 25.2], [34.5, 34.6], [5.2, 6.7], [340.9, 342.1]]; // Beispiel Schnitte
+
+    console.log("Schnitte:", Schnitte); // Debugging-Ausgabe
 
     let i = 0; // Index des aktuellen Schnitts, wir starten bei 0
 
