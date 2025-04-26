@@ -181,6 +181,43 @@ geschnittenesVideoPlayBtn.addEventListener('click', function () {
     springenZumSchnitt(i);
 });
 
+absendeBtn.addEventListener("click", function () {
+    const BeschreibungDiv = document.getElementsByClassName("Beschreibung")[0];
+    const BeschreibungInput = document.getElementById("BeschreibungInput");
+
+    // Vorher erstellen, damit wir später drauf zugreifen können
+    let warnParagraph = document.getElementById("warnParagraph");
+    let warnParagraph2 = document.getElementById("warnParagraph2");
+
+    // Wenn schon existiert, vorher löschen (damit sie nicht doppelt erscheinen)
+    if (warnParagraph) {
+        BeschreibungDiv.removeChild(warnParagraph);
+    }
+    if (warnParagraph2) {
+        BeschreibungDiv.removeChild(warnParagraph2);
+    }
+
+    if (cutSectionCount < 1) {
+        warnParagraph = document.createElement("p");
+        warnParagraph.id = "warnParagraph"; // ID geben zum Wiederfinden
+        warnParagraph.textContent = "Bitte füge einen Schnitt hinzu!";
+        BeschreibungDiv.appendChild(warnParagraph);
+    }
+
+    if (BeschreibungInput.value.trim() === "") {
+        warnParagraph2 = document.createElement("p");
+        warnParagraph2.id = "warnParagraph2"; // ID für zweiten Warntext
+        warnParagraph2.textContent = "Bitte füge eine Beschreibung hinzu!";
+        BeschreibungDiv.appendChild(warnParagraph2);
+    }
+
+    if (cutSectionCount >= 1 && BeschreibungInput.value.trim() !== "") {
+        console.log("Erfolg beim Senden");
+        // Hier muss der Code für das Senden der Daten hin ans Backend
+    }
+});
+
+
 
 
 // ==================== Funktionen ==================== //
