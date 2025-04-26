@@ -3,6 +3,7 @@ const videoPlayer = document.getElementById('VideoPlayer');
 const videoInputLabel = document.getElementById('VideoInputLabel');
 const restContainer = document.getElementById('restContainer');
 const geschnittenesVideoPlayBtn = document.getElementById('geschnittenesVideoPlayBtn');
+const absendeBtn = document.getElementById("AbsendeBtn");
 let Schnitte = []; // Array für die Schnitte
 
 
@@ -34,6 +35,7 @@ addNewCutBtn.addEventListener('click', function () {
     cutSectionCount++; // Erhöht den Zähler für die Schnitte
     Schnitte.push([0, videoPlayer.duration])
     const cutSection = document.createElement('div');
+    cutSection.className = 'cutSection'; // Fügt der neuen Sektion die Klasse "cutSection" hinzu
     cutSection.id = `Schnitt${cutSectionCount}`; // Setzt die ID für den neuen Schnitt-Container
     cutSection.innerHTML = `
     <h3>Schnitt ${cutSectionCount}</h3>
@@ -54,21 +56,23 @@ addNewCutBtn.addEventListener('click', function () {
     const endRange = cutSection.querySelector('.endRange');
     const startInput = cutSection.querySelector('.startInput');
     const endInput = cutSection.querySelector('.endInput');
+    const deleteCutBtn = cutSection.querySelector('.deleteCutBtn');
 
     startRange.dataset.index = cutSectionCount - 1;
     endRange.dataset.index = cutSectionCount - 1;
     startInput.dataset.index = cutSectionCount - 1;
     endInput.dataset.index = cutSectionCount - 1;
+    deleteCutBtn.dataset.index = cutSectionCount - 1;
 
 
     // Trimm-Variablen einstellen
     startRange.min = 0; // StartRange Schieberegler Minimum auf 0 setzen
     startRange.max = videoPlayer.duration - 0.01;
+    startRange.value = 0; // setzt StartRange Schieberegler am Anfang auf 0
     endRange.min = 0.01; // EndRange Schieberegler Minimum auf 0 setzen
     endRange.max = videoPlayer.duration;
     endRange.value = videoPlayer.duration; // setzt EndRange Schieberegler am Anfang auf max Dauer
     endInput.value = formatTime(endRange.value); // setzt EndInput am Anfang auf max Dauer
-    startRange.value = 0; // setzt StartRange Schieberegler am Anfang auf 0
     startInput.value = formatTime(startRange.value); // setzt StartInput am Anfang auf 0
 
     // Start-Slider Event
@@ -93,8 +97,11 @@ addNewCutBtn.addEventListener('click', function () {
     startInput.addEventListener("blur", function () {
         console.log("Start-Eingabe:", startInput.value); // Debugging-Ausgabe
         const time = checkTimeFromInput(startInput.value);
-        startInput.value = time; // Debugging-Ausgabe
+        startInput.value = time;
         console.log("Start-Eingabe:", time); // Debugging-Ausgabe
+        if (formatTimeToSeconds(time) >= parseFloat(endRange.value)) {
+            startInput.value = formatTime(parseFloat(endRange.value) - 0.01); // Wenn Startzeitpunkt >= Endzeitpunkt, wird Startzeitpunkt auf Endzeitpunkt - 0.01 gesetzt
+        }
         startRange.value = formatTimeToSeconds(time);
         Schnitte[startInput.dataset.index][0] = parseFloat(startRange.value); // Speichert den Startzeitpunkt im Schnitte-Array
     });
@@ -103,10 +110,33 @@ addNewCutBtn.addEventListener('click', function () {
     endInput.addEventListener("blur", function () {
         console.log("End-Eingabe:", endInput.value); // Debugging-Ausgabe
         const time = checkTimeFromInput(endInput.value);
-        endInput.value = time; // Debugging-Ausgabe
+        endInput.value = time;
+        if (formatTimeToSeconds(time) <= parseFloat(startRange.value)) {
+            endInput.value = formatTime(parseFloat(startRange.value) + 0.01); // Wenn Endzeitpunkt <= Startzeitpunkt, wird Endzeitpunkt auf Startzeitpunkt + 0.01 gesetzt
+        }
         console.log("End-Eingabe:", time); // Debugging-Ausgabe
         endRange.value = formatTimeToSeconds(time);
         Schnitte[endInput.dataset.index][1] = parseFloat(endRange.value); // Speichert den Endzeitpunkt im Schnitte-Array
+    });
+
+    deleteCutBtn.addEventListener('click', function () {
+        Schnitte.splice(deleteCutBtn.dataset.index, 1); // Entfernt den Schnitt aus dem Array
+        SchnittContainer.removeChild(cutSection); // Entfernt den Schnitt-Container aus dem DOM
+        cutSectionCount--; // Verringert den Zähler für die Schnitte
+        console.log("Schnitte nach Löschen:", Schnitte); // Debugging-Ausgabe
+
+        const allCutSections = SchnittContainer.querySelectorAll('.cutSection');
+        allCutSections.forEach((section, newIndex) => {
+            section.id = `Schnitt${newIndex + 1}`;
+            section.querySelector('h3').innerText = `Schnitt ${newIndex + 1}`;
+
+            // Alle Controls neu zuordnen
+            section.querySelector('.startRange').dataset.index = newIndex;
+            section.querySelector('.endRange').dataset.index = newIndex;
+            section.querySelector('.startInput').dataset.index = newIndex;
+            section.querySelector('.endInput').dataset.index = newIndex;
+            section.querySelector('.deleteCutBtn').dataset.index = newIndex;
+        });
     });
 
 
