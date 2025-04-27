@@ -4,6 +4,7 @@ const videoInputLabel = document.getElementById('VideoInputLabel');
 const restContainer = document.getElementById('restContainer');
 const geschnittenesVideoPlayBtn = document.getElementById('geschnittenesVideoPlayBtn');
 const absendeBtn = document.getElementById("AbsendeBtn");
+const DauerAnzeige = document.getElementById('dauerGeschnittenesVideo');
 let Schnitte = []; // Array für die Schnitte
 
 
@@ -25,6 +26,7 @@ videoInput.addEventListener('change', function () {
     videoInputLabel.style.display = "none"; // Versteckt das Label
     restContainer.style.display = "block"; // Zeigt den Rest-Container an
     geschnittenesVideoPlayBtn.style.display = "block"; // Zeigt den Play-Button für das geschnittene Video
+    DauerAnzeige.style.display = "block"; // Zeigt die Dauer-Anzeige an
 });
 
 const addNewCutBtn = document.getElementById('addNewCutBtn');
@@ -143,6 +145,7 @@ addNewCutBtn.addEventListener('click', function () {
 
 });
 
+
 geschnittenesVideoPlayBtn.addEventListener('click', function () {
 
     console.log("Schnitte:", Schnitte); // Debugging-Ausgabe
@@ -179,6 +182,13 @@ geschnittenesVideoPlayBtn.addEventListener('click', function () {
 
     // Direkt loslegen: Zum ersten Schnitt springen und Video starten
     springenZumSchnitt(i);
+
+    // Dauer des geschnittenen Videos berechnen
+    let geschnitteneDauer = 0;
+    Schnitte.forEach((schnitt) => {
+        geschnitteneDauer += schnitt[1] - schnitt[0]; // Dauer jedes Schnitts addieren
+    });
+    DauerAnzeige.innerText = `Dauer geschnittenes Video: ${formatTime(geschnitteneDauer)}`;
 });
 
 absendeBtn.addEventListener("click", function () {
