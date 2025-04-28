@@ -35,15 +35,17 @@ def transcribe_audio(file_path, api_key, model="whisper-large-v3-turbo", languag
             model=model,
             prompt="Transkribiere die folgende Audiodatei, beachte die Zeichensetzung",
             language=language,
-            response_format="json",
+            response_format="verbose_json",
+            timestamp_granularities=["word"],
         )
         return transcription.text
+
 
 # Beispielaufruf
 def main():
     start = time()
-    mp4_file = "C:\\main\\BeLL\\main\\transcribing\\testvideo.mp4"
-    mp3_file = "C:\\main\\BeLL\\main\\transcribing\\audio.mp3"
+    mp4_file = "C:\\main\\BeLL\\Programmierung\\transcribing\\testvideo.mp4"
+    mp3_file = "C:\\main\\BeLL\\Programmierung\\transcribing\\audio.mp3"
     api_key = "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"
     
     convert_mp4_to_mp3(mp4_file, mp3_file)
