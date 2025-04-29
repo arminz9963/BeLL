@@ -1,7 +1,7 @@
 import os
 import tempfile
 from flask import Flask, render_template, request, jsonify
-from logic import convert_mp4_to_mp3, transcribe_audio
+from v2.logic import convert_mp4_to_mp3, transcribe_audio
 
 app = Flask(__name__)
 

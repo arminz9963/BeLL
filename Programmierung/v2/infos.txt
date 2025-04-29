@@ -1,5 +1,4 @@
 =========================== Was fehlt nun noch ===========================
-- Backend erstellen
 - Daten ans Backend senden
 - Design
 - Alle codes ggf nochmal besser strukturieren

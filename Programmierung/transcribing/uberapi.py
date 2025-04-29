@@ -23,6 +23,6 @@ with open(filename, "rb") as file:
       timestamp_granularities=["word"],  # Optional
     )
     with open("output.txt", "w", encoding="utf-8") as f:
-        f.write(str(transcription.words))
+        f.write(str(transcription))
     f.close()
     print("done")

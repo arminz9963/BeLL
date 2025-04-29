@@ -1,19 +1,36 @@
-const videoInput = document.getElementById('VideoInput');
-const videoPlayer = document.getElementById('VideoPlayer');
-const videoInputLabel = document.getElementById('VideoInputLabel');
-const restContainer = document.getElementById('restContainer');
-const geschnittenesVideoPlayBtn = document.getElementById('geschnittenesVideoPlayBtn');
+const videoInput = document.getElementById("VideoInput");
+const videoPlayer = document.getElementById("VideoPlayer");
+const videoInputLabel = document.getElementById("VideoInputLabel");
+const restContainer = document.getElementById("restContainer");
+const geschnittenesVideoPlayBtn = document.getElementById("geschnittenesVideoPlayBtn");
 const absendeBtn = document.getElementById("AbsendeBtn");
-const DauerAnzeige = document.getElementById('dauerGeschnittenesVideo');
+const DauerAnzeige = document.getElementById("dauerGeschnittenesVideo");
 let Schnitte = []; // Array für die Schnitte
+let transkript = null;
 
-
-videoPlayer.addEventListener('loadedmetadata', function () {
+videoPlayer.addEventListener("loadedmetadata", function () {
     const duration = videoPlayer.duration; // Dauer des Videos wird gespeichert
     console.log("Dauer des Videos:", duration); // Dauer des Videos wird in der Konsole ausgegeben
+
+    // Transkription
+    const formData = new FormData(); // Ein neues FormData-Objekt wird erstellt
+    formData.append("video", videoInput.files[0]); // Die Videodatei wird zum FormData hinzugefügt
+    // Eine POST-Anfrage wird an den Server gesendet, um die Transkription zu erhalten
+    fetch("/upload", {
+        method: "POST",
+        body: formData, // Die Formulardaten (Video) wird gesendet
+    })
+        .then((response) => response.json()) // Antwort wird als JSON geparsed
+        .then(data => {
+            transkript = data
+            console.log("Transkription:", transkript); // Transkription wird in der Konsole ausgegeben
+        })
+        .catch((error) => {
+            console.error("Fehler bei der Transkription:", error);
+        }) // Fehlerbehandlung
 });
 
-videoInput.addEventListener('change', function () {
+videoInput.addEventListener("change", function () {
     const file = this.files[0];
     if (file) { // Überprüfen, ob eine Datei ausgewählt wurde
         const url = URL.createObjectURL(file); // Erstellt temporäre URL fürs Video
@@ -29,15 +46,15 @@ videoInput.addEventListener('change', function () {
     DauerAnzeige.style.display = "block"; // Zeigt die Dauer-Anzeige an
 });
 
-const addNewCutBtn = document.getElementById('addNewCutBtn');
+const addNewCutBtn = document.getElementById("addNewCutBtn");
 let cutSectionCount = 0
-const SchnittContainer = document.getElementById('SchnittContainer');
+const SchnittContainer = document.getElementById("SchnittContainer");
 
-addNewCutBtn.addEventListener('click', function () {
+addNewCutBtn.addEventListener("click", function () {
     cutSectionCount++; // Erhöht den Zähler für die Schnitte
     Schnitte.push([0, videoPlayer.duration])
-    const cutSection = document.createElement('div');
-    cutSection.className = 'cutSection'; // Fügt der neuen Sektion die Klasse "cutSection" hinzu
+    const cutSection = document.createElement("div");
+    cutSection.className = "cutSection"; // Fügt der neuen Sektion die Klasse "cutSection" hinzu
     cutSection.id = `Schnitt${cutSectionCount}`; // Setzt die ID für den neuen Schnitt-Container
     cutSection.innerHTML = `
     <h3>Schnitt ${cutSectionCount}</h3>
@@ -54,11 +71,11 @@ addNewCutBtn.addEventListener('click', function () {
 
 
 
-    const startRange = cutSection.querySelector('.startRange');
-    const endRange = cutSection.querySelector('.endRange');
-    const startInput = cutSection.querySelector('.startInput');
-    const endInput = cutSection.querySelector('.endInput');
-    const deleteCutBtn = cutSection.querySelector('.deleteCutBtn');
+    const startRange = cutSection.querySelector(".startRange");
+    const endRange = cutSection.querySelector(".endRange");
+    const startInput = cutSection.querySelector(".startInput");
+    const endInput = cutSection.querySelector(".endInput");
+    const deleteCutBtn = cutSection.querySelector(".deleteCutBtn");
 
     startRange.dataset.index = cutSectionCount - 1;
     endRange.dataset.index = cutSectionCount - 1;
@@ -121,23 +138,23 @@ addNewCutBtn.addEventListener('click', function () {
         Schnitte[endInput.dataset.index][1] = parseFloat(endRange.value); // Speichert den Endzeitpunkt im Schnitte-Array
     });
 
-    deleteCutBtn.addEventListener('click', function () {
+    deleteCutBtn.addEventListener("click", function () {
         Schnitte.splice(deleteCutBtn.dataset.index, 1); // Entfernt den Schnitt aus dem Array
         SchnittContainer.removeChild(cutSection); // Entfernt den Schnitt-Container aus dem DOM
         cutSectionCount--; // Verringert den Zähler für die Schnitte
         console.log("Schnitte nach Löschen:", Schnitte); // Debugging-Ausgabe
 
-        const allCutSections = SchnittContainer.querySelectorAll('.cutSection');
+        const allCutSections = SchnittContainer.querySelectorAll(".cutSection");
         allCutSections.forEach((section, newIndex) => {
             section.id = `Schnitt${newIndex + 1}`;
-            section.querySelector('h3').innerText = `Schnitt ${newIndex + 1}`;
+            section.querySelector("h3").innerText = `Schnitt ${newIndex + 1}`;
 
             // Alle Controls neu zuordnen
-            section.querySelector('.startRange').dataset.index = newIndex;
-            section.querySelector('.endRange').dataset.index = newIndex;
-            section.querySelector('.startInput').dataset.index = newIndex;
-            section.querySelector('.endInput').dataset.index = newIndex;
-            section.querySelector('.deleteCutBtn').dataset.index = newIndex;
+            section.querySelector(".startRange").dataset.index = newIndex;
+            section.querySelector(".endRange").dataset.index = newIndex;
+            section.querySelector(".startInput").dataset.index = newIndex;
+            section.querySelector(".endInput").dataset.index = newIndex;
+            section.querySelector(".deleteCutBtn").dataset.index = newIndex;
         });
     });
 
@@ -146,7 +163,7 @@ addNewCutBtn.addEventListener('click', function () {
 });
 
 
-geschnittenesVideoPlayBtn.addEventListener('click', function () {
+geschnittenesVideoPlayBtn.addEventListener("click", function () {
 
     console.log("Schnitte:", Schnitte); // Debugging-Ausgabe
 
@@ -177,8 +194,8 @@ geschnittenesVideoPlayBtn.addEventListener('click', function () {
 
     // Ganz wichtig: Den EventListener zuerst entfernen,
     // falls man den Button mehrmals klickt – sonst mehrfacher Aufruf!
-    videoPlayer.removeEventListener('timeupdate', onTimeUpdate);
-    videoPlayer.addEventListener('timeupdate', onTimeUpdate);
+    videoPlayer.removeEventListener("timeupdate", onTimeUpdate);
+    videoPlayer.addEventListener("timeupdate", onTimeUpdate);
 
     // Direkt loslegen: Zum ersten Schnitt springen und Video starten
     springenZumSchnitt(i);
@@ -222,16 +239,32 @@ absendeBtn.addEventListener("click", function () {
     }
 
     if (cutSectionCount >= 1 && BeschreibungInput.value.trim() !== "") {
-        console.log("Erfolg beim Senden");
         // Hier muss der Code für das Senden der Daten hin ans Backend
+        daten = {
+            transkript: transkript,
+            schnitte: Schnitte,
+            beschreibung: BeschreibungInput.value
+        };
+
+        fetch("/daten_senden", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(daten)
+        })
+            .then(() => {
+                console.log("Daten erfolgreich gesendet");
+            })
+            .catch((error) => {
+                console.error("Fehler bei der Transkription:", error);
+            }) // Fehlerbehandlung
     }
+
 });
 
 
-
-
 // ==================== Funktionen ==================== //
-
 
 function formatTime(seconds) {
     /* Konvertiert Sekunden in das Format MM:SS.mm */
