@@ -54,11 +54,11 @@ addNewCutBtn.addEventListener("click", function () {
     cutSectionCount++; // Erhöht den Zähler für die Schnitte
     Schnitte.push([0, videoPlayer.duration])
     const cutSection = document.createElement("div");
-    cutSection.className = "cutSection"; // Fügt der neuen Sektion die Klasse "cutSection" hinzu
+    cutSection.className = "cutSection bg-yellow-800"; // Fügt der neuen Sektion die Klasse "cutSection" hinzu
     cutSection.id = `Schnitt${cutSectionCount}`; // Setzt die ID für den neuen Schnitt-Container
     cutSection.innerHTML = `
     <h3>Schnitt ${cutSectionCount}</h3>
-    <button class="deleteCutBtn" style="margin-right: 20px">X</button>
+    <button class="deleteCutBtn " style="margin-right: 20px">X</button>
     <input type="range" class="startRange" min="0" step="0.01" style="width: 40%" value="0"/>
     <input type="range" class="endRange" min="0" step="0.01" style="width: 40%" value="0"/>
     <br/>

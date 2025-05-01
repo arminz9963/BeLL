@@ -4,10 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BeLL Videoschnitt-KI</title>
+  <link href="{{ url_for('static', filename='css/output.css') }}" rel="stylesheet">
+
 </head>
 <body>
-  <div class="Informationen">
+  <div class="Informationen bg-blue-500 text-white p-3 rounded cursor-pointer hover:bg-blue-600;">
     <!-- Schreiben das MM:SS.ms Format beachtet werden soll -->
+    <p>
+      Helfen Sie mit, Trainingsdaten für meine Besondere Lernleistung zu
+      sammeln!
+    </p>
+    <p>
+      Mein Ziel ist es, eine KI zu entwickeln, die in einem gegebenen Video
+      – zum Beispiel einem Interview – automatisch bis zu zwei Schnitte
+      setzt, um Versprecher und Pausen zu entfernen.
+    </p>
+    <p>So funktioniert es:</p>
+    <ol>
+      <li>Wählen Sie ein Video aus.</li>
+      <li>
+        Setzen Sie mithilfe des Schiebereglers die gewünschten Schnitt.
+      </li>
+      <li>Senden Sie die bearbeitete Version ab.</li>
+    </ol>
+    <p>Vielen Dank für Ihre Unterstützung!</p>
   </div>
   <div class="Video">
     <input type="file" id="VideoInput" accept="video/mp4" style="display: none;"/>
