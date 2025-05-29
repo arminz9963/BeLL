@@ -32,18 +32,17 @@ videoPlayer.addEventListener("loadedmetadata", function () {
 
 videoInput.addEventListener("change", function () {
     const file = this.files[0];
-    if (file) { // Überprüfen, ob eine Datei ausgewählt wurde
-        const url = URL.createObjectURL(file); // Erstellt temporäre URL fürs Video
+    if (file) {
+        const url = URL.createObjectURL(file);
         videoPlayer.src = url;
         videoPlayer.load();
     }
 
-    videoInput.style.display = "none"; // Versteckt den Datei-Input nach Auswahl
-    videoPlayer.style.display = "block"; // Zeigt den Video-Player an
-    videoInputLabel.style.display = "none"; // Versteckt das Label
-    restContainer.style.display = "block"; // Zeigt den Rest-Container an
-    geschnittenesVideoPlayBtn.style.display = "block"; // Zeigt den Play-Button für das geschnittene Video
-    DauerAnzeige.style.display = "block"; // Zeigt die Dauer-Anzeige an
+    // Verstecke den Upload-Bereich und zeige das Video
+    document.getElementById("videoUploadContainer").style.display = "none";
+    videoPlayer.style.display = "block";
+    restContainer.style.display = "block";
+    document.getElementById("videoControls").style.display = "flex";
 });
 
 const addNewCutBtn = document.getElementById("addNewCutBtn");
@@ -54,17 +53,38 @@ addNewCutBtn.addEventListener("click", function () {
     cutSectionCount++; // Erhöht den Zähler für die Schnitte
     Schnitte.push([0, videoPlayer.duration])
     const cutSection = document.createElement("div");
-    cutSection.className = "cutSection bg-yellow-800"; // Fügt der neuen Sektion die Klasse "cutSection" hinzu
+    cutSection.className = "cutSection"; // Fügt der neuen Sektion die Klasse "cutSection" hinzu
     cutSection.id = `Schnitt${cutSectionCount}`; // Setzt die ID für den neuen Schnitt-Container
+
     cutSection.innerHTML = `
-    <h3>Schnitt ${cutSectionCount}</h3>
-    <button class="deleteCutBtn " style="margin-right: 20px">X</button>
-    <input type="range" class="startRange" min="0" step="0.01" style="width: 40%" value="0"/>
-    <input type="range" class="endRange" min="0" step="0.01" style="width: 40%" value="0"/>
-    <br/>
-    <span>Start: <input type="text" class="startInput" maxlength="8" value="00:00.00" /></span>
-    <span style="margin-left: 20px">Ende: <input type="text" class="endInput" maxlength="8" value="00:00.01" /></span>
-    <br/><br/>
+    <div class="cut-section bg-gray-700 rounded-lg p-4 border border-gray-600">
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="text-lg font-medium text-blue-300">Schnitt ${cutSectionCount}</h3>
+        <button class="deleteCutBtn bg-red-600 hover:bg-red-700 text-white p-1 rounded-full transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </button>
+      </div>
+      
+      <div class="space-y-4">
+        <div>
+          <label class="block text-sm text-gray-400 mb-1">Startzeit</label>
+          <div class="flex flex-col sm:flex-row items-center gap-4">
+            <input type="range" class="startRange w-full" min="0" step="0.01" value="0"/>
+            <input type="text" class="startInput bg-gray-800 border border-gray-700 rounded-lg p-2 w-24 text-center font-mono" maxlength="8" value="00:00.00" />
+          </div>
+        </div>
+        
+        <div>
+          <label class="block text-sm text-gray-400 mb-1">Endzeit</label>
+          <div class="flex flex-col sm:flex-row items-center gap-4">
+            <input type="range" class="endRange w-full" min="0" step="0.01" value="0"/>
+            <input type="text" class="endInput bg-gray-800 border border-gray-700 rounded-lg p-2 w-24 text-center font-mono" maxlength="8" value="00:00.01" />
+          </div>
+        </div>
+      </div>
+    </div>
   `;
 
     SchnittContainer.append(cutSection); // Fügt den neuen Schnitt-Container hinzu
@@ -205,7 +225,8 @@ geschnittenesVideoPlayBtn.addEventListener("click", function () {
     Schnitte.forEach((schnitt) => {
         geschnitteneDauer += schnitt[1] - schnitt[0]; // Dauer jedes Schnitts addieren
     });
-    DauerAnzeige.innerText = `Dauer geschnittenes Video: ${formatTime(geschnitteneDauer)}`;
+    // Ersetze die Zeile, die die Dauer anzeigt
+    DauerAnzeige.innerHTML = `<span class="text-gray-400">Dauer geschnittenes Video:</span> <span class="ml-2 font-mono">${formatTime(geschnitteneDauer)}</span>`;
 });
 
 absendeBtn.addEventListener("click", function () {
@@ -226,14 +247,16 @@ absendeBtn.addEventListener("click", function () {
 
     if (cutSectionCount < 1) {
         warnParagraph = document.createElement("p");
-        warnParagraph.id = "warnParagraph"; // ID geben zum Wiederfinden
+        warnParagraph.id = "warnParagraph";
+        warnParagraph.className = "text-red-400 text-sm mt-2";
         warnParagraph.textContent = "Bitte füge einen Schnitt hinzu!";
         BeschreibungDiv.appendChild(warnParagraph);
     }
 
     if (BeschreibungInput.value.trim() === "") {
         warnParagraph2 = document.createElement("p");
-        warnParagraph2.id = "warnParagraph2"; // ID für zweiten Warntext
+        warnParagraph2.id = "warnParagraph2";
+        warnParagraph2.className = "text-red-400 text-sm mt-2";
         warnParagraph2.textContent = "Bitte füge eine Beschreibung hinzu!";
         BeschreibungDiv.appendChild(warnParagraph2);
     }
