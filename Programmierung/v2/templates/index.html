@@ -1,52 +1,154 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de" class="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BeLL Videoschnitt-KI</title>
   <link href="{{ url_for('static', filename='css/output.css') }}" rel="stylesheet">
-
+  <style>
+    /* Custom Slider Styles */
+    input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      height: 6px;
+      border-radius: 9999px;
+      background: #4b5563;
+      outline: none;
+    }
+    
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #3b82f6;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    input[type="range"]::-webkit-slider-thumb:hover {
+      background: #60a5fa;
+      transform: scale(1.2);
+    }
+    
+    .cut-section {
+      transition: all 0.3s ease;
+    }
+    
+    .cut-section:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+    }
+    
+    .video-upload-container {
+      transition: all 0.3s ease;
+    }
+  </style>
 </head>
-<body>
-  <div class="Informationen bg-blue-500 text-white p-3 rounded cursor-pointer hover:bg-blue-600;">
-    <!-- Schreiben das MM:SS.ms Format beachtet werden soll -->
-    <p>
-      Helfen Sie mit, Trainingsdaten für meine Besondere Lernleistung zu
-      sammeln!
-    </p>
-    <p>
-      Mein Ziel ist es, eine KI zu entwickeln, die in einem gegebenen Video
-      – zum Beispiel einem Interview – automatisch bis zu zwei Schnitte
-      setzt, um Versprecher und Pausen zu entfernen.
-    </p>
-    <p>So funktioniert es:</p>
-    <ol>
-      <li>Wählen Sie ein Video aus.</li>
-      <li>
-        Setzen Sie mithilfe des Schiebereglers die gewünschten Schnitt.
-      </li>
-      <li>Senden Sie die bearbeitete Version ab.</li>
-    </ol>
-    <p>Vielen Dank für Ihre Unterstützung!</p>
-  </div>
-  <div class="Video">
-    <input type="file" id="VideoInput" accept="video/mp4" style="display: none;"/>
-    <label for="VideoInput" id="VideoInputLabel">Video auswählen</label>
-    <video id="VideoPlayer" controls style="width: 70%; display: none;"></video>
-    <p id="dauerGeschnittenesVideo" style="display: none;">Dauer geschnittenes Video:</p>
-    <!-- maybe Remove Video Button?-->
-    <button id="geschnittenesVideoPlayBtn" style="display: none;">Spiele geschnittenes Video</button>
-  </div>
-  <div id="restContainer" style="display: none;">
-    <div id="SchnittContainer"></div>
-    <button id="addNewCutBtn">Schnitt hinzufügen</button>
-    <div class="Beschreibung">
-      <label for="BeschreibungInput">Beschreibung:</label>
-      <input type="text" id="BeschreibungInput" placeholder="Beschreibung was geschnitten wurde im Video" required/>
+<body class="flex flex-col min-h-screen bg-gray-900 text-gray-200 font-sans">
+  <header class="bg-gradient-to-r from-blue-900 to-indigo-900 py-6 px-4 shadow-xl">
+    <div class="container mx-auto">
+      <h1 class="text-3xl md:text-4xl font-bold text-center">
+        <span class="text-blue-400">Be</span><span class="text-indigo-300">LL</span> Videoschnitt-KI
+      </h1>
+      <p class="text-center text-blue-200 mt-2 max-w-2xl mx-auto">
+        Unterstützen Sie die Entwicklung einer KI zur automatischen Videobearbeitung
+      </p>
     </div>
-    <button id="AbsendeBtn">Absenden</button>
-  </div>
-  
+  </header>
+
+  <main class="container mx-auto px-4 py-8 flex-grow">
+    <div class="bg-gray-800 rounded-xl shadow-lg p-6 mb-8 border border-gray-700 max-w-4xl mx-auto">
+      <div class="flex items-start">
+        <div class="bg-blue-900/20 p-3 rounded-full mr-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <div>
+          <h2 class="text-xl font-semibold text-blue-300 mb-2">So funktioniert es:</h2>
+          <ol class="list-decimal pl-5 space-y-2 text-gray-300">
+            <li>Wählen Sie ein Video aus</li>
+            <li>Setzen Sie mit dem Schieberegler die gewünschten Schnitte</li>
+            <li>Senden Sie die bearbeitete Version ab</li>
+          </ol>
+          <p class="mt-4 text-blue-100 italic">
+            Vielen Dank für Ihre Unterstützung bei meiner Besonderen Lernleistung!
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="Video" class="bg-gray-800 rounded-xl shadow-lg p-6 mb-8 border border-gray-700 max-w-4xl mx-auto">
+      <div id="videoUploadContainer" class="video-upload-container flex flex-col items-center justify-center py-10 border-2 border-dashed border-gray-600 rounded-lg bg-gray-900/50 transition-colors hover:border-blue-500">
+        <input type="file" id="VideoInput" accept="video/mp4" class="hidden"/>
+        <label for="VideoInput" id="VideoInputLabel" 
+          class="flex flex-col items-center justify-center cursor-pointer group">
+          <div class="bg-gray-700 p-4 rounded-full group-hover:bg-blue-700 transition-colors mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <span class="text-xl font-medium text-gray-300 group-hover:text-blue-300 transition-colors">Video auswählen</span>
+          <span class="text-gray-500 text-sm mt-2">MP4 Dateien werden unterstützt</span>
+        </label>
+      </div>
+
+      <video id="VideoPlayer" controls class="w-full mt-8 rounded-lg shadow-lg hidden"></video>
+      
+      <div class="flex flex-col sm:flex-row items-center justify-between mt-6 gap-4 hidden" id="videoControls">
+        <p id="dauerGeschnittenesVideo" class="bg-gray-700 py-2 px-4 rounded-lg font-mono flex-1 text-center sm:text-left">
+          <span class="text-gray-400">Dauer geschnittenes Video:</span> 
+          <span class="ml-2">00:00.00</span>
+        </p>
+        <button id="geschnittenesVideoPlayBtn" class="flex items-center bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition-colors whitespace-nowrap">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+          </svg>
+          Geschnittenes Video abspielen
+        </button>
+      </div>
+    </div>
+    
+    <div id="restContainer" class="hidden max-w-4xl mx-auto">
+      <div class="bg-gray-800 rounded-xl shadow-lg p-6 mb-6 border border-gray-700">
+        <div class="flex flex-col sm:flex-row items-center justify-between mb-6 gap-4">
+          <h2 class="text-xl font-semibold text-blue-300">Schnittbereiche</h2>
+          <button id="addNewCutBtn" class="flex items-center bg-emerald-600 hover:bg-emerald-700 text-white py-2 px-4 rounded-lg transition-colors whitespace-nowrap">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
+            </svg>
+            Schnitt hinzufügen
+          </button>
+        </div>
+        
+        <div id="SchnittContainer" class="space-y-6"></div>
+      </div>
+      
+      <div class="bg-gray-800 rounded-xl shadow-lg p-6 mb-6 border border-gray-700">
+        <h2 class="text-xl font-semibold text-blue-300 mb-4">Beschreibung</h2>
+        <div id="Beschreibung">
+          <textarea id="BeschreibungInput" rows="3" 
+            class="w-full bg-gray-700 border border-gray-600 rounded-lg p-4 text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Beschreiben Sie, was im Video geschnitten wurde..."></textarea>
+        </div>
+      </div>
+      
+      <div class="text-center">
+        <button id="AbsendeBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-8 rounded-lg text-lg transition-colors shadow-lg">
+          Ergebnisse absenden
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-gray-800 py-4 border-t border-gray-700">
+    <div class="container mx-auto px-4 text-center text-gray-500 text-sm">
+      BeLL Projekt - Videoschnitt mit KI | Entwickelt für die Besondere Lernleistung
+    </div>
+  </footer>
+
   <script src="static/script.js"></script>
 </body>
 </html>
