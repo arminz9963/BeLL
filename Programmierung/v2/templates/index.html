@@ -7,8 +7,10 @@
   <link href="{{ url_for('static', filename='css/output.css') }}" rel="stylesheet">
 
 </head>
-<body>
-  <div class="Informationen bg-blue-500 text-white p-3 rounded cursor-pointer hover:bg-blue-600;">
+<body class="flex flex-col min-h-screen">
+
+
+  <div class="Informationen bg-blue-500 text-white p-3 rounded cursor-pointer hover:bg-green-100 m-4">
     <!-- Schreiben das MM:SS.ms Format beachtet werden soll -->
     <p>
       Helfen Sie mit, Trainingsdaten für meine Besondere Lernleistung zu
@@ -29,18 +31,20 @@
     </ol>
     <p>Vielen Dank für Ihre Unterstützung!</p>
   </div>
-  <div class="Video">
+<div id="Video" class="bg-yellow-600 flex justify-center">
     <input type="file" id="VideoInput" accept="video/mp4" style="display: none;"/>
-    <label for="VideoInput" id="VideoInputLabel">Video auswählen</label>
-    <video id="VideoPlayer" controls style="width: 70%; display: none;"></video>
-    <p id="dauerGeschnittenesVideo" style="display: none;">Dauer geschnittenes Video:</p>
+    <label for="VideoInput" id="VideoInputLabel" 
+      class="bg-green-100 border block text-center p-5 w-1/5 rounded-lg"
+    >Video auswählen</label>
+    <video id="VideoPlayer" controls style="display: none;" class=""></video>
+    <p id="dauerGeschnittenesVideo" style="display: none;" class="">Dauer geschnittenes Video:</p>
     <!-- maybe Remove Video Button?-->
-    <button id="geschnittenesVideoPlayBtn" style="display: none;">Spiele geschnittenes Video</button>
+    <button id="geschnittenesVideoPlayBtn" style="display: none;" class="">Spiele geschnittenes Video</button>
   </div>
   <div id="restContainer" style="display: none;">
     <div id="SchnittContainer"></div>
     <button id="addNewCutBtn">Schnitt hinzufügen</button>
-    <div class="Beschreibung">
+    <div id="Beschreibung">
       <label for="BeschreibungInput">Beschreibung:</label>
       <input type="text" id="BeschreibungInput" placeholder="Beschreibung was geschnitten wurde im Video" required/>
     </div>

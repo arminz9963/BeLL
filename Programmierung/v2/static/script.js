@@ -209,7 +209,7 @@ geschnittenesVideoPlayBtn.addEventListener("click", function () {
 });
 
 absendeBtn.addEventListener("click", function () {
-    const BeschreibungDiv = document.getElementsByClassName("Beschreibung")[0];
+    const BeschreibungDiv = document.getElementsById("Beschreibung")[0];
     const BeschreibungInput = document.getElementById("BeschreibungInput");
 
     // Vorher erstellen, damit wir später drauf zugreifen können
