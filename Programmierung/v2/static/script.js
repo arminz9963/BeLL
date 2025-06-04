@@ -5,10 +5,11 @@ const restContainer = document.getElementById("restContainer");
 const geschnittenesVideoPlayBtn = document.getElementById("geschnittenesVideoPlayBtn");
 const absendeBtn = document.getElementById("AbsendeBtn");
 const DauerAnzeige = document.getElementById("dauerGeschnittenesVideo");
+const VideoContainer = document.getElementById("VideoContainer");
 let Schnitte = []; // Array für die Schnitte
 let transkript = null;
 
-videoPlayer.addEventListener("loadedmetadata", function () {
+videoPlayer.addEventListener("loadeddata", function () {
     const duration = videoPlayer.duration; // Dauer des Videos wird gespeichert
     console.log("Dauer des Videos:", duration); // Dauer des Videos wird in der Konsole ausgegeben
 
@@ -23,10 +24,12 @@ videoPlayer.addEventListener("loadedmetadata", function () {
         .then((response) => response.json()) // Antwort wird als JSON geparsed
         .then(data => {
             transkript = data
+
             console.log("Transkription:", transkript); // Transkription wird in der Konsole ausgegeben
         })
         .catch((error) => {
             console.error("Fehler bei der Transkription:", error);
+            popup("Es gab ein Fehler bei der Transkription: " + error.message + "\n Versuche es bitte später erneut."); // Popup anzeigen
         }) // Fehlerbehandlung
 });
 
@@ -54,7 +57,7 @@ addNewCutBtn.addEventListener("click", function () {
     cutSectionCount++; // Erhöht den Zähler für die Schnitte
     Schnitte.push([0, videoPlayer.duration])
     const cutSection = document.createElement("div");
-    cutSection.className = "cutSection bg-yellow-800"; // Fügt der neuen Sektion die Klasse "cutSection" hinzu
+    cutSection.className = "cutSection"; // Fügt der neuen Sektion die Klasse "cutSection" hinzu
     cutSection.id = `Schnitt${cutSectionCount}`; // Setzt die ID für den neuen Schnitt-Container
     cutSection.innerHTML = `
     <h3>Schnitt ${cutSectionCount}</h3>
@@ -209,11 +212,11 @@ geschnittenesVideoPlayBtn.addEventListener("click", function () {
 });
 
 absendeBtn.addEventListener("click", function () {
-    const BeschreibungDiv = document.getElementsById("Beschreibung")[0];
+    const BeschreibungDiv = document.getElementsByClassName("Beschreibung")[0];
     const BeschreibungInput = document.getElementById("BeschreibungInput");
 
     // Vorher erstellen, damit wir später drauf zugreifen können
-    let warnParagraph = document.getElementById("warnParagraph");
+    let warnParagraph = document.getElementById("warnParagraph1");
     let warnParagraph2 = document.getElementById("warnParagraph2");
 
     // Wenn schon existiert, vorher löschen (damit sie nicht doppelt erscheinen)
@@ -226,7 +229,7 @@ absendeBtn.addEventListener("click", function () {
 
     if (cutSectionCount < 1) {
         warnParagraph = document.createElement("p");
-        warnParagraph.id = "warnParagraph"; // ID geben zum Wiederfinden
+        warnParagraph.id = "warnParagraph1"; // ID geben zum Wiederfinden
         warnParagraph.textContent = "Bitte füge einen Schnitt hinzu!";
         BeschreibungDiv.appendChild(warnParagraph);
     }
@@ -238,6 +241,15 @@ absendeBtn.addEventListener("click", function () {
         BeschreibungDiv.appendChild(warnParagraph2);
     }
 
+    // Prüfen ob Transkript überhaupt vorhanden ist
+    if (!transkript) {
+        console.log("Noch kein Transkript vorhanden!");
+        popup("Die Transkription ist noch nicht abgeschlossen – bitte habe einen Moment Geduld und versuche es anschließend erneut."); // Popup anzeigen
+        return; // Abbrechen
+    }
+
+    console.log(transkript)
+    // Daten senden, wenn Beschreibung und mindestens ein Schnitt vorhanden ist
     if (cutSectionCount >= 1 && BeschreibungInput.value.trim() !== "") {
         // Hier muss der Code für das Senden der Daten hin ans Backend
         daten = {
@@ -245,6 +257,7 @@ absendeBtn.addEventListener("click", function () {
             schnitte: Schnitte,
             beschreibung: BeschreibungInput.value
         };
+        console.log("Daten, die gesendet werden:", daten); // Debugging-Ausgabe
 
         fetch("/daten_senden", {
             method: "POST",
@@ -255,9 +268,12 @@ absendeBtn.addEventListener("click", function () {
         })
             .then(() => {
                 console.log("Daten erfolgreich gesendet");
+                popup("Das Video wurde erfolgreich gesendet!"); // Popup anzeigen
+                resetLayout(); // Layout zurücksetzen
             })
             .catch((error) => {
                 console.error("Fehler bei der Transkription:", error);
+
             }) // Fehlerbehandlung
     }
 
@@ -298,3 +314,65 @@ function checkTimeFromInput(inputString) {
         return "00:00.00"
     }
 }
+
+function resetLayout() {
+    /* Setzt das Layout zurück, nachdem die Daten gesendet wurden */
+    videoInput.style.display = "none"; // Zeigt den Datei-Input wieder an
+    videoPlayer.style.display = "none"; // Versteckt den Video-Player
+    videoInputLabel.style.display = "block"; // Zeigt das Label wieder an
+    restContainer.style.display = "none"; // Versteckt den Rest-Container
+    geschnittenesVideoPlayBtn.style.display = "none"; // Versteckt den Play-Button für das geschnittene Video
+    DauerAnzeige.style.display = "none"; // Versteckt die Dauer-Anzeige
+
+    videoPlayer.src = ""; // Setzt die Video-Quelle zurück
+    videoPlayer.currentTime = 0; // Setzt die aktuelle Zeit des Videos auf 0
+
+    BeschreibungInput.value = ""; // Leert das Beschreibungseingabefeld
+    // Alle Schnitte entfernen
+    SchnittContainer.innerHTML = "";
+    Schnitte = []; // Leert das Schnitte-Array
+    cutSectionCount = 0; // Setzt den Schnitt-Zähler zurück
+}
+
+
+function popup(text) {
+    /* Erstellt ein Popup-Fenster mit dem angegebenen Text und einem OK-Button */
+
+    // Overlay erstellen
+    const overlay = document.createElement("div");
+    overlay.style.position = "fixed";
+    overlay.style.top = "0";
+    overlay.style.left = "0";
+    overlay.style.width = "100%";
+    overlay.style.height = "100%";
+    overlay.style.background = "rgba(0, 0, 0, 0.3)";
+
+
+    // Popup-Box erstellen
+    const popup = document.createElement("div");
+    popup.style.position = "fixed";
+    popup.style.top = "50%";
+    popup.style.left = "50%";
+    popup.style.transform = "translate(-50%, -50%)";
+    popup.style.background = "#fff";
+    popup.style.padding = "20px";
+    popup.style.border = "1px solid #000";
+
+    // Text reinpacken
+    const message = document.createElement("p");
+    message.textContent = text;
+
+    // OK-Button erstellen
+    const okButton = document.createElement("button");
+    okButton.textContent = "OK";
+    okButton.onclick = () => {
+        document.body.removeChild(overlay);
+    };
+
+    // Popup zusammenbauen
+    popup.appendChild(message);
+    popup.appendChild(okButton);
+    overlay.appendChild(popup);
+    document.body.appendChild(overlay);
+}
+

@@ -5,10 +5,10 @@ from groq import Groq
 def convert_mp4_to_mp3(input_file, output_file, start_time=None, end_time=None):
     """
     Konvertiert eine MP4-Datei in eine MP3-Datei mit optionalen Start- und Endzeiten.
-    :param input_file: Pfad zur MP4-Datei
-    :param output_file: Pfad zur MP3-Datei
-    :param start_time: Startzeit im Format "MM:SS.sss" (optional, Millisekunden erlaubt)
-    :param end_time: Endzeit im Format "MM:SS.sss" (optional, Millisekunden erlaubt)
+    input_file: Pfad zur MP4-Datei
+    output_file: Pfad zur MP3-Datei
+    start_time: Startzeit im Format "MM:SS.ss" (optional)
+    end_time: Endzeit im Format "MM:SS.ss" (optional)
     """
     command = ["ffmpeg", "-i", input_file, "-vn",
                "-acodec", "libmp3lame", "-ab", "192k", "-ar", "44100", "-y"]
@@ -22,20 +22,16 @@ def convert_mp4_to_mp3(input_file, output_file, start_time=None, end_time=None):
     
     try:
         subprocess.run(command, check=True)
-        print("Datei erfolgreich konvertiert.")
+        print("Datei erfolgreich konvertiert zu MP3.")
     except subprocess.CalledProcessError as e:
         print("Fehler bei der Konvertierung:", e)
 
 def transcribe_audio(file_path, api_key, language="de"):
     """
     Erstellt eine Transkription einer MP3-Datei mit Groq Whisper.
-    :param file_path: Pfad zur MP3-Datei
-    :param api_key: Groq API-Schlüssel
-    :param model: Modell für die Transkription
-    :param language: Sprache der Audiodatei
     """
+
     client = Groq(api_key=api_key)
-    
     with open(file_path, "rb") as file:
         transcription = client.audio.transcriptions.create(
             file=(file_path, file.read()),
@@ -46,10 +42,8 @@ def transcribe_audio(file_path, api_key, language="de"):
             timestamp_granularities=["word"],
             response_format="verbose_json",
         )
+        print("Transkript erfolgreich erstellt.")
         return transcription.words
-
-def daten_senden():
-    ...
     
 # Beispielaufruf
 def main():

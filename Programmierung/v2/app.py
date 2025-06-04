@@ -3,8 +3,13 @@ import tempfile
 from flask import Flask, render_template, request, jsonify
 from logic import convert_mp4_to_mp3, transcribe_audio
 import csv
+import json
+from flask_cors import CORS
 
+api_key = "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"
+csv_path = os.path.join(os.path.dirname(__file__), "daten.csv")
 app = Flask(__name__)
+CORS(app)  # CORS aktivieren, um Anfragen von anderen Ursprüngen zuzulassen
 
 @app.route("/")
 def index():
@@ -14,7 +19,6 @@ def index():
 @app.route("/upload", methods=["POST"])
 def upload():
     mp4_file = request.files["video"]
-    api_key = "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"
 
     # temporärer File für das Video
     with tempfile.NamedTemporaryFile(suffix=".mp4", delete=False) as temp_video:
@@ -29,28 +33,35 @@ def upload():
         # Video in Audio
         convert_mp4_to_mp3(temp_video_path, temp_audio_path)
         # Transkribierung
-        transcript = transcribe_audio(temp_audio_path, api_key)
+        transkript = transcribe_audio(temp_audio_path, api_key)
+    
     finally:
         # Löschen der temporären Dateien
         os.remove(temp_video_path)
         os.remove(temp_audio_path)
 
-    return jsonify(transcript)
+    return jsonify(transkript)
 
 @app.route("/daten_senden", methods=["POST"])
 def daten_senden():
+    print("sigma")
     data = request.get_json()
     print(data)
     transkript = data["transkript"]
     schnitte = data["schnitte"]
     beschreibung = data["beschreibung"]
 
-    with open("daten.csv", "a", encoding="utf-8") as datei:
+    with open(csv_path, "a", encoding="utf-8", newline="") as datei:
         writer = csv.writer(datei)
-        writer.writerow([transkript, schnitte, beschreibung])
-    datei.close()
+        # transkript und schnitte serialisieren, da zu komplexe Strukturen
+        writer.writerow([
+            json.dumps(transkript, ensure_ascii=False),
+            json.dumps(schnitte),
+            beschreibung
+        ])
 
-    return "", 200 # HTTP mitteilen, dass alles passt
+
+    return "Daten in CSV gespeichert!", 200 # HTTP mitteilen, dass alles passt
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
