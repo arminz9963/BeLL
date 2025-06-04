@@ -1,2 +1,4 @@
 für Tailwind design: npx tailwindcss -i ./static/css/styles.css -o ./static/css/output.css --watch
 für backend: python C:\main\BeLL\Programmierung\v2\app.py
+
+// groq.InternalServerError
