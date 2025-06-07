@@ -274,7 +274,7 @@ absendeBtn.addEventListener("click", function () {
         daten = {
             transkript: transkript,
             schnitte: Schnitte,
-            beschreibung: BeschreibungInput.value
+            beschreibung: String(BeschreibungInput.value)
         };
         console.log("Daten, die gesendet werden:", daten); // Debugging-Ausgabe
 
@@ -343,6 +343,7 @@ function resetLayout() {
     geschnittenesVideoPlayBtn.style.display = "none"; // Versteckt den Play-Button für das geschnittene Video
     DauerAnzeige.style.display = "none"; // Versteckt die Dauer-Anzeige
 
+    videoInput.value = ""; // Leert den Datei-Input
     videoPlayer.src = ""; // Setzt die Video-Quelle zurück
     videoPlayer.currentTime = 0; // Setzt die aktuelle Zeit des Videos auf 0
 
@@ -351,6 +352,8 @@ function resetLayout() {
     SchnittContainer.innerHTML = "";
     Schnitte = []; // Leert das Schnitte-Array
     cutSectionCount = 0; // Setzt den Schnitt-Zähler zurück
+    transkript = null; // Setzt die Transkription zurück
+
 }
 
 

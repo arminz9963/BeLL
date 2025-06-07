@@ -5,6 +5,7 @@ from logic import convert_mp4_to_mp3, transcribe_audio
 import csv
 import json
 from flask_cors import CORS
+import time
 
 api_key = "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"
 csv_path = os.path.join(os.path.dirname(__file__), "daten.csv")
@@ -30,10 +31,13 @@ def upload():
         temp_audio_path = temp_audio.name
 
     try:
+        start = time.time()
         # Video in Audio
         convert_mp4_to_mp3(temp_video_path, temp_audio_path)
         # Transkribierung
         transkript = transcribe_audio(temp_audio_path, api_key)
+        end = time.time()
+        print(f"Transkription abgeschlossen in {end - start:.2f} Sekunden")
     
     finally:
         # Löschen der temporären Dateien
@@ -44,7 +48,6 @@ def upload():
 
 @app.route("/daten_senden", methods=["POST"])
 def daten_senden():
-    print("sigma")
     data = request.get_json()
     print(data)
     transkript = data["transkript"]
@@ -57,9 +60,10 @@ def daten_senden():
         writer.writerow([
             json.dumps(transkript, ensure_ascii=False),
             json.dumps(schnitte),
-            beschreibung
+            json.dumps(beschreibung, ensure_ascii=False)
         ])
 
+    print("Daten erfolgreich in der CSV-Datei gespeichert.")
 
     return "Daten in CSV gespeichert!", 200 # HTTP mitteilen, dass alles passt
 

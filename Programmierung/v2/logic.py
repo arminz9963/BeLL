@@ -32,6 +32,7 @@ def transcribe_audio(file_path, api_key, language="de"):
     """
 
     client = Groq(api_key=api_key)
+    print("Transkription beginnt...")
     with open(file_path, "rb") as file:
         transcription = client.audio.transcriptions.create(
             file=(file_path, file.read()),
