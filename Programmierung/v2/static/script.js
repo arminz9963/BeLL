@@ -45,7 +45,7 @@ videoInput.addEventListener("change", function () {
     videoPlayer.style.display = "block"; // Zeigt den Video-Player an
     videoInputLabel.style.display = "none"; // Versteckt das Label
     restContainer.style.display = "block"; // Zeigt den Rest-Container an
-    geschnittenesVideoPlayBtn.style.display = "block"; // Zeigt den Play-Button für das geschnittene Video
+    geschnittenesVideoPlayBtn.style.display = "flex"; // Zeigt den Play-Button für das geschnittene Video
     DauerAnzeige.style.display = "block"; // Zeigt die Dauer-Anzeige an
 });
 
@@ -54,23 +54,42 @@ let cutSectionCount = 0
 const SchnittContainer = document.getElementById("SchnittContainer");
 
 addNewCutBtn.addEventListener("click", function () {
-    cutSectionCount++; // Erhöht den Zähler für die Schnitte
-    Schnitte.push([0, videoPlayer.duration])
-    const cutSection = document.createElement("div");
-    cutSection.className = "cutSection"; // Fügt der neuen Sektion die Klasse "cutSection" hinzu
-    cutSection.id = `Schnitt${cutSectionCount}`; // Setzt die ID für den neuen Schnitt-Container
-    cutSection.innerHTML = `
-    <h3>Schnitt ${cutSectionCount}</h3>
-    <button class="deleteCutBtn " style="margin-right: 20px">X</button>
-    <input type="range" class="startRange" min="0" step="0.01" style="width: 40%" value="0"/>
-    <input type="range" class="endRange" min="0" step="0.01" style="width: 40%" value="0"/>
-    <br/>
-    <span>Start: <input type="text" class="startInput" maxlength="8" value="00:00.00" /></span>
-    <span style="margin-left: 20px">Ende: <input type="text" class="endInput" maxlength="8" value="00:00.01" /></span>
-    <br/><br/>
-  `;
+    cutSectionCount++;
+    Schnitte.push([0, videoPlayer.duration]);
 
-    SchnittContainer.append(cutSection); // Fügt den neuen Schnitt-Container hinzu
+    const cutSection = document.createElement("div");
+    cutSection.className = "cutSection bg-dark-700 rounded-lg p-4 mb-4";
+    cutSection.id = `Schnitt${cutSectionCount}`;
+
+    cutSection.innerHTML = `
+    <div class="flex justify-between items-center mb-3">
+        <h3 class="text-lg font-medium">Schnitt ${cutSectionCount}</h3>
+        <button class="deleteCutBtn bg-red-600 hover:bg-red-700 text-white p-2 rounded-full transition" style="margin-right: 20px">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+        </button>
+    </div>
+    <div class="space-y-4">
+        <div>
+        <label class="block text-sm text-gray-400 mb-1">Startzeit</label>
+        <div class="flex items-center gap-4">
+            <input type="range" class="startRange w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer" min="0" step="0.01" value="0"/>
+            <input type="text" class="startInput bg-gray-700 border border-gray-600 rounded px-3 py-2 text-white w-24 text-center" maxlength="8" value="00:00.00" />
+        </div>
+        </div>
+        <div>
+        <label class="block text-sm text-gray-400 mb-1">Endzeit</label>
+        <div class="flex items-center gap-4">
+            <input type="range" class="endRange w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer" min="0" step="0.01" value="0"/>
+            <input type="text" class="endInput bg-gray-700 border border-gray-600 rounded px-3 py-2 text-white w-24 text-center" maxlength="8" value="00:00.01" />
+        </div>
+        </div>
+    </div>
+    `;
+
+    SchnittContainer.append(cutSection);
+
 
 
 
@@ -319,7 +338,7 @@ function resetLayout() {
     /* Setzt das Layout zurück, nachdem die Daten gesendet wurden */
     videoInput.style.display = "none"; // Zeigt den Datei-Input wieder an
     videoPlayer.style.display = "none"; // Versteckt den Video-Player
-    videoInputLabel.style.display = "block"; // Zeigt das Label wieder an
+    videoInputLabel.style.display = "flex"; // Zeigt das Label wieder an
     restContainer.style.display = "none"; // Versteckt den Rest-Container
     geschnittenesVideoPlayBtn.style.display = "none"; // Versteckt den Play-Button für das geschnittene Video
     DauerAnzeige.style.display = "none"; // Versteckt die Dauer-Anzeige
@@ -338,41 +357,26 @@ function resetLayout() {
 function popup(text) {
     /* Erstellt ein Popup-Fenster mit dem angegebenen Text und einem OK-Button */
 
-    // Overlay erstellen
     const overlay = document.createElement("div");
-    overlay.style.position = "fixed";
-    overlay.style.top = "0";
-    overlay.style.left = "0";
-    overlay.style.width = "100%";
-    overlay.style.height = "100%";
-    overlay.style.background = "rgba(0, 0, 0, 0.3)";
+    overlay.className = "fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50";
 
-
-    // Popup-Box erstellen
     const popup = document.createElement("div");
-    popup.style.position = "fixed";
-    popup.style.top = "50%";
-    popup.style.left = "50%";
-    popup.style.transform = "translate(-50%, -50%)";
-    popup.style.background = "#fff";
-    popup.style.padding = "20px";
-    popup.style.border = "1px solid #000";
+    popup.className = "bg-gray-800 rounded-xl p-6 max-w-md w-full shadow-2xl";
 
-    // Text reinpacken
     const message = document.createElement("p");
+    message.className = "text-white mb-4 text-center";
     message.textContent = text;
 
-    // OK-Button erstellen
     const okButton = document.createElement("button");
+    okButton.className = "w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition mt-4";
     okButton.textContent = "OK";
+
     okButton.onclick = () => {
         document.body.removeChild(overlay);
     };
 
-    // Popup zusammenbauen
     popup.appendChild(message);
     popup.appendChild(okButton);
     overlay.appendChild(popup);
     document.body.appendChild(overlay);
 }
-

@@ -1,4 +1,0 @@
-=========================== Was fehlt nun noch ===========================
-- Design
-- Alle codes ggf nochmal besser strukturieren
-- Ordnerstruktur?
