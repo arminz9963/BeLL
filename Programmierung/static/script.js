@@ -1,221 +1,385 @@
-// Variablen zum Speichern der verschiedenen HTML-Elemente und Zustände
-let videoFile; // Die Videodatei, die der Nutzer hochlädt
-const videoInput = document.getElementById("videoInput"); // Das HTML-Element für das Video-Upload-Feld
-const uploadButton = document.getElementById("uploadButton"); // Der Upload-Button
-const removeVideoButton = document.getElementById("removeVideo"); // Der Button zum Entfernen des Videos
-const videoPlayer = document.getElementById("videoPlayer"); // Das Video-Player-Element
-const startRange = document.getElementById("startRange"); // Der Startbereich des Schiebereglers für den Schnitt
-const endRange = document.getElementById("endRange"); // Der Endbereich des Schiebereglers für den Schnitt
-const startInput = document.getElementById("startInput"); // Das Textfeld für die Startzeit des Schnitts
-const endInput = document.getElementById("endInput"); // Das Textfeld für die Endzeit des Schnitts
-const totalDuration = document.getElementById("totalDuration"); // Das Element, das die Gesamtdauer des Schnitts anzeigt
-const videoContainer = document.getElementById("videoContainer"); // Das Container-Element für das Video
-const controls = document.getElementById("controls"); // Das Steuerungselement für das Video
-const transcriptElement = document.getElementById("transcript"); // Das Element, das die Transkription anzeigt
-const transcriptButton = document.getElementById("transcriptButton"); // Der Button zum Abrufen der Transkription
+const videoInput = document.getElementById("VideoInput");
+const videoPlayer = document.getElementById("VideoPlayer");
+const videoInputLabel = document.getElementById("VideoInputLabel");
+const restContainer = document.getElementById("restContainer");
+const geschnittenesVideoPlayBtn = document.getElementById("geschnittenesVideoPlayBtn");
+const absendeBtn = document.getElementById("AbsendeBtn");
+const DauerAnzeige = document.getElementById("dauerGeschnittenesVideo");
+const VideoContainer = document.getElementById("VideoContainer");
+let Schnitte = []; // Array für die Schnitte
+let transkript = null;
 
-let startTrim = 0; // Der Startzeitpunkt des Schnitts in Sekunden
-let endTrim = 0; // Der Endzeitpunkt des Schnitts in Sekunden
+videoPlayer.addEventListener("loadeddata", function () {
+    const duration = videoPlayer.duration; // Dauer des Videos wird gespeichert
+    console.log("Dauer des Videos:", duration); // Dauer des Videos wird in der Konsole ausgegeben
 
+    // Transkription
+    const formData = new FormData(); // Ein neues FormData-Objekt wird erstellt
+    formData.append("video", videoInput.files[0]); // Die Videodatei wird zum FormData hinzugefügt
+    // Eine POST-Anfrage wird an den Server gesendet, um die Transkription zu erhalten
+    fetch("/upload", {
+        method: "POST",
+        body: formData, // Die Formulardaten (Video) wird gesendet
+    })
+        .then((response) => response.json()) // Antwort wird als JSON geparsed
+        .then(data => {
+            transkript = data
 
-let cutSectionCount = 0;  // Zählt die Anzahl der Schnittbereiche
+            console.log("Transkription:", transkript); // Transkription wird in der Konsole ausgegeben
+        })
+        .catch((error) => {
+            console.error("Fehler bei der Transkription:", error);
+            popup("Es gab ein Fehler bei der Transkription: " + error.message + "\n Versuche es bitte später erneut."); // Popup anzeigen
+        }) // Fehlerbehandlung
+});
 
-function addCutSection() {
-    cutSectionCount++;  // Erhöht den Zähler
-
-    const schnittBereich = document.createElement('div');
-    schnittBereich.classList.add('schnittbereich');
-    schnittBereich.id = `schnitt-${cutSectionCount}`;
-
-    // HTML für den Schnittbereich
-    schnittBereich.innerHTML = `
-    <p>Trimmen:</p>
-    <input type="range" class="startRange" min="0" step="0.01" style="width: 40%" value="0"/>
-    <input type="range" class="endRange" min="0" step="0.01" style="width: 40%" value="0"/>
-    <br />
-    <span>Start: <input type="text" class="startInput" maxlength="8" value="00:00.00" /></span>
-    <span style="margin-left: 20px">Ende: <input type="text" class="endInput" maxlength="8" value="00:00.00" /></span>
-    <br/><br/>
-  `;
-
-    // Füge den neuen Schnittbereich in den Container ein
-    document.getElementById('schnitte-container').appendChild(schnittBereich);
-
-    // Füge Event-Listener zu den neuen Schiebereglern und Textfeldern hinzu
-    setupCutSection(schnittBereich);
-}
-
-document.getElementById("addcutSectionButton").addEventListener("click", addCutSection);
-
-
-
-
-// Diese Funktion wird ausgeführt, wenn das Dokument vollständig geladen wurde
-document.addEventListener("DOMContentLoaded", function () {
-
-
-    // Wenn der Benutzer eine Datei auswählt (Video hochlädt)
-    videoInput.addEventListener("change", function (event) {
-        videoFile = event.target.files[0]; // Die ausgewählte Videodatei wird gespeichert
-        if (videoFile) {
-            const videoURL = URL.createObjectURL(videoFile); // Die URL für die Datei wird erstellt
-            videoPlayer.src = videoURL; // Die Quelle des Video-Players wird auf die hochgeladene Datei gesetzt
-            uploadButton.style.display = "none"; // Der Upload-Button wird ausgeblendet
-            removeVideoButton.style.display = "block"; // Der Entfernen-Button wird angezeigt
-            videoPlayer.style.display = "block"; // Der Video-Player wird angezeigt
-            controls.style.display = "block"; // Die Steuerungselemente werden angezeigt
-            videoContainer.style.border = "none"; // Die Container-Grenze wird entfernt
-            videoPlayer.addEventListener("loadedmetadata", () => {
-                startTrim = 0; // Der Startzeitpunkt wird auf 0 gesetzt
-                endTrim = videoPlayer.duration; // Die Gesamtlänge des Videos wird als Endzeitpunkt gesetzt
-                startRange.min = 0; // Der minimale Wert für den Start-Schieberegler wird auf 0 gesetzt
-                endRange.min = 0; // Der minimale Wert für den End-Schieberegler wird auf 0 gesetzt
-                startRange.max = videoPlayer.duration; // Der maximale Wert für den Start-Schieberegler wird auf die Videolänge gesetzt
-                endRange.max = videoPlayer.duration; // Der maximale Wert für den End-Schieberegler wird auf die Videolänge gesetzt
-                startRange.value = startTrim; // Der Startwert des Schiebereglers wird auf den Startzeitpunkt gesetzt
-                endRange.value = endTrim; // Der Endwert des Schiebereglers wird auf den Endzeitpunkt gesetzt
-                totalDuration.textContent = formatTime(endTrim - startTrim); // Die Gesamtdauer des Schnitts wird formatiert und angezeigt
-                updateTrimTimes(); // Die Anzeigewerte für Start- und Endzeit werden aktualisiert
-            });
-        }
-    });
-
-    // Wenn der Benutzer das Video entfernen möchte
-    removeVideoButton.addEventListener("click", function () {
-        videoPlayer.src = ""; // Die Quelle des Video-Players wird geleert
-        videoInput.value = ""; // Das Video-Input-Feld wird zurückgesetzt
-        uploadButton.style.display = "block"; // Der Upload-Button wird wieder angezeigt
-        removeVideoButton.style.display = "none"; // Der Entfernen-Button wird ausgeblendet
-        videoPlayer.style.display = "none"; // Der Video-Player wird ausgeblendet
-        controls.style.display = "none"; // Die Steuerungselemente werden ausgeblendet
-        videoContainer.style.border = "2px dashed black"; // Der Container bekommt wieder einen gestrichelten Rand
-        transcriptElement.innerText = ""; // Die Transkription wird gelöscht
-    });
-
-    // Diese Funktion aktualisiert die angezeigten Zeiten für Start und Ende des Schnitts
-    function updateTrimTimes() {
-        startInput.value = formatTime(startTrim); // Das Startzeitfeld wird formatiert und aktualisiert
-        endInput.value = formatTime(endTrim); // Das Endzeitfeld wird formatiert und aktualisiert
-        totalDuration.textContent = formatTime(endTrim - startTrim); // Die Gesamtdauer des Schnitts wird aktualisiert
+videoInput.addEventListener("change", function () {
+    const file = this.files[0];
+    if (file) { // Überprüfen, ob eine Datei ausgewählt wurde
+        const url = URL.createObjectURL(file); // Erstellt temporäre URL fürs Video
+        videoPlayer.src = url;
+        videoPlayer.load();
     }
 
-    // Diese Funktion formatiert eine Zeit (in Sekunden) in das Format MM:SS:MS
-    function formatTime(seconds) {
-        const min = Math.floor(seconds / 60); // Minuten berechnen
-        const sec = Math.floor(seconds % 60); // Sekunden berechnen
-        const ms = Math.floor((seconds % 1) * 100); // Millisekunden berechnen
-        return `${String(min).padStart(2, "0")}:${String(sec).padStart(2, "0")}.${String(ms).padStart(2, "0")}`; // Zeit im Format MM:SS.ms zurückgeben
-    }
+    videoInput.style.display = "none"; // Versteckt den Datei-Input nach Auswahl
+    videoPlayer.style.display = "block"; // Zeigt den Video-Player an
+    videoInputLabel.style.display = "none"; // Versteckt das Label
+    restContainer.style.display = "block"; // Zeigt den Rest-Container an
+    geschnittenesVideoPlayBtn.style.display = "flex"; // Zeigt den Play-Button für das geschnittene Video
+    DauerAnzeige.style.display = "block"; // Zeigt die Dauer-Anzeige an
+});
 
-    // Wenn der Benutzer den Start-Schieberegler bewegt
+const addNewCutBtn = document.getElementById("addNewCutBtn");
+let cutSectionCount = 0
+const SchnittContainer = document.getElementById("SchnittContainer");
+
+addNewCutBtn.addEventListener("click", function () {
+    cutSectionCount++;
+    Schnitte.push([0, videoPlayer.duration]);
+
+    const cutSection = document.createElement("div");
+    cutSection.className = "cutSection bg-dark-700 rounded-lg p-4 mb-4";
+    cutSection.id = `Schnitt${cutSectionCount}`;
+
+    cutSection.innerHTML = `
+    <div class="flex justify-between items-center mb-3">
+        <h3 class="text-lg font-medium">Schnitt ${cutSectionCount}</h3>
+        <button class="deleteCutBtn bg-red-600 hover:bg-red-700 text-white p-2 rounded-full transition" style="margin-right: 20px">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+        </button>
+    </div>
+    <div class="space-y-4">
+        <div>
+        <label class="block text-sm text-gray-400 mb-1">Startzeit</label>
+        <div class="flex items-center gap-4">
+            <input type="range" class="startRange w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer" min="0" step="0.01" value="0"/>
+            <input type="text" class="startInput bg-gray-700 border border-gray-600 rounded px-3 py-2 text-white w-24 text-center" maxlength="8" value="00:00.00" />
+        </div>
+        </div>
+        <div>
+        <label class="block text-sm text-gray-400 mb-1">Endzeit</label>
+        <div class="flex items-center gap-4">
+            <input type="range" class="endRange w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer" min="0" step="0.01" value="0"/>
+            <input type="text" class="endInput bg-gray-700 border border-gray-600 rounded px-3 py-2 text-white w-24 text-center" maxlength="8" value="00:00.01" />
+        </div>
+        </div>
+    </div>
+    `;
+
+    SchnittContainer.append(cutSection);
+
+
+
+
+    const startRange = cutSection.querySelector(".startRange");
+    const endRange = cutSection.querySelector(".endRange");
+    const startInput = cutSection.querySelector(".startInput");
+    const endInput = cutSection.querySelector(".endInput");
+    const deleteCutBtn = cutSection.querySelector(".deleteCutBtn");
+
+    startRange.dataset.index = cutSectionCount - 1;
+    endRange.dataset.index = cutSectionCount - 1;
+    startInput.dataset.index = cutSectionCount - 1;
+    endInput.dataset.index = cutSectionCount - 1;
+    deleteCutBtn.dataset.index = cutSectionCount - 1;
+
+
+    // Trimm-Variablen einstellen
+    startRange.min = 0; // StartRange Schieberegler Minimum auf 0 setzen
+    startRange.max = videoPlayer.duration - 0.01;
+    startRange.value = 0; // setzt StartRange Schieberegler am Anfang auf 0
+    endRange.min = 0.01; // EndRange Schieberegler Minimum auf 0 setzen
+    endRange.max = videoPlayer.duration;
+    endRange.value = videoPlayer.duration; // setzt EndRange Schieberegler am Anfang auf max Dauer
+    endInput.value = formatTime(endRange.value); // setzt EndInput am Anfang auf max Dauer
+    startInput.value = formatTime(startRange.value); // setzt StartInput am Anfang auf 0
+
+    // Start-Slider Event
     startRange.addEventListener("input", function () {
         if (parseFloat(startRange.value) >= parseFloat(endRange.value)) {
-            startRange.value = parseFloat(endRange.value) - 0.01; // Startzeit muss immer vor der Endzeit liegen
+            startRange.value = parseFloat(endRange.value) - 0.01;
         }
-        startTrim = parseFloat(startRange.value); // Der Startzeitpunkt wird auf den Wert des Schiebereglers gesetzt
-        updateTrimTimes(); // Die angezeigten Zeiten werden aktualisiert
+        startInput.value = formatTime(startRange.value);
+        Schnitte[startRange.dataset.index][0] = parseFloat(startRange.value); // Speichert den Startzeitpunkt im Schnitte-Array
     });
 
-    // Wenn der Benutzer den End-Schieberegler bewegt
+    // End-Slider Event
     endRange.addEventListener("input", function () {
         if (parseFloat(endRange.value) <= parseFloat(startRange.value)) {
-            endRange.value = parseFloat(startRange.value) + 0.01; // Endzeit muss immer nach der Startzeit liegen
+            endRange.value = parseFloat(startRange.value) + 0.01;
         }
-        endTrim = parseFloat(endRange.value); // Der Endzeitpunkt wird auf den Wert des Schiebereglers gesetzt
-        updateTrimTimes(); // Die angezeigten Zeiten werden aktualisiert
+        endInput.value = formatTime(endRange.value);
+        Schnitte[endRange.dataset.index][1] = parseFloat(endRange.value); // Speichert den Endzeitpunkt im Schnitte-Array
     });
 
-    // Wenn das Video abgespielt wird und die aktuelle Zeit außerhalb des Schnitts liegt
-    videoPlayer.addEventListener("timeupdate", function () {
-        if (videoPlayer.currentTime < startTrim) {
-            videoPlayer.currentTime = startTrim; // Wenn die Zeit vor dem Startzeitpunkt liegt, wird der Player auf den Startzeitpunkt gesetzt
-        }
-        if (videoPlayer.currentTime > endTrim) {
-            videoPlayer.pause(); // Wenn die Zeit nach dem Endzeitpunkt liegt, wird das Video pausiert
-            videoPlayer.currentTime = startTrim; // Die Wiedergabe wird zum Startzeitpunkt zurückgesetzt
-        }
-    });
-
-    // Wenn der Benutzer das Startzeitfeld bearbeitet und den Fokus verliert
+    // Start-Eingabe Event
     startInput.addEventListener("blur", function () {
-        updateTimeFromInput(startInput, "start"); // Die Eingabewerte werden verarbeitet und der Startzeitpunkt wird aktualisiert
+        console.log("Start-Eingabe:", startInput.value); // Debugging-Ausgabe
+        const time = checkTimeFromInput(startInput.value);
+        startInput.value = time;
+        console.log("Start-Eingabe:", time); // Debugging-Ausgabe
+        if (formatTimeToSeconds(time) >= parseFloat(endRange.value)) {
+            startInput.value = formatTime(parseFloat(endRange.value) - 0.01); // Wenn Startzeitpunkt >= Endzeitpunkt, wird Startzeitpunkt auf Endzeitpunkt - 0.01 gesetzt
+        }
+        startRange.value = formatTimeToSeconds(time);
+        Schnitte[startInput.dataset.index][0] = parseFloat(startRange.value); // Speichert den Startzeitpunkt im Schnitte-Array
     });
 
-    // Wenn der Benutzer das Endzeitfeld bearbeitet und den Fokus verliert
+    // End-Eingabe Event
     endInput.addEventListener("blur", function () {
-        updateTimeFromInput(endInput, "end"); // Die Eingabewerte werden verarbeitet und der Endzeitpunkt wird aktualisiert
+        console.log("End-Eingabe:", endInput.value); // Debugging-Ausgabe
+        const time = checkTimeFromInput(endInput.value);
+        endInput.value = time;
+        if (formatTimeToSeconds(time) <= parseFloat(startRange.value)) {
+            endInput.value = formatTime(parseFloat(startRange.value) + 0.01); // Wenn Endzeitpunkt <= Startzeitpunkt, wird Endzeitpunkt auf Startzeitpunkt + 0.01 gesetzt
+        }
+        console.log("End-Eingabe:", time); // Debugging-Ausgabe
+        endRange.value = formatTimeToSeconds(time);
+        Schnitte[endInput.dataset.index][1] = parseFloat(endRange.value); // Speichert den Endzeitpunkt im Schnitte-Array
     });
 
-    // Diese Funktion verarbeitet die Eingabewerte und aktualisiert den Start- oder Endzeitpunkt
-    function updateTimeFromInput(input, type) {
-        let value = input.value; // Der Wert aus dem Eingabefeld wird gespeichert
-        value = value.replace(/[^0-9:.]/g, ""); // Ungültige Zeichen werden entfernt
+    deleteCutBtn.addEventListener("click", function () {
+        Schnitte.splice(deleteCutBtn.dataset.index, 1); // Entfernt den Schnitt aus dem Array
+        SchnittContainer.removeChild(cutSection); // Entfernt den Schnitt-Container aus dem DOM
+        cutSectionCount--; // Verringert den Zähler für die Schnitte
+        console.log("Schnitte nach Löschen:", Schnitte); // Debugging-Ausgabe
 
-        const parts = value.split(":"); // Der Wert wird in Minuten, Sekunden und Millisekunden unterteilt
-        let minutes = "00";
-        let seconds = "00";
-        let milliseconds = "00";
+        const allCutSections = SchnittContainer.querySelectorAll(".cutSection");
+        allCutSections.forEach((section, newIndex) => {
+            section.id = `Schnitt${newIndex + 1}`;
+            section.querySelector("h3").innerText = `Schnitt ${newIndex + 1}`;
 
-        if (parts[0]) minutes = parts[0].padStart(2, "0"); // Minuten werden gesetzt
-        if (parts[1]) {
-            let secondParts = parts[1].split(".");
-            seconds = secondParts[0].padStart(2, "0"); // Sekunden werden gesetzt
-            if (secondParts[1]) milliseconds = secondParts[1].padEnd(2, "0"); // Millisekunden werden gesetzt
-        }
-
-        if (parseInt(seconds) > 59) seconds = "59"; // Wenn die Sekunden größer als 59 sind, werden sie auf 59 gesetzt
-        if (parseInt(minutes) > 59) minutes = "59"; // Wenn die Minuten größer als 59 sind, werden sie auf 59 gesetzt
-
-        const formattedTime = `${minutes}:${seconds}.${milliseconds}`; // Formatierte Zeit wird zusammengesetzt
-        input.value = formattedTime; // Das Eingabefeld wird mit der formatierten Zeit aktualisiert
-
-        let totalSeconds = parseInt(minutes) * 60 + parseInt(seconds) + parseInt(milliseconds) / 100; // Gesamte Zeit in Sekunden berechnen
-
-        if (type === "start") {
-            startTrim = Math.min(totalSeconds, videoPlayer.duration); // Der Startzeitpunkt wird aktualisiert
-        } else {
-            endTrim = Math.min(totalSeconds, videoPlayer.duration); // Der Endzeitpunkt wird aktualisiert
-        }
-
-        if (startTrim >= endTrim) {
-            startTrim = endTrim - 0.01; // Sicherstellen, dass der Startzeitpunkt vor dem Endzeitpunkt bleibt
-        }
-
-        startRange.value = startTrim; // Der Wert des Start-Schiebereglers wird aktualisiert
-        endRange.value = endTrim; // Der Wert des End-Schiebereglers wird aktualisiert
-        updateTrimTimes(); // Die angezeigten Zeiten werden aktualisiert
-    }
-
-    // Diese Funktion formatiert die Zeitstempel in Stunden:Minuten:Sekunden.Millisekunden
-    function formatTimestamp(seconds) {
-        const h = Math.floor(seconds / 3600);
-        const m = Math.floor((seconds % 3600) / 60);
-        const s = (seconds % 60).toFixed(2);
-        return `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}:${String(s).padStart(5, "0")}`;
-    }
-
-    // Wenn der Benutzer auf den Transkriptions-Button klickt
-    transcriptButton.addEventListener("click", function () {
-        const formData = new FormData(); // Ein neues FormData-Objekt wird erstellt
-        formData.append("video", videoFile); // Die Videodatei wird zum FormData hinzugefügt
-
-        // Die Start- und Endzeit werden formatiert und zum FormData hinzugefügt
-        const startTrimFormatted = formatTimestamp(startTrim);
-        const endTrimFormatted = formatTimestamp(endTrim);
-        formData.append("start", startTrimFormatted);
-        formData.append("end", endTrimFormatted);
-
-        // Eine POST-Anfrage wird an den Server gesendet, um die Transkription zu erhalten
-        fetch("/transcribe", {
-            method: "POST",
-            body: formData, // Die Formulardaten (Video und Zeitbereich) werden gesendet
-        })
-            .then((response) => response.json()) // Die Antwort wird als JSON verarbeitet
-            .then((data) => {
-                transcriptElement.innerText = data.transcript; // Die Transkription wird im entsprechenden HTML-Element angezeigt
-            })
-            .catch((error) => console.error("Error:", error)); // Fehler werden in der Konsole ausgegeben
+            // Alle Controls neu zuordnen
+            section.querySelector(".startRange").dataset.index = newIndex;
+            section.querySelector(".endRange").dataset.index = newIndex;
+            section.querySelector(".startInput").dataset.index = newIndex;
+            section.querySelector(".endInput").dataset.index = newIndex;
+            section.querySelector(".deleteCutBtn").dataset.index = newIndex;
+        });
     });
+
 
 
 });
+
+
+geschnittenesVideoPlayBtn.addEventListener("click", function () {
+
+    console.log("Schnitte:", Schnitte); // Debugging-Ausgabe
+
+    let i = 0; // Index des aktuellen Schnitts, wir starten bei 0
+
+    // Funktion zum Springen zu einem bestimmten Schnittbereich
+    function springenZumSchnitt(index) {
+        // Wenn der Index noch innerhalb der Schnitte liegt
+        if (index < Schnitte.length) {
+            videoPlayer.currentTime = Schnitte[index][0]; // Springe zum Startzeitpunkt des Schnitts
+            videoPlayer.play(); // Starte das Video
+        } else {
+            videoPlayer.pause(); // Wenn kein Schnitt mehr übrig ist → Video stoppen
+        }
+    }
+
+    // Funktion wird bei jedem Zeitupdate des Videos aufgerufen
+    function onTimeUpdate() {
+        if (i >= Schnitte.length) return; // Wenn alle Schnitte durch sind → nichts tun
+
+        const [start, end] = Schnitte[i]; // Aktuellen Schnitt holen
+
+        if (videoPlayer.currentTime >= end) { // Wenn das Video den Endzeitpunkt erreicht hat
+            i++; // Nächsten Schnittindex setzen
+            springenZumSchnitt(i); // Zum nächsten Schnitt springen
+        }
+    }
+
+    // Ganz wichtig: Den EventListener zuerst entfernen,
+    // falls man den Button mehrmals klickt – sonst mehrfacher Aufruf!
+    videoPlayer.removeEventListener("timeupdate", onTimeUpdate);
+    videoPlayer.addEventListener("timeupdate", onTimeUpdate);
+
+    // Direkt loslegen: Zum ersten Schnitt springen und Video starten
+    springenZumSchnitt(i);
+
+    // Dauer des geschnittenen Videos berechnen
+    let geschnitteneDauer = 0;
+    Schnitte.forEach((schnitt) => {
+        geschnitteneDauer += schnitt[1] - schnitt[0]; // Dauer jedes Schnitts addieren
+    });
+    DauerAnzeige.innerText = `Dauer geschnittenes Video: ${formatTime(geschnitteneDauer)}`;
+});
+
+absendeBtn.addEventListener("click", function () {
+    const BeschreibungDiv = document.getElementsByClassName("Beschreibung")[0];
+    const BeschreibungInput = document.getElementById("BeschreibungInput");
+
+    // Vorher erstellen, damit wir später drauf zugreifen können
+    let warnParagraph = document.getElementById("warnParagraph1");
+    let warnParagraph2 = document.getElementById("warnParagraph2");
+
+    // Wenn schon existiert, vorher löschen (damit sie nicht doppelt erscheinen)
+    if (warnParagraph) {
+        BeschreibungDiv.removeChild(warnParagraph);
+    }
+    if (warnParagraph2) {
+        BeschreibungDiv.removeChild(warnParagraph2);
+    }
+
+    if (cutSectionCount < 1) {
+        warnParagraph = document.createElement("p");
+        warnParagraph.id = "warnParagraph1"; // ID geben zum Wiederfinden
+        warnParagraph.textContent = "Bitte füge einen Schnitt hinzu!";
+        BeschreibungDiv.appendChild(warnParagraph);
+    }
+
+    if (BeschreibungInput.value.trim() === "") {
+        warnParagraph2 = document.createElement("p");
+        warnParagraph2.id = "warnParagraph2"; // ID für zweiten Warntext
+        warnParagraph2.textContent = "Bitte füge eine Beschreibung hinzu!";
+        BeschreibungDiv.appendChild(warnParagraph2);
+    }
+
+    // Prüfen ob Transkript überhaupt vorhanden ist
+    if (!transkript) {
+        console.log("Noch kein Transkript vorhanden!");
+        popup("Die Transkription ist noch nicht abgeschlossen – bitte habe einen Moment Geduld und versuche es anschließend erneut."); // Popup anzeigen
+        return; // Abbrechen
+    }
+
+    console.log(transkript)
+    // Daten senden, wenn Beschreibung und mindestens ein Schnitt vorhanden ist
+    if (cutSectionCount >= 1 && BeschreibungInput.value.trim() !== "") {
+        // Hier muss der Code für das Senden der Daten hin ans Backend
+        daten = {
+            transkript: transkript,
+            schnitte: Schnitte,
+            beschreibung: String(BeschreibungInput.value)
+        };
+        console.log("Daten, die gesendet werden:", daten); // Debugging-Ausgabe
+
+        fetch("/daten_senden", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(daten)
+        })
+            .then(() => {
+                console.log("Daten erfolgreich gesendet");
+                popup("Das Video wurde erfolgreich gesendet!"); // Popup anzeigen
+                resetLayout(); // Layout zurücksetzen
+            })
+            .catch((error) => {
+                console.error("Fehler bei der Transkription:", error);
+
+            }) // Fehlerbehandlung
+    }
+
+});
+
+
+// ==================== Funktionen ==================== //
+
+function formatTime(seconds) {
+    /* Konvertiert Sekunden in das Format MM:SS.mm */
+    const min = Math.floor(seconds / 60); // Minuten berechnen
+    const sec = Math.floor(seconds % 60); // Sekunden berechnen
+    const ms = Math.floor((seconds % 1) * 100); // Millisekunden berechnen
+    return `${String(min).padStart(2, "0")}:${String(sec).padStart(2, "0")}.${String(ms).padStart(2, "0")}`; // Zeit im Format MM:SS.ms zurückgeben
+}
+
+function formatTimeToSeconds(timeString) {
+    /* Konvertiert eine Zeit im Format MM:SS.mm in Sekunden */
+    const parts = timeString.split(/[:.]/); // Teilt den String in Minuten, Sekunden und Millisekunden
+    const minutes = parseInt(parts[0], 10); // Minuten
+    const seconds = parseInt(parts[1], 10); // Sekunden
+    const milliseconds = parseInt(parts[2], 10); // Millisekunden
+    return minutes * 60 + seconds + milliseconds / 100; // Gesamtzeit in Sekunden zurückgeben
+}
+
+function checkTimeFromInput(inputString) {
+    /* Checkt den Input des Users, wenn dieser dem Fromat nicht enstpricht wird die Zeit zurück auf 00:00.00 gesetzt */
+    const regex = /^([0-9]{1,2}):([0-5][0-9])\.(\d{2})$/; // Regex für das Format MM:SS.ms
+    if (regex.test(inputString)) {
+        if (formatTimeToSeconds(inputString) > videoPlayer.duration) {
+            return "00:00.00" // Wenn die Zeit größer als die Videolänge ist, wird Zeit zurückgesetzt
+        }
+        else {
+            return inputString; // Wenn das Format korrekt ist, gib den Wert zurück
+        }
+    }
+    else {
+        return "00:00.00"
+    }
+}
+
+function resetLayout() {
+    /* Setzt das Layout zurück, nachdem die Daten gesendet wurden */
+    videoInput.style.display = "none"; // Zeigt den Datei-Input wieder an
+    videoPlayer.style.display = "none"; // Versteckt den Video-Player
+    videoInputLabel.style.display = "flex"; // Zeigt das Label wieder an
+    restContainer.style.display = "none"; // Versteckt den Rest-Container
+    geschnittenesVideoPlayBtn.style.display = "none"; // Versteckt den Play-Button für das geschnittene Video
+    DauerAnzeige.style.display = "none"; // Versteckt die Dauer-Anzeige
+
+    videoInput.value = ""; // Leert den Datei-Input
+    videoPlayer.src = ""; // Setzt die Video-Quelle zurück
+    videoPlayer.currentTime = 0; // Setzt die aktuelle Zeit des Videos auf 0
+
+    BeschreibungInput.value = ""; // Leert das Beschreibungseingabefeld
+    // Alle Schnitte entfernen
+    SchnittContainer.innerHTML = "";
+    Schnitte = []; // Leert das Schnitte-Array
+    cutSectionCount = 0; // Setzt den Schnitt-Zähler zurück
+    transkript = null; // Setzt die Transkription zurück
+
+}
+
+
+function popup(text) {
+    /* Erstellt ein Popup-Fenster mit dem angegebenen Text und einem OK-Button */
+
+    const overlay = document.createElement("div");
+    overlay.className = "fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50";
+
+    const popup = document.createElement("div");
+    popup.className = "bg-gray-800 rounded-xl p-6 max-w-md w-full shadow-2xl";
+
+    const message = document.createElement("p");
+    message.className = "text-white mb-4 text-center";
+    message.textContent = text;
+
+    const okButton = document.createElement("button");
+    okButton.className = "w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition mt-4";
+    okButton.textContent = "OK";
+
+    okButton.onclick = () => {
+        document.body.removeChild(overlay);
+    };
+
+    popup.appendChild(message);
+    popup.appendChild(okButton);
+    overlay.appendChild(popup);
+    document.body.appendChild(overlay);
+}
