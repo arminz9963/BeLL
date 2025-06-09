@@ -1,13 +1,13 @@
 import os
 import tempfile
 from flask import Flask, render_template, request, jsonify
-from logic import convert_mp4_to_mp3, transcribe_audio
+from logic import convert_mp4_to_mp3, transcribe_audio, get_api_key
 import csv
 import json
 from flask_cors import CORS
 import time
 
-api_key = "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"
+api_key = get_api_key("app/api_key.txt")
 csv_path = os.path.join(os.path.dirname(__file__), "daten.csv")
 app = Flask(__name__)
 CORS(app)  # CORS aktivieren, um Anfragen von anderen Ursprüngen zuzulassen
@@ -21,12 +21,12 @@ def index():
 def upload():
     mp4_file = request.files["video"]
 
-    # temporärer File für das Video
+    # temporäre Datei für das Video
     with tempfile.NamedTemporaryFile(suffix=".mp4", delete=False) as temp_video:
         mp4_file.save(temp_video)
         temp_video_path = temp_video.name
 
-    # temporäres File für die Audio
+    # temporäres Datei für die Audio
     with tempfile.NamedTemporaryFile(suffix=".mp3", delete=False) as temp_audio:
         temp_audio_path = temp_audio.name
 
@@ -56,7 +56,7 @@ def daten_senden():
 
     with open(csv_path, "a", encoding="utf-8", newline="") as datei:
         writer = csv.writer(datei)
-        # transkript und schnitte serialisieren, da zu komplexe Strukturen
+        # transkript und schnitte serialisieren, da komplexe Strukturen
         writer.writerow([
             json.dumps(transkript, ensure_ascii=False),
             json.dumps(schnitte),
