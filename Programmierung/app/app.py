@@ -7,13 +7,18 @@ import json
 from flask_cors import CORS
 import time
 
-api_key = get_api_key("app/api_key.txt")
-csv_path = os.path.join(os.path.dirname(__file__), "daten.csv")
-app = Flask(__name__)
+
+
+api_key = get_api_key("api_key.txt")
+csv_path = "../daten.csv"
+
+app = Flask(__name__, template_folder='../templates', static_folder='../static')
+
 CORS(app)  # CORS aktivieren, um Anfragen von anderen Ursprüngen zuzulassen
 
 @app.route("/")
 def index():
+    print(app.static_folder)  # Zeigt, wo Flask nach static sucht
     return render_template("index.html")
 
 

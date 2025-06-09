@@ -10,7 +10,8 @@ const VideoContainer = document.getElementById("VideoContainer");
 let Schnitte = [];
 let transkript = null;
 const addNewCutBtn = document.getElementById("addNewCutBtn");
-let cutSectionCount = 0
+let cutSectionCount = 0 // Anzahl der Schnitte, die bisher hinzugefügt wurden
+let aktuellerSchnitt = 0; // Aktueller Schnitt, der gerade bearbeitet wird beim Abspielen des geschnittenen Videos
 const SchnittContainer = document.getElementById("SchnittContainer");
 const BeschreibungDiv = document.getElementsByClassName("Beschreibung")[0];
 const BeschreibungInput = document.getElementById("BeschreibungInput");
@@ -39,7 +40,7 @@ videoPlayer.addEventListener("loadeddata", function () {
         })
         .catch((error) => {
             console.error("Fehler bei der Transkription:", error);
-            popup("Es gab ein Fehler bei der Transkription: " + error.message + "\n Versuche es bitte später erneut.");
+            popup("Die Groq Server sind momentan überlastet. Bitte versuche es später erneut.");
         })
 });
 
@@ -195,7 +196,7 @@ addNewCutBtn.addEventListener("click", function () {
 
 // Wird aufgerufen, wenn der Play-Button für das geschnittene Video geklickt wird
 geschnittenesVideoPlayBtn.addEventListener("click", function () {
-    let i = 0; // Startindex zurücksetzen
+    aktuellerSchnitt = 0; // Startindex zurücksetzen
 
     // Löschen des vorherigen Event-Listeners, um Mehrfachaufrufe zu vermeiden
     videoPlayer.removeEventListener("timeupdate", onTimeUpdate);
@@ -203,7 +204,7 @@ geschnittenesVideoPlayBtn.addEventListener("click", function () {
     videoPlayer.addEventListener("timeupdate", onTimeUpdate);
 
     // Starten beim ersten Schnitt
-    springenZumSchnitt(i);
+    springenZumSchnitt(aktuellerSchnitt);
 
     // Dauer berechnen und anzeigen
     let geschnitteneDauer = 0;
@@ -322,14 +323,14 @@ function springenZumSchnitt(index) {
 // Wird aufegrufen, beim Abspielen des geschnittenen Videos
 // Checkt, ob die aktuelle Zeit, die Endzeit des aktuellen Schnitts erreicht hat
 function onTimeUpdate() {
-    if (i >= Schnitte.length) return;
+    if (aktuellerSchnitt >= Schnitte.length) return;
 
-    const [start, end] = Schnitte[i];
+    const [start, end] = Schnitte[aktuellerSchnitt];
 
     // Wenn aktuelle Zeit Endzeit erreicht, zum nächsten Schnitt springen
     if (videoPlayer.currentTime >= end) {
-        i++;
-        springenZumSchnitt(i);
+        aktuellerSchnitt++;
+        springenZumSchnitt(aktuellerSchnitt);
     }
 }
 

@@ -23,9 +23,16 @@ Erstelle einen API key auf [groq.cloud](https://console.groq.com/keys) und speic
 ## Ausführung der Webseite
 
 1. Gehe in den CMD und navigiere in den Porjektordner
-2. Starte TaiwlwindCSS: `npx tailwindcss -i ./static/css/styles.css -o ./static/css/output.css --watch`
+2. Starte TaiwlwindCSS: 
+```
+npx tailwindcss -i ./static/css/styles.css -o ./static/css/output.css --watch
+```
 3. Öffne einen neues CMD-Fenster und gehe erneut in den Projektordner
-4. Starte den flask Server: `python app/app.py`
+4. Starte den flask Server: 
+```
+cd app 
+python app.py
+```
 5. Die Webseite ist nun unter `http://localhost:5000` erreichbar
 
 *Ein Projekt von Armin Z., betreut von Herrn Seifert und Herrn Rose*
