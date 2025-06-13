@@ -2,4 +2,3 @@ __pycache__/
 *.py[cod]
 archive/
 node_modules/
-api_key.txt
