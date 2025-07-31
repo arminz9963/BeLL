@@ -3,3 +3,4 @@ __pycache__/
 archive/
 node_modules/
 api_key.txt
+unsloth_compiled_cache/
