@@ -3,7 +3,7 @@ import csv
 
 data_list = []
 test_list = []
-with open("daten.csv", "r", encoding="utf-8") as file:
+with open("data/daten.csv", "r", encoding="utf-8") as file:
     csv_reader = csv.reader(file)
     next(csv_reader)  # Überspringe die Kopfzeile, falls vorhanden
     for i, row in enumerate(csv_reader):
@@ -28,8 +28,8 @@ with open("daten.csv", "r", encoding="utf-8") as file:
         else:
             test_list.append(data)
 
-with open("Trainingsdaten.json", "w", encoding="utf-8") as json_file:
+with open("data/trainingsdaten.json", "w", encoding="utf-8") as json_file:
     json.dump(data_list, json_file, ensure_ascii=False, indent=4)
 
-with open("Testdaten.json", "w", encoding="utf-8") as json_file:
+with open("data/testdaten.json", "w", encoding="utf-8") as json_file:
     json.dump(test_list, json_file, ensure_ascii=False, indent=4)
