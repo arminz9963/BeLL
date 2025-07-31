@@ -19,7 +19,7 @@ with open("data/daten.csv", "r", encoding="utf-8") as file:
                 },
                 {
                     "role": "assistant",
-                    "content": schnitte
+                    "content": str(schnitte)
                 }
             ]
         }
