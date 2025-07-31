@@ -1,7 +1,7 @@
 # BeLL Videoschnitt-KI  
 > Dieses Projekt entstand im Rahmen meiner Besonderen Lernleistung.  
-> Auf der Webseite kannst du MP4-Videos hochladen, diese nach Belieben schneiden und anschließend absenden.  
-> Die Daten (Transkript mit word-level Timestamps, Schnittpunkte, Beschreibung) werden gespeichert und dienen zum Trainieren einer KI, die Videos automatisch für dich schneidet.
+> Auf der Webseite kann man ein MP4-Video hochladen, diese nach Belieben schneiden und anschließend absenden.  
+> Die Daten (Transkript mit word-level Timestamps, Schnittpunkte, Beschreibung) werden gespeichert.
 
 ## Voraussetzungen
 
