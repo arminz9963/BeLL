@@ -4,8 +4,9 @@ def main():
     tests = ["tests/neu/test_result_v2_n.txt", "tests/neu/test_result_v3_n.txt", "tests/neu/test_result_v3_2_n.txt", "tests/neu/test_result_v4_n.txt"]
 
     for test in tests:
+        scores = []
         with open(test, "r", encoding="utf-8") as datei:
-            # 5 da es 5 Tests sind
+            # 5 da es 5 Tests sind pro model
             for _ in range(5):
                 _ = datei.readline()
                 asg = datei.readline().strip().replace("Ausgabe:", "")
@@ -13,7 +14,11 @@ def main():
                 lsg = datei.readline().strip().replace("Lösung:", "")
                 lsg = eval(lsg)
                 score = get_score(asg, lsg)
-                print(score)
+                scores.append(score)
+        sum = 0
+        for score in scores:
+            sum += score
+        print(f"{sum / len(scores)}")
 
 
 def get_score(asg, lsg):
@@ -27,7 +32,7 @@ def get_score(asg, lsg):
             start_asg = asg[i][0]
             end_asg = asg[i][1]
 
-            print(start_lsg, end_lsg, start_asg, end_asg)
+            #print(start_lsg, end_lsg, start_asg, end_asg)
             # case 1 asg = lsg
             if (start_lsg == start_asg) and (end_lsg == end_asg):
                 result_list.append(1)
@@ -42,16 +47,14 @@ def get_score(asg, lsg):
                 score = (end_lsg - start_lsg)/(end_asg - start_asg)
                 result_list.append(score)
 
-###### Case 4 und 4.2 schauen nicht nur die geschnitten an sondern auch, die wo das gilt #############
-
             # case 4 asg schneidet nur an lsg (asg früher als lsg)
-            elif (start_asg < start_lsg) and (end_asg < end_lsg):
+            elif (start_asg < start_lsg) and (end_asg < end_lsg) and ((end_asg - start_lsg) > 0):
                 overlap = end_asg - start_lsg
                 score = overlap / (end_lsg - start_asg)
                 result_list.append(score)
 
             # case 4.2 asg schneidet nur an lsg (lsg früher als asg)
-            elif (start_asg > start_lsg) and (end_asg > end_lsg):
+            elif (start_asg > start_lsg) and (end_asg > end_lsg) and ((end_lsg - start_asg) > 0):
                 overlap = end_lsg - start_asg
                 score = overlap / (end_asg - start_lsg)
                 result_list.append(score)
