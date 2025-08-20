@@ -1,0 +1,16 @@
+// 20.08.2025
+
+4 Modelle gefinetuned
+
+folgende Kenntnisse für weitere Modelle aus Auswertung:
+- eigenes Transkript > Json Transkript
+- Q4 > Q8 (v3 vs v3_2) --> prob weil beide Modelle schlecht sind, ist das so geworden
+- 3B Model > 1B Model (v4 vs v3)
+- [[...], [...]] > [(...), (...)] ---> bleibe aber bei Tuple Array, da Trainingsdaten folgen werden mit mehreren Schnitten, bisher haben alle nur einen Schnitt
+
+weitere Ideen für die Modelle:
+- Transkript erklärung mit in die Beschreibung (v5)
+- Train/Validation (v6)
+- viel mehr Daten (auch von mehreren Cuts) (v7)
+- mehr Validierungsdaten (für Modelle mit KI Daten)
+

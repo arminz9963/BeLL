@@ -1,0 +1,16 @@
+tests/neu/test_result_v2.txt:
+Scores: [11.981, 0.0, 94.969, 0.0, 41.818]
+End Score: 29.75
+
+tests/neu/test_result_v3.txt:
+Scores: [0.0, 0.0, 0.0, 50.19, 26.136]
+End Score: 15.27
+
+tests/neu/test_result_v3_2.txt:
+Scores: [0.0, 0.0, 0.0, 0.0, 0.0]
+End Score: 0.0
+
+tests/neu/test_result_v4.txt:
+Scores: [85.791, 0.0, 0.0, 11.837, 0.0]
+End Score: 19.53
+

@@ -41,7 +41,7 @@ with open("data/daten.csv", "r", encoding="utf-8") as file:
             "conversations": [
                 {
                     "from": "human",
-                    "value": f"Bitte schlage passende Schnittpunkte vor basierend auf dem Transkript und der Beschreibung. \n Beschreibung: {beschreibung} \n Transkript: {format_transkript(transkript)}" 
+                    "value": f"Bitte schlage passende Schnittpunkte vor basierend auf dem Transkript und der Beschreibung. Gib die Schnitte im folgenden Format wieder: [(start1, ende1), (start2, ende2), (start3, ende3), ...]\n Beschreibung: {beschreibung} \n Transkript: {format_transkript(transkript)}" 
                 },
                 
                 {
@@ -55,8 +55,8 @@ with open("data/daten.csv", "r", encoding="utf-8") as file:
         else:
             test_list.append(data)
 
-with open("data/trainingsdaten3.json", "w", encoding="utf-8") as json_file:
+with open("data/trainingsdaten4.json", "w", encoding="utf-8") as json_file:
     json.dump(data_list, json_file, ensure_ascii=False, indent=4)
 
-with open("data/testdaten3.json", "w", encoding="utf-8") as json_file:
+with open("data/testdaten4.json", "w", encoding="utf-8") as json_file:
     json.dump(test_list, json_file, ensure_ascii=False, indent=4)

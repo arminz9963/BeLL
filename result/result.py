@@ -1,7 +1,7 @@
 
 def main():
 
-    tests = ["tests/neu/test_result_v2_n.txt", "tests/neu/test_result_v3_n.txt", "tests/neu/test_result_v3_2_n.txt", "tests/neu/test_result_v4_n.txt"]
+    tests = ["tests/neu/test_result_v2.txt", "tests/neu/test_result_v3.txt", "tests/neu/test_result_v3_2.txt", "tests/neu/test_result_v4.txt"]
 
     for test in tests:
         scores = []
@@ -18,7 +18,11 @@ def main():
         sum = 0
         for score in scores:
             sum += score
-        print(f"{sum / len(scores)}")
+        end_score = round(sum / len(scores), 2)
+        with open("result/results.txt", "a", encoding="utf-8") as datei:
+            datei.write(f"{test}:\n")
+            datei.write(f"Scores: {scores}\n")
+            datei.write(f"End Score: {end_score}\n\n")
 
 
 def get_score(asg, lsg):
@@ -72,9 +76,9 @@ def get_score(asg, lsg):
         sum += result
 
     # arithmetisches Mittel
-    end_score = sum / len(result_list)
+    end_score = 100*sum / len(result_list)
 
-    return round(end_score, 5)
+    return round(end_score, 3)
 
 
 if __name__ == "__main__":
