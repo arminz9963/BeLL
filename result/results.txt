@@ -14,3 +14,7 @@ tests/neu/test_result_v4.txt:
 Scores: [85.791, 0.0, 0.0, 11.837, 0.0]
 End Score: 19.53
 
+tests/neu/test_result_v5.txt:
+Scores: [1.403, 0.0, 11.809, 31.37, 0.0]
+End Score: 8.92
+
