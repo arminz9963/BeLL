@@ -1,4 +1,4 @@
-// 20.08.2025
+// 19.08.2025
 
 4 Modelle gefinetuned
 
@@ -14,3 +14,20 @@ weitere Ideen für die Modelle:
 - viel mehr Daten (auch von mehreren Cuts) (v7)
 - mehr Validierungsdaten (für Modelle mit KI Daten)
 
+
+// 20.08.2025
+
+weitere 2 modelle (v5 und v6) gefinetuned, weitere Kenntnisse:
+- Beschreibung der syntax im Prompt nicht notwendig unbedingt
+- Train/eval (vgl v4 und v6) sehr hilfreich weiter anwenden
+
+meta:
+- eigene syntax für Transkript
+- Schnittesyntax tuple Array
+- train/eval usen
+
+todos:
+- Overfitting
+- mehr daten, benutzen besonders mit mehreren Cuts
+- mehr Testdaten, iwie rankommen
+- result.py anpassen für ungleiche anzahl an schnitte 

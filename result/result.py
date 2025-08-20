@@ -1,7 +1,7 @@
 
 def main():
 
-    tests = ["tests/neu/test_result_v5.txt"]
+    tests = ["tests/neu/test_result_v6.txt"]
 
     for test in tests:
         scores = []
@@ -68,7 +68,8 @@ def get_score(asg, lsg):
                 result_list.append(0)
 
     else:
-        ...
+        # vorübergehend
+        result_list.append(0)
 
 
     sum = 0
