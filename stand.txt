@@ -34,3 +34,5 @@ todos:
 
 // 22.02.2025
 
+- v7 katastrophe, mit parametern nicht rumspielen fürs erste
+- overfitting problem solved sich durch mehr Daten, deswegen MEHR DATEN JZ BESORGEN
