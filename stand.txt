@@ -31,3 +31,6 @@ todos:
 - mehr daten, benutzen besonders mit mehreren Cuts
 - mehr Testdaten, iwie rankommen
 - result.py anpassen für ungleiche anzahl an schnitte 
+
+// 22.02.2025
+
