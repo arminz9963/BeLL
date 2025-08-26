@@ -36,3 +36,14 @@ todos:
 
 - v7 katastrophe, mit parametern nicht rumspielen fürs erste
 - overfitting problem solved sich durch mehr Daten, deswegen MEHR DATEN JZ BESORGEN
+
+// 25.08.2025
+
+- mit Gemini nach langem hin und her mehr daten besorgt. Sehen ganz gut aus
+- Tipp: max 10 Daten mit einem Prompt generieren lassen?
+
+// 26.08.2025
+
+- Daten generieren mit Gemini erfolgreich bloß immer in 10er Steps 
+- Gemini sagen längere Beispieel sonst ganz gut
+- Daten nr 11, 12, 18, 24, 25, 27 überarbeitet wegen Unschlüssigkeiten nach dem Schneiden

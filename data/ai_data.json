@@ -1,0 +1,362 @@
+[
+    {
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Bitte schlage passende Schnittpunkte vor basierend auf dem Transkript und der Beschreibung. \n Beschreibung: Das Interview wurde gekürzt, indem Wiederholungen und Füllwörter wie 'äh' und 'ähm' entfernt wurden. Es soll nur die finale, prägnante Antwort auf die Frage erhalten bleiben. \n Transkript: Also [0.12, 0.48] die [0.48, 0.61] Frage [0.61, 0.99] war, [0.99, 1.25] was [1.25, 1.48] mein [1.48, 1.70] Lieblingsprojekt [1.70, 2.45] war. [2.45, 2.81] Puh, [3.45, 3.81] da [3.81, 3.95] muss [3.95, 4.16] ich [4.16, 4.29] kurz [4.29, 4.58] überlegen. [4.58, 5.21] Es [5.21, 5.66] gab [5.66, 5.89] so [5.89, 6.08] viele. [6.08, 6.49] Ich [7.01, 7.23] glaube, [7.23, 7.55] äh, [7.55, 7.99] das [7.99, 8.18] eine [8.18, 8.41] Projekt [8.41, 8.88] in [8.88, 9.01] Hamburg. [9.01, 9.48] Nein, [9.99, 10.21] Moment, [10.21, 10.63] das [10.63, 10.82] war [10.82, 10.99] nicht [10.99, 11.23] das [11.23, 11.41] Beste. [11.41, 11.79] Lassen [12.51, 12.83] Sie [12.83, 12.99] mich [12.99, 13.18] nochmal [13.18, 13.59] anfangen. [13.59, 14.11] Okay, [15.22, 15.60] also [15.60, 15.89] mein [15.89, 16.11] absolutes [16.11, 16.73] Lieblingsprojekt [16.73, 17.55] war [17.55, 17.78] die [17.78, 17.95] Neugestaltung [17.95, 18.82] des [18.82, 19.01] Stadtparks. [19.01, 19.83] Wir [19.83, 20.01] konnten [20.01, 20.33] dort [20.33, 20.55] eine [20.55, 20.78] grüne [20.78, 21.09] Oase [21.09, 21.51] schaffen, [21.51, 22.03] die [22.03, 22.21] für [22.21, 22.40] alle [22.40, 22.66] Bürger [22.66, 23.08] zugänglich [23.08, 23.68] ist. [23.68, 24.01] Die [24.01, 24.51] Kombination [24.51, 25.32] aus [25.32, 25.55] nachhaltiger [25.55, 26.31] Architektur [26.31, 27.08] und [27.08, 27.33] sozialem [27.33, 27.88] Engagement, [27.88, 28.69] das [28.69, 28.91] war [28.91, 29.09] wirklich [29.09, 29.48] einmalig. [29.48, 30.11] Ähm, [30.84, 31.22] ja, [31.22, 31.45] das [31.45, 31.66] war [31.66, 31.81] es [31.81, 31.95] im [31.95, 32.11] Grunde. [32.11, 32.53] Ja, [32.53, 32.69] genau, [32.69, 33.08] das [33.08, 33.28] war [33.28, 33.45] das [33.45, 33.61] Projekt. [33.61, 34.09] Das [34.09, 34.88] war [34.88, 35.05] das [35.05, 35.21] Projekt. [35.21, 35.88] Definitiv [36.54, 37.21] mein [37.21, 37.44] Favorit. [37.44, 38.05] Die [38.05, 38.22] positive [38.22, 38.71] Resonanz [38.71, 39.44] war [39.44, 39.63] überwältigend. [39.63, 40.77]"
+            },
+            {
+                "from": "gpt",
+                "value": "[(15.22, 30.11), (38.05, 40.77)]"
+            }
+        ]
+    },
+    {
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Bitte schlage passende Schnittpunkte vor basierend auf dem Transkript und der Beschreibung. \n Beschreibung: In diesem Tutorial-Ausschnitt soll der Sprecher flüssig und ohne Zögern zu hören sein. Entferne bitte alle Denkpausen, Fülllaute und den inhaltlichen Aussetzer. \n Transkript: Herzlich [0.21, 0.65] willkommen [0.65, 1.22] zu [1.22, 1.39] unserem [1.39, 1.77] heutigen [1.77, 2.18] Koch-Tutorial. [2.18, 3.11] Heute [3.55, 3.89] zeige [3.89, 4.19] ich [4.19, 4.33] euch, [4.33, 4.60] wie [4.60, 4.78] man [4.78, 5.01] eine [5.01, 5.23] perfekte [5.23, 5.81] Tomatensauce [5.81, 6.77] zubereitet. [6.77, 7.43] Zuerst [8.11, 8.56] brauchen [8.56, 8.91] wir... [8.91, 9.34] ähm... [9.34, 10.41] natürlich [10.41, 10.99] Tomaten. [10.99, 11.58] Am [11.58, 11.78] besten [11.78, 12.11] reife [12.11, 12.44] San-Marzano-Tomaten. [12.44, 13.92] Dann [13.92, 14.19] noch [14.19, 14.41] Zwiebeln, [14.41, 14.99] Knoblauch [14.99, 15.53] und... [15.53, 16.11] ach, [16.11, 16.38] was [16.38, 16.55] war [16.55, 16.71] das [16.71, 16.89] dritte? [16.89, 17.29] Ich [17.29, 17.43] hab's [17.43, 17.65] vergessen. [17.65, 18.21] Ah, [19.01, 19.23] genau, [19.23, 19.61] frisches [19.61, 20.08] Basilikum. [20.08, 20.81] Das [20.81, 21.02] ist [21.02, 21.19] ganz [21.19, 21.45] wichtig [21.45, 21.88] für [21.88, 22.09] das [22.09, 22.28] Aroma. [22.28, 22.79] So, [23.51, 23.82] als [23.82, 24.03] Erstes [24.03, 24.51] schneiden [24.51, 24.99] wir [24.99, 25.18] die [25.18, 25.33] Zwiebeln [25.33, 25.79] und [25.79, 25.98] den [25.98, 26.15] Knoblauch [26.15, 26.71] in [26.71, 26.88] feine [26.88, 27.21] Würfel. [27.21, 27.79] Danach [27.79, 28.11] dünsten [28.11, 28.59] wir [28.59, 28.77] sie [28.77, 28.91] in [28.91, 29.08] Olivenöl [29.08, 29.77] glasig [29.77, 30.28] an. [30.28, 30.51] Passt [30.51, 30.79] auf, [30.79, 31.02] dass [31.02, 31.21] es [31.21, 31.38] nicht [31.38, 31.62] zu [31.62, 31.79] braun [31.79, 32.11] wird. [32.11, 32.48] Dann [32.48, 32.71] gebt [32.71, 32.92] ihr [32.92, 33.08] die [33.08, 33.22] Tomaten [33.22, 33.71] hinzu [33.71, 34.09] und [34.09, 34.28] lasst [34.28, 34.55] alles [34.55, 34.88] für [34.88, 35.09] circa [35.09, 35.48] zwanzig [35.48, 35.91] Minuten [35.91, 36.44] köcheln. [36.44, 37.01] Zum [37.01, 37.22] Schluss [37.22, 37.64] kommt [37.64, 37.91] das [37.91, 38.08] Basilikum [38.08, 38.77] dazu. [38.77, 39.09] Fertig! [39.09, 40.12]"
+            },
+            {
+                "from": "gpt",
+                "value": "[(0.21, 7.43), (10.41, 15.53), (19.01, 40.12)]"
+            }
+        ]
+    },
+    {
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Bitte schlage passende Schnittpunkte vor basierend auf dem Transkript und der Beschreibung. \n Beschreibung: Aus den verschiedenen Antwortversuchen soll nur die letzte, zusammenhängende und flüssig vorgetragene Version ausgewählt werden. Die Einleitung durch den Moderator soll erhalten bleiben. \n Transkript: Und [0.08, 0.31] damit [0.31, 0.59] zur [0.59, 0.77] letzten [0.77, 1.11] Frage [1.11, 1.48] an [1.48, 1.63] unseren [1.63, 1.99] Gast, [1.99, 2.33] Herrn [2.33, 2.58] Meier: [2.58, 3.01] Was [3.01, 3.22] ist [3.22, 3.39] Ihr [3.39, 3.61] Ausblick [3.61, 4.11] für [4.11, 4.29] die [4.29, 4.44] nächsten [4.44, 4.88] fünf [4.88, 5.19] Jahre? [5.19, 5.71] Mein [6.83, 7.09] Ausblick [7.09, 7.64] ist, [7.64, 7.89] dass [7.89, 8.08] wir [8.08, 8.27] uns [8.27, 8.44] auf [8.44, 8.63] jeden [8.63, 8.89] Fall... [8.89, 9.31] also [9.31, 9.62] die [9.62, 9.77] Digitalisierung [9.77, 10.81] wird [10.81, 11.02] eine [11.02, 11.23] Rolle [11.23, 11.55] spielen. [11.55, 12.01] Das [12.01, 12.23] ist [12.23, 12.39] klar. [12.39, 12.71] Aber [12.71, 12.91] wie [12.91, 13.08] genau... [13.08, 13.53] das [13.53, 13.72] ist [13.72, 13.89] schwer [13.89, 14.21] zu [14.21, 14.33] sagen. [14.33, 14.72] Kann [15.44, 15.69] ich [15.69, 15.82] das [15.82, 16.01] nochmal [16.01, 16.38] formulieren? [16.38, 17.02] Sicher. [17.89, 18.31] Also, [19.21, 19.58] ich [19.58, 19.72] sehe [19.72, 19.99] zwei [19.99, 20.28] große [20.28, 20.66] Trends. [20.66, 21.11] Erstens, [21.73, 22.25] die [22.25, 22.41] nachhaltige [22.41, 23.18] Transformation [23.18, 24.11] unserer [24.11, 24.52] Wirtschaft. [24.52, 25.21] Zweitens, [25.77, 26.31] die [26.31, 26.49] fortschreitende [26.49, 27.52] Digitalisierung, [27.52, 28.43] die [28.43, 28.59] alle [28.59, 28.88] Lebensbereiche [28.88, 29.77] betrifft. [29.77, 30.33] Wir [30.33, 30.51] müssen [30.51, 30.88] diese [30.88, 31.19] beiden [31.19, 31.55] Entwicklungen [31.55, 32.41] klug [32.41, 32.73] miteinander [32.73, 33.38] verknüpfen, [33.38, 34.22] um [34.22, 34.41] zukunftsfähig [34.41, 35.33] zu [35.33, 35.48] bleiben. [35.48, 36.01] Das [36.01, 36.22] erfordert [36.22, 36.79] Mut [36.79, 37.08] und [37.08, 37.29] Investitionen, [37.29, 38.28] aber [38.28, 38.51] ich [38.51, 38.66] bin [38.66, 38.82] optimistisch. [38.82, 39.77] Das [39.77, 40.52] war [40.52, 40.71] besser, [40.71, 41.11] danke. [41.11, 41.52]"
+            },
+            {
+                "from": "gpt",
+                "value": "[(0.08, 5.71), (19.21, 39.77)]"
+            }
+        ]
+    },
+    {
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Bitte schlage passende Schnittpunkte vor basierend auf dem Transkript und der Beschreibung. \n Beschreibung: Die Anmoderation wurde mehrfach aufgenommen. Bitte schneide die verschiedenen Takes so zusammen, dass eine fehlerfreie und flüssige Version entsteht, die den Anfang des ersten Takes und das Ende des dritten Takes verwendet. \n Transkript: Hallo [0.55, 0.91] und [0.91, 1.08] herzlich [1.08, 1.48] willkommen [1.48, 2.01] bei [2.01, 2.21] 'Wissen [2.21, 2.63] Kompakt'. [2.63, 3.28] In [3.28, 3.44] der [3.44, 3.59] heutigen [3.59, 4.01] Sendung [4.01, 4.43] geht [4.43, 4.65] es [4.65, 4.81] um [4.81, 4.99] die... [4.99, 5.28] um [5.28, 5.49] die [5.49, 5.61] Faszination [5.61, 6.44] der [6.44, 6.61] Tiefsee. [6.61, 7.18] Oh, [7.18, 7.39] Versprecher. [7.39, 8.01] Nochmal. [8.01, 8.52] Hallo [10.11, 10.50] und [10.50, 10.67] herzlich [10.67, 11.09] willkommen [11.09, 11.64] bei [11.64, 11.85] 'Wissen [11.85, 12.28] Kompakt'. [12.28, 12.91] In [12.91, 13.08] der [13.08, 13.24] heutigen [13.24, 13.65] Sendung [13.65, 14.11] tauchen [14.11, 14.51] wir [14.51, 14.68] ein [14.68, 14.92] in [14.92, 15.08] die [15.08, 15.22] faszinierende [15.22, 16.08] Welt [16.08, 16.35] der [16.35, 16.51] Ozeane. [16.51, 17.18] Das [17.18, 17.41] war [17.41, 17.59] auch [17.59, 17.78] nicht [17.78, 18.01] gut. [18.01, 18.29] Aller [18.29, 18.55] guten [18.55, 18.81] Dinge [18.81, 19.10] sind [19.10, 19.31] drei. [19.31, 19.70] Hallo [21.34, 21.72] und [21.72, 21.89] herzlich [21.89, 22.33] willkommen [22.33, 22.89] bei [22.89, 23.11] 'Wissen [23.11, 23.55] Kompakt'. [23.55, 24.23] Heute [24.23, 24.58] nehmen [24.58, 24.91] wir [24.91, 25.09] Sie [25.09, 25.28] mit [25.28, 25.49] auf [25.49, 25.68] eine [25.68, 25.89] Reise [25.89, 26.28] in [26.28, 26.44] die [26.44, 26.59] unentdeckten [26.59, 27.48] Tiefen [27.48, 27.89] unserer [27.89, 28.28] Meere. [28.28, 28.77] Wir [28.77, 28.98] sprechen [28.98, 29.41] mit [29.41, 29.61] führenden [29.61, 30.11] Experten [30.11, 30.68] und [30.68, 30.89] zeigen [30.89, 31.28] atemberaubende [31.28, 32.33] Aufnahmen. [32.33, 33.01] Bleiben [33.01, 33.35] Sie [33.35, 33.51] dran. [33.51, 33.89] Perfekt, [34.55, 35.12] der [35.12, 35.28] ist [35.28, 35.41] es. [35.41, 35.66]"
+            },
+            {
+                "from": "gpt",
+                "value": "[(0.55, 3.28), (24.23, 33.89)]"
+            }
+        ]
+    },
+    {
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Bitte schlage passende Schnittpunkte vor basierend auf dem Transkript und der Beschreibung. \n Beschreibung: Der Monolog enthält einen langen, abschweifenden Teil über die Geschichte des Unternehmens. Bitte entferne diese Abschweifung, sodass der Sprecher direkt vom Problem zur Lösung kommt. \n Transkript: Unser [0.22, 0.53] Hauptproblem [0.53, 1.28] war [1.28, 1.49] die [1.49, 1.66] veraltete [1.66, 2.31] IT-Infrastruktur. [2.31, 3.52] Die [3.52, 3.71] Systeme [3.71, 4.22] waren [4.22, 4.47] langsam [4.47, 4.98] und [4.98, 5.17] extrem [5.17, 5.66] fehleranfällig. [5.66, 6.64] Das [6.64, 6.89] hat [6.89, 7.07] unsere [7.07, 7.41] tägliche [7.41, 7.82] Arbeit [7.82, 8.21] massiv [8.21, 8.68] behindert. [8.68, 9.31] Wissen [10.02, 10.38] Sie, [10.38, 10.61] als [10.61, 10.83] wir [10.83, 11.01] 1998 [11.01, 11.83] angefangen [11.83, 12.44] haben, [12.44, 12.79] da [12.79, 12.98] war [12.98, 13.17] das [13.17, 13.38] alles [13.38, 13.67] noch [13.67, 13.89] ganz [13.89, 14.18] anders. [14.18, 14.71] Wir [14.71, 14.90] hatten [14.90, 15.21] einen [15.21, 15.42] einzigen [15.42, 15.91] Server [15.91, 16.33] im [16.33, 16.51] Keller [16.51, 16.92] stehen [16.92, 17.28] und [17.28, 17.47] waren [17.47, 17.72] stolz [17.72, 18.08] darauf. [18.08, 18.51] Über [18.51, 18.78] die [18.78, 18.94] Jahre [18.94, 19.31] ist [19.31, 19.50] das [19.50, 19.69] natürlich [19.69, 20.22] gewachsen, [20.22, 20.88] aber [20.88, 21.11] irgendwie [21.11, 21.68] haben [21.68, 21.91] wir [21.91, 22.09] den [22.09, 22.28] Absprung [22.28, 22.81] verpasst. [22.81, 23.33] Naja, [23.33, 23.65] lange [23.65, 23.98] Rede, [23.98, 24.31] kurzer [24.31, 24.66] Sinn. [24.66, 25.01] Die [25.01, 25.68] Lösung [25.68, 26.09] war [26.09, 26.31] schließlich [26.31, 26.88] der [26.88, 27.07] komplette [27.07, 27.63] Umstieg [27.63, 28.11] auf [28.11, 28.31] eine [28.31, 28.52] cloudbasierte [28.52, 29.51] Umgebung. [29.51, 30.12] Seitdem [30.68, 31.11] läuft [31.11, 31.43] alles [31.43, 31.77] reibungslos [31.77, 32.66] und [32.66, 32.84] wir [32.84, 33.01] sind [33.01, 33.22] viel [33.22, 33.45] agiler. [33.45, 34.02] Das [34.02, 34.23] hat [34.23, 34.41] uns [34.41, 34.62] wirklich [34.62, 35.03] gerettet. [35.03, 35.61]"
+            },
+            {
+                "from": "gpt",
+                "value": "[(0.22, 9.31), (25.68, 35.61)]"
+            }
+        ]
+    },
+    {
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Bitte schlage passende Schnittpunkte vor basierend auf dem Transkript und der Beschreibung. \n Beschreibung: Das Video soll so geschnitten werden, dass die Frage und die Antwort darauf ohne die technischen Absprachen und Unterbrechungen zu sehen sind. \n Transkript: Okay, [0.41, 0.79] läuft [0.79, 1.11] die [1.11, 1.26] Kamera? [1.26, 1.72] Ja, [2.15, 2.38] super. [2.38, 2.77] Dann [2.77, 2.99] können [2.99, 3.22] wir [3.22, 3.39] starten. [3.39, 3.88] Achtung, [3.88, 4.29] die [4.29, 4.43] Frage [4.43, 4.78] kommt [4.78, 5.06] jetzt. [5.06, 5.41] Frau [6.23, 6.49] Dr. [6.49, 6.78] Schmidt, [6.78, 7.29] welche [7.29, 7.66] Rolle [7.66, 8.01] spielt [8.01, 8.33] künstliche [8.33, 8.91] Intelligenz [8.91, 9.77] in [9.77, 9.92] der [9.92, 10.09] modernen [10.09, 10.63] Medizin? [10.63, 11.29] KI [12.44, 12.75] ist [12.75, 12.93] ein [12.93, 13.11] entscheidender [13.11, 13.88] Game-Changer. [13.88, 14.92] Sie [14.92, 15.11] hilft [15.11, 15.42] uns [15.42, 15.61] bei [15.61, 15.79] der [15.79, 15.93] Analyse [15.93, 16.48] großer [16.48, 16.84] Datenmengen, [16.84, 17.72] zum [17.72, 17.92] Beispiel [17.92, 18.39] in [18.39, 18.52] der [18.52, 18.67] Genomik. [18.67, 19.33] Sorry, [19.98, 20.34] da [20.34, 20.49] war [20.49, 20.66] ein [20.66, 20.81] Geräusch. [20.81, 21.32] Machen [21.32, 21.63] wir [21.63, 21.79] ab [21.79, 21.94] 'Game-Changer' [21.94, 22.81] weiter? [22.81, 23.19] Ja, [23.19, 23.38] bitte. [23.38, 23.71] Okay. [24.52, 24.89] Sie [24.89, 25.08] revolutioniert [25.08, 26.11] die [26.11, 26.27] diagnostische [26.27, 27.13] Bildgebung, [27.13, 27.88] indem [27.88, 28.18] sie [28.18, 28.34] Muster [28.34, 28.79] erkennt, [28.79, 29.28] die [29.28, 29.43] für [29.43, 29.61] das [29.61, 29.81] menschliche [29.81, 30.41] Auge [30.41, 30.72] unsichtbar [30.72, 31.41] wären. [31.41, 31.83] Außerdem [32.33, 32.91] unterstützt [32.91, 33.51] sie [33.51, 33.68] die [33.68, 33.84] Entwicklung [33.84, 34.59] personalisierter [34.59, 35.68] Therapiepläne. [35.68, 36.84] Wir [36.84, 37.02] stehen [37.02, 37.33] erst [37.33, 37.58] am [37.58, 37.78] Anfang [37.78, 38.22] dieser [38.22, 38.58] Entwicklung. [38.58, 39.41] Das [39.41, 39.63] war [39.63, 39.79] super, [39.79, 40.21] danke. [40.21, 40.59]"
+            },
+            {
+                "from": "gpt",
+                "value": "[(6.23, 14.92), (24.89, 39.41)]"
+            }
+        ]
+    },
+    {
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Bitte schlage passende Schnittpunkte vor basierend auf dem Transkript und der Beschreibung. \n Beschreibung: Die Reportage enthält mehrere inhaltliche Wiederholungen und einen Moment, in dem der Sprecher den Faden verliert. Schneide diese Stellen heraus, um einen prägnanten und flüssigen Beitrag zu erstellen. \n Transkript: Die [0.13, 0.31] Situation [0.31, 0.89] vor [0.89, 1.08] Ort [1.08, 1.34] ist [1.34, 1.55] angespannt. [1.55, 2.31] Seit [2.31, 2.58] Tagen [2.58, 2.91] warten [2.91, 3.28] die [3.28, 3.44] Menschen [3.44, 3.88] auf [3.88, 4.09] Hilfe. [4.09, 4.52] Die [4.52, 4.71] Lage [4.71, 5.01] ist [5.01, 5.19] wirklich [5.19, 5.58] schwierig, [5.58, 6.22] die [6.22, 6.39] Leute [6.39, 6.68] hier [6.68, 6.89] brauchen [6.89, 7.28] dringend [7.28, 7.77] Unterstützung. [7.77, 8.59] Hilfsgüter [9.33, 10.08] kommen [10.08, 10.41] nur [10.41, 10.63] spärlich [10.63, 11.18] an, [11.18, 11.49] die [11.49, 11.66] Verteilung [11.66, 12.31] gestaltet [12.31, 12.82] sich [12.82, 13.04] schwierig. [13.04, 13.71] Und... [13.71, 14.22] ja, [14.22, 14.51] was [14.51, 14.73] wollte [14.73, 15.02] ich [15.02, 15.19] sagen... [15.19, 15.82] der [15.82, 16.29] Mangel [16.29, 16.71] an [16.71, 16.88] sauberem [16.88, 17.41] Wasser [17.41, 17.89] ist [17.89, 18.08] ein [18.08, 18.27] riesiges [18.27, 18.81] Problem. [18.81, 19.42] Es [19.42, 19.61] fehlt [19.61, 19.89] an [19.89, 20.08] allem, [20.08, 20.51] besonders [20.51, 21.09] Wasser [21.09, 21.52] ist [21.52, 21.71] knapp. [21.71, 22.18] Viele [22.18, 22.45] Kinder [22.45, 22.81] sind [22.81, 23.03] krank. [23.03, 23.44] Die [23.44, 23.62] medizinische [23.62, 24.38] Versorgung [24.38, 25.11] ist [25.11, 25.29] zusammengebrochen. [25.29, 26.54] Lokale [26.54, 27.01] Helfer [27.01, 27.38] geben [27.38, 27.65] ihr [27.65, 27.83] Bestes, [27.83, 28.38] aber [28.38, 28.61] sie [28.61, 28.78] sind [28.78, 29.01] am [29.01, 29.19] Limit. [29.19, 29.62] Die [29.62, 29.79] internationale [29.79, 30.69] Gemeinschaft [30.69, 31.48] ist [31.48, 31.67] gefordert, [31.67, 32.41] schneller [32.41, 32.89] und [32.89, 33.08] umfassender [33.08, 33.91] zu [33.91, 34.07] handeln. [34.07, 34.71] Jeder [34.71, 35.01] Tag [35.01, 35.28] zählt. [35.28, 35.78]"
+            },
+            {
+                "from": "gpt",
+                "value": "[(0.13, 2.31), (9.33, 13.71), (16.29, 19.42), (23.44, 35.78)]"
+            }
+        ]
+    },
+    {
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Bitte schlage passende Schnittpunkte vor basierend auf dem Transkript und der Beschreibung. \n Beschreibung: Aus dem Podcast-Intro sollen die ersten beiden misslungenen Versuche entfernt werden. Nur der dritte, gelungene Take soll verwendet werden. \n Transkript: Herzlich [0.73, 1.15] Willkommen [1.15, 1.68] zu [1.68, 1.83] einer [1.83, 2.05] neuen [2.05, 2.33] Folge [2.33, 2.68] von... [2.68, 3.11] von [3.11, 3.32] 'Tech-Talk'. [3.32, 4.09] Mist, [4.09, 4.41] schon [4.41, 4.63] wieder [4.63, 4.89] gestottert. [4.89, 5.51] Take [5.51, 5.79] zwei. [5.79, 6.11] Willkommen [7.21, 7.78] zurück [7.78, 8.18] bei [8.18, 8.39] 'Tech-Talk', [8.39, 9.18] dem [9.18, 9.38] Podcast [9.38, 9.87] über [9.87, 10.11] alles, [10.11, 10.44] was [10.44, 10.63] mit [10.63, 10.81] Technik... [10.81, 11.28] nee, [11.28, 11.51] der [11.51, 11.66] Slogan [11.66, 12.09] ist [12.09, 12.27] falsch. [12.27, 12.69] Okay, [12.69, 13.02] jetzt [13.02, 13.28] aber. [13.28, 13.67] Und [13.67, 13.82] los. [13.82, 14.15] Herzlich [15.88, 16.33] willkommen [16.33, 16.91] zu [16.91, 17.07] 'Tech-Talk', [17.07, 17.89] dem [17.89, 18.08] Podcast, [18.08, 18.59] der [18.59, 18.77] die [18.77, 18.93] Zukunft [18.93, 19.41] schon [19.41, 19.66] heute [19.66, 20.01] erklärt. [20.01, 20.59] Mein [20.59, 20.81] Name [20.81, 21.12] ist [21.12, 21.29] Jan [21.29, 21.55] und [21.55, 21.73] ich [21.73, 21.89] freue [21.89, 22.18] mich, [22.18, 22.44] dass [22.44, 22.63] ihr [22.63, 22.79] wieder [22.79, 23.11] dabei [23.11, 23.44] seid. [23.44, 23.81] Heute [23.81, 24.12] sprechen [24.12, 24.59] wir [24.59, 24.78] über [24.78, 25.04] Quantencomputing. [25.04, 26.29] Das [26.29, 26.51] klingt [26.51, 26.83] gut. [26.83, 27.11] Das [27.11, 27.29] nehmen [27.29, 27.58] wir. [27.58, 27.82]"
+            },
+            {
+                "from": "gpt",
+                "value": "[(15.88, 26.29)]"
+            }
+        ]
+    },
+    {
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Bitte schlage passende Schnittpunkte vor basierend auf dem Transkript und der Beschreibung. \n Beschreibung: In dem Statement gibt es mehrere Pausen und einen inhaltlichen Neustart. Bitte schneide das Video so, dass ein durchgehender, selbstbewusster Vortrag entsteht. \n Transkript: Wir [0.33, 0.51] stehen [0.51, 0.82] heute [0.82, 1.11] vor [1.11, 1.33] großen [1.33, 1.71] Herausforderungen. [1.71, 2.92] Das [2.92, 3.14] ist [3.14, 3.29] unbestreitbar. [3.29, 4.28] Wir [4.28, 4.45] müssen... [4.45, 5.31] wir [5.31, 5.48] müssen [5.48, 5.81] handeln. [5.81, 6.29] Und [6.29, 6.47] zwar [6.47, 6.72] jetzt. [6.72, 7.08] Die [7.08, 7.24] Klimakrise, [7.24, 8.01] die [8.01, 8.18] soziale [8.18, 8.67] Ungerechtigkeit [8.67, 9.81] und... [9.81, 10.63] und [10.63, 10.81] die [10.81, 10.97] geopolitischen [10.97, 12.02] Spannungen. [12.02, 12.78] Moment, [13.45, 13.91] ich [13.91, 14.05] fange [14.05, 14.33] den [14.33, 14.49] Satz [14.49, 14.77] nochmal [14.77, 15.18] an, [15.18, 15.41] der [15.41, 15.58] war [15.58, 15.74] nichts. [15.74, 16.11] Die [17.21, 17.40] drei [17.40, 17.68] zentralen [17.68, 18.33] Krisen [18.33, 18.77] unserer [18.77, 19.12] Zeit [19.12, 19.43] - [19.43, 19.68] Klimawandel, [19.68, 20.61] soziale [20.61, 21.08] Spaltung [21.08, 21.68] und [21.68, 21.89] geopolitische [21.89, 22.91] Instabilität [22.91, 23.88] - [23.88, 24.11] erfordern [24.11, 24.69] eine [24.69, 24.91] gemeinsame [24.91, 25.55] Antwort. [25.55, 26.21] Wir [26.21, 26.41] können [26.41, 26.71] es [26.71, 26.85] uns [26.85, 27.04] nicht [27.04, 27.29] länger [27.29, 27.68] leisten, [27.68, 28.19] wegzuschauen. [28.19, 29.01] Es [29.01, 29.19] ist [29.19, 29.34] Zeit [29.34, 29.61] für [29.61, 29.81] mutige [29.81, 30.22] Entscheidungen [30.22, 31.11] und [31.11, 31.32] entschlossenes [31.32, 32.21] Handeln. [32.21, 32.87] Lassen [32.87, 33.19] Sie [33.19, 33.38] uns [33.38, 33.58] diese [33.58, 33.88] Zukunft [33.88, 34.39] gemeinsam [34.39, 35.08] gestalten. [35.08, 35.81]"
+            },
+            {
+                "from": "gpt",
+                "value": "[(0.33, 4.28), (17.21, 35.81)]"
+            }
+        ]
+    },
+    {
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Bitte schlage passende Schnittpunkte vor basierend auf dem Transkript und der Beschreibung. \n Beschreibung: Die Buchrezension soll so bearbeitet werden, dass sie ohne die persönlichen Kommentare und die kleine technische Störung (Handy-Klingeln) präsentiert wird. Der Fokus soll rein auf der Analyse des Buches liegen. \n Transkript: Heute [0.38, 0.71] bespreche [0.71, 1.25] ich [1.25, 1.39] den [1.39, 1.57] neuen [1.57, 1.84] Roman [1.84, 2.28] 'Schatten [2.28, 2.78] im [2.78, 2.94] Wind'. [2.94, 3.45] Ich [3.45, 3.61] muss [3.61, 3.82] sagen, [3.82, 4.13] ich [4.13, 4.29] hatte [4.29, 4.53] hohe [4.53, 4.81] Erwartungen, [4.81, 5.59] weil [5.59, 5.79] ich [5.79, 5.94] die [5.94, 6.09] Autorin [6.09, 6.55] sehr [6.55, 6.78] schätze. [6.78, 7.28] Die [7.28, 7.45] Handlung [7.45, 8.01] entfaltet [8.01, 8.58] sich [8.58, 8.81] langsam, [8.81, 9.42] baut [9.42, 9.69] aber [9.69, 9.89] eine [9.89, 10.11] unglaublich [10.11, 10.82] dichte [10.82, 11.21] Atmosphäre [11.21, 12.01] auf. [12.01, 12.33] Die [12.33, 12.51] Charaktere [12.51, 13.22] sind [13.22, 13.45] vielschichtig [13.45, 14.31] und [14.31, 14.51] psychologisch [14.51, 15.44] tiefgründig [15.44, 16.22] gezeichnet. [16.22, 16.91] Oh, [16.91, 17.12] Entschuldigung, [17.12, 17.88] mein [17.88, 18.09] Handy. [18.09, 18.52] Ich [18.52, 18.68] mach's [18.68, 18.91] kurz [18.91, 19.18] lautlos. [19.18, 19.81] So. [19.81, 20.12] Wo [20.12, 20.31] war [20.31, 20.48] ich? [20.48, 20.73] Ach [20.73, 20.92] ja, [20.92, 21.11] die [21.11, 21.28] Sprache [21.28, 21.75] ist [21.75, 21.93] präzise [21.93, 22.48] und [22.48, 22.69] poetisch [22.69, 23.28] zugleich. [23.28, 23.91] Was [23.91, 24.12] mir [24.12, 24.31] allerdings [24.31, 24.89] nicht [24.89, 25.12] so [25.12, 25.29] gut [25.29, 25.51] gefallen [25.51, 25.99] hat, [25.99, 26.28] war [26.28, 26.47] das [26.47, 26.65] Ende. [26.65, 27.01] Das [27.01, 27.21] wirkte [27.21, 27.61] etwas [27.61, 27.99] überhastet. [27.99, 28.71] Aber [28.71, 28.92] das [28.92, 29.09] ist [29.09, 29.25] nur [29.25, 29.43] meine [29.43, 29.71] persönliche [29.71, 30.31] Meinung. [30.31, 30.88] Insgesamt [31.51, 32.22] ist [32.22, 32.39] es [32.39, 32.54] aber [32.54, 32.75] eine [32.75, 32.94] klare [32.94, 33.28] Leseempfehlung [33.28, 34.41] für [34.41, 34.61] alle, [34.61, 34.89] die [34.89, 35.08] anspruchsvolle [35.08, 36.11] Literatur [36.11, 36.72] mögen. [36.72, 37.21]"
+            },
+            {
+                "from": "gpt",
+                "value": "[(0.38, 3.45), (7.28, 16.91), (20.92, 28.71), (31.51, 37.21)]"
+            }
+        ]
+    },
+    {
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Bitte schlage passende Schnittpunkte vor basierend auf dem Transkript und der Beschreibung. \n Beschreibung: Ein Nachrichtenkorrespondent korrigiert sich mehrmals bei Namen und Orten. Schneide die Fehler und Neustarts heraus, um einen klaren, professionellen Bericht zu erstellen. \n Transkript: Hier [0.21, 0.43] live [0.43, 0.69] aus [0.69, 0.88] Brüssel, [0.88, 1.34] mein [1.34, 1.55] Name [1.55, 1.82] ist [1.82, 1.99] Klaus [1.99, 2.33] Schulze. [2.33, 2.88] Die [2.88, 3.05] EU-Kommission [3.05, 3.88] hat [3.88, 4.07] heute [4.07, 4.38] über [4.38, 4.61] das [4.61, 4.79] neue [4.79, 5.08] Klimapaket [5.08, 5.88] beraten. [5.88, 6.34] Der [6.34, 6.52] Sprecher, [6.52, 6.99] äh, [6.99, 7.21] der [7.21, 7.39] Kommissionspräsident [7.39, 8.61] von [8.61, 8.82] der [8.82, 8.99] Leyen... [8.99, 9.44] nein, [9.44, 9.71] die [9.71, 9.88] Präsidentin [9.88, 10.55] Ursula [10.55, 11.01] von [11.01, 11.21] der [11.21, 11.38] Leyen, [11.38, 11.81] hat [11.81, 12.01] die [12.01, 12.19] Ergebnisse [12.19, 12.83] vorgestellt. [12.83, 13.51] Es [13.51, 13.71] geht [13.71, 13.93] um [13.93, 14.11] eine [14.11, 14.32] Reduktion [14.32, 14.99] der [14.99, 15.17] Emissionen [15.17, 15.91] um [15.91, 16.08] 50 [16.08, 16.51] Prozent. [16.51, 17.02] Sorry, [17.02, 17.38] Korrektur, [17.38, 18.01] es [18.01, 18.18] sind [18.18, 18.41] 55 [18.41, 18.99] Prozent [18.99, 19.41] bis [19.41, 19.62] 2030. [19.62, 20.21] Das [20.21, 20.43] Treffen [20.43, 20.81] fand [20.81, 21.08] in [21.08, 21.22] Berlin... [21.22, 21.71] ich [21.71, 21.89] meine [21.89, 22.18] natürlich [22.18, 22.77] in [22.77, 22.91] Brüssel [22.91, 23.41] statt. [23.41, 23.77] Die [23.77, 23.95] Verhandlungen [23.95, 24.81] waren [24.81, 25.08] intensiv. [25.08, 25.77] Es [25.77, 25.95] bleibt [25.95, 26.28] abzuwarten, [26.28, 27.08] wie [27.08, 27.28] die [27.28, 27.44] Mitgliedsstaaten [27.44, 28.41] reagieren. [28.41, 29.11] Zurück [29.11, 29.48] ins [29.48, 29.69] Studio. [29.69, 30.18]"
+            },
+            {
+                "from": "gpt",
+                "value": "[(0.21, 6.34), (9.71, 15.91), (18.41, 21.22), (22.77, 30.18)]"
+            }
+        ]
+    },
+    {
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Bitte schlage passende Schnittpunkte vor basierend auf dem Transkript und der Beschreibung. \n Beschreibung: Der Rezensent schweift zu einem anderen Produkt ab und hat einige lange Denkpausen. Entferne den themenfremden Teil und die langen Pausen. \n Transkript: In [0.15, 0.33] diesem [0.33, 0.61] Video [0.61, 0.99] schauen [0.99, 1.33] wir [1.33, 1.49] uns [1.49, 1.68] das [1.68, 1.87] neue [1.87, 2.15] 'Galaxy [2.15, 2.68] S30' [2.68, 3.11] an. [3.11, 3.39] Das [3.39, 3.58] Display [3.58, 4.11] ist [4.11, 4.88] wirklich [4.88, 5.31] beeindruckend. [5.31, 6.21] Es [6.21, 6.39] hat [6.39, 6.58] eine [6.58, 6.79] Bildwiederholrate [6.79, 8.01] von [8.01, 8.19] 120 [8.19, 8.78] Hertz. [8.78, 9.21] Die [9.21, 9.39] Kamera [9.39, 9.87] macht [9.87, 10.15] gestochen [10.15, 10.77] scharfe [10.77, 11.15] Bilder, [11.15, 11.59] auch [11.59, 11.81] bei [11.81, 12.01] wenig [12.01, 12.33] Licht. [12.33, 12.71] Das [12.71, 12.91] erinnert [12.91, 13.33] mich [13.33, 13.52] an [13.52, 13.68] das [13.68, 13.87] Vorgängermodell, [13.87, 14.99] das [14.99, 15.19] S29. [15.19, 15.68] Das [15.68, 15.87] hatte [15.87, 16.11] ja [16.11, 16.27] auch [16.27, 16.48] schon [16.48, 16.71] eine [16.71, 16.89] gute [16.89, 17.18] Kamera, [17.18, 17.69] aber [17.69, 17.91] der [17.91, 18.08] Akku [18.08, 18.44] war [18.44, 18.61] nicht [18.61, 18.82] so [18.82, 18.99] toll. [18.99, 19.33] Aber [19.33, 19.55] zurück [19.55, 19.91] zum [19.91, 20.11] S30. [20.11, 20.55] Der [20.55, 20.73] Akku [20.73, 21.08] hier [21.08, 21.29] hält [21.29, 21.58] den [21.58, 21.77] ganzen [21.77, 22.11] Tag, [22.11, 22.41] selbst [22.41, 22.77] bei [22.77, 22.98] intensiver [22.98, 23.61] Nutzung. [23.61, 24.22] Das [24.22, 24.41] Design [24.41, 24.91] ist [24.91, 25.09] ebenfalls [25.09, 25.68] sehr [25.68, 25.91] gelungen. [25.91, 26.44] Es [26.44, 26.62] liegt [26.62, 26.88] gut [26.88, 27.09] in [27.09, 27.23] der [27.23, 27.39] Hand [27.39, 27.71] und [27.71, 27.89] fühlt [27.89, 28.18] sich [28.18, 28.39] hochwertig [28.39, 29.11] an. [29.11, 29.38] Alles [29.38, 29.68] in [29.68, 29.82] allem... [29.82, 30.81] ein [30.81, 31.01] wirklich [31.01, 31.44] tolles [31.44, 31.81] Gerät. [31.81, 32.28] Mein [32.28, 32.51] Fazit [32.51, 32.99] ist [32.99, 33.18] also: [33.18, 33.51] Klare [33.51, 33.88] Kaufempfehlung. [33.88, 35.11]"
+            },
+            {
+                "from": "gpt",
+                "value": "[(0.15, 12.71), (20.55, 29.38), (30.81, 35.11)]"
+            }
+        ]
+    },
+    {
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Bitte schlage passende Schnittpunkte vor basierend auf dem Transkript und der Beschreibung. \n Beschreibung: Der Gast wiederholt eine Anekdote. Bitte entferne die Wiederholung sowie Füllwörter von Gast und Moderator, um das Gespräch prägnanter zu machen. \n Transkript: Moderator: [0.31, 1.01] Erzählen [1.01, 1.44] Sie [1.44, 1.62] uns [1.62, 1.81] doch [1.81, 2.02] mal [2.02, 2.24] von [2.24, 2.43] Ihrem [2.43, 2.71] ersten [2.71, 3.08] Tag. [3.08, 3.44] Gast: [3.44, 3.81] Ja, [3.81, 4.02] also, [4.02, 4.41] mein [4.41, 4.63] erster [4.63, 5.01] Tag [5.01, 5.29] war [5.29, 5.51] quasi [5.51, 5.91] unvergesslich. [5.91, 6.89] Ich [6.89, 7.08] kam [7.08, 7.31] ins [7.31, 7.51] Büro [7.51, 7.91] und [7.91, 8.09] der [8.09, 8.24] Chef [8.24, 8.55] hat [8.55, 8.73] mich [8.73, 8.92] direkt [8.92, 9.28] mit [9.28, 9.47] zum [9.47, 9.69] wichtigsten [9.69, 10.33] Kunden [10.33, 10.77] genommen. [10.77, 11.29] Das [11.29, 11.51] war [11.51, 11.69] pures [11.69, 12.08] Adrenalin. [12.08, 12.81] Moderator: [12.81, 13.21] Das [13.21, 13.41] klingt [13.41, 13.77] ja [13.77, 13.91] spannend. [13.91, 14.55] Und [14.55, 14.73] später [14.73, 15.11] am [15.11, 15.29] Tag? [15.29, 15.61] Gast: [15.61, 16.01] Ja, [16.01, 16.21] genau. [16.21, 16.61] Wir [16.61, 16.81] haben [16.81, 17.08] den [17.08, 17.27] Deal [17.27, 17.58] tatsächlich [17.58, 18.28] abgeschlossen. [18.28, 19.11] Das [19.11, 19.33] war [19.33, 19.51] ein [19.51, 19.69] riesen [19.69, 20.08] Erfolg. [20.08, 20.66] Moderator: [20.66, 21.11] Und [21.11, 21.29] wie [21.29, 21.48] war [21.48, 21.67] das [21.67, 21.85] nochmal [21.85, 22.28] mit [22.28, 22.47] dem [22.47, 22.65] Kunden? [22.65, 23.11] Gast: [23.11, 23.51] Ach [23.51, 23.71] ja, [23.71, 23.91] also [23.91, 24.21] ich [24.21, 24.38] kam [24.38, 24.61] an [24.61, 24.77] und [24.77, 24.95] mein [24.95, 25.18] Chef [25.18, 25.48] meinte [25.48, 25.88] direkt, [25.88, 26.28] wir [26.28, 26.47] fahren [26.47, 26.81] zum [26.81, 27.02] Großkunden. [27.02, 27.77] Das [27.77, 27.98] war [27.98, 28.17] echt [28.17, 28.41] eine [28.41, 28.59] Feuertaufe. [28.59, 29.41] Also [29.41, 29.71] wirklich [29.71, 30.11] ein [30.11, 30.29] Sprung [30.29, 30.68] ins [30.68, 30.89] kalte [30.89, 31.22] Wasser. [31.22, 31.81] Aber [31.81, 32.02] es [32.02, 32.18] hat [32.18, 32.37] sich [32.37, 32.58] gelohnt. [32.58, 33.11]"
+            },
+            {
+                "from": "gpt",
+                "value": "[(0.31, 3.44), (4.41, 12.81), (16.61, 20.66), (31.81, 33.11)]"
+            }
+        ]
+    },
+    {
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Bitte schlage passende Schnittpunkte vor basierend auf dem Transkript und der Beschreibung. \n Beschreibung: Der Vortragende verliert den Faden und muss hörbar in seinen Notizen nachsehen. Bitte entferne diese Unterbrechung und die daraus resultierenden Pausen, um eine reibungslose Präsentation zu gewährleisten. \n Transkript: Der [0.51, 0.71] nächste [0.71, 1.08] wichtige [1.08, 1.55] Punkt [1.55, 1.88] auf [1.88, 2.07] unserer [2.07, 2.48] Agenda [2.48, 3.01] ist [3.01, 3.22] die [3.22, 3.39] Implementierung [3.39, 4.51] der [4.51, 4.69] neuen [4.69, 5.01] Software. [5.01, 5.71] Diese [5.71, 6.01] wird [6.01, 6.22] unsere [6.22, 6.61] Effizienz [6.61, 7.31] steigern [7.31, 7.81] und [7.81, 8.01] die [8.01, 8.18] Arbeitsabläufe [8.18, 9.11] optimieren. [9.11, 9.88] Dazu [9.88, 10.18] gehört [10.18, 10.51] auch... [10.51, 11.21] äh, [11.21, 11.51] einen [11.51, 11.77] Moment, [11.77, 12.18] ich [12.18, 12.33] muss [12.33, 12.55] kurz [12.55, 12.82] schauen, [12.82, 13.22] wo [13.22, 13.41] ich [13.41, 13.55] war. [13.55, 13.88] *raschelt [13.88, 14.33] mit [14.33, 14.51] Papier* [14.51, 15.22] Ah, [15.22, 15.44] hier. [15.44, 15.77] Genau. [15.77, 16.18] Ein [16.18, 16.37] wesentlicher [16.37, 17.08] Bestandteil [17.08, 17.88] ist [17.88, 18.07] die [18.07, 18.22] Schulung [18.22, 18.77] aller [18.77, 19.08] Mitarbeiter. [19.08, 19.88] Wir [19.88, 20.07] werden [20.07, 20.38] ab [20.38, 20.55] nächster [20.55, 20.99] Woche [20.99, 21.33] gestaffelte [21.33, 22.08] Workshops [22.08, 22.77] anbieten. [22.77, 23.33] Die [23.33, 23.51] Teilnahme [23.51, 24.11] ist [24.11, 24.29] für [24.29, 24.48] alle [24.48, 24.77] verpflichtend. [24.77, 25.77] Bitte [25.77, 26.07] tragen [26.07, 26.38] Sie [26.38, 26.55] sich [26.55, 26.77] in [26.77, 26.91] die [26.91, 27.08] Listen [27.08, 27.48] ein. [27.48, 27.81]"
+            },
+            {
+                "from": "gpt",
+                "value": "[(0.51, 9.88), (16.18, 27.81)]"
+            }
+        ]
+    },
+    {
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Bitte schlage passende Schnittpunkte vor basierend auf dem Transkript und der Beschreibung. \n Beschreibung: Der Erzähler einer Dokumentation hustet mitten im Satz und wiederholt eine Zeile. Bitte bearbeite die Aufnahme so, dass der Husten und der wiederholte Satz entfernt werden, um eine saubere Tonspur zu erhalten. \n Transkript: In [0.77, 0.95] den [0.95, 1.13] unendlichen [1.13, 1.82] Weiten [1.82, 2.22] der [2.22, 2.39] Arktis [2.39, 2.99] kämpft [2.99, 3.39] der [3.39, 3.58] Eisbär [3.58, 4.18] ums [4.18, 4.44] Überleben. [4.44, 5.31] Sein [5.31, 5.58] Lebensraum [5.58, 6.31] schmilzt [6.31, 6.81] ihm [6.81, 6.99] buchstäblich [6.99, 7.82] unter [7.82, 8.11] den [8.11, 8.29] Tatzen [8.29, 8.78] weg. [8.78, 9.11] Jedes [9.11, 9.41] Jahr [9.41, 9.69] wird [9.69, 9.89] das [9.89, 10.08] Eis [10.08, 10.38] dünner [10.38, 10.81] und... [10.81, 11.41] *hustet* [11.41, 12.11] Entschuldigung, [12.11, 12.91] nochmal. [12.91, 13.41] Jedes [13.41, 13.71] Jahr [13.71, 13.99] wird [13.99, 14.19] das [14.19, 14.38] Eis [14.38, 14.68] dünner, [14.68, 15.21] die [15.21, 15.39] Jagd [15.39, 15.71] nach [15.71, 15.93] Robben [15.93, 16.38] schwieriger. [16.38, 17.21] Für [17.21, 17.41] die [17.41, 17.58] majestätischen [17.58, 18.51] Jäger [18.51, 18.91] beginnt [18.91, 19.38] ein [19.38, 19.59] Wettlauf [19.59, 20.18] gegen [20.18, 20.48] die [20.48, 20.63] Zeit. [20.63, 21.08] Ihre [21.08, 21.38] Zukunft [21.38, 21.88] ist [21.88, 22.07] ungewiss. [22.07, 22.81] Ein [22.81, 23.02] Symbol [23.02, 23.51] für [23.51, 23.71] die [23.71, 23.89] globale [23.89, 24.41] Erwärmung. [24.41, 25.41]"
+            },
+            {
+                "from": "gpt",
+                "value": "[(0.77, 10.81), (14.68, 25.41)]"
+            }
+        ]
+    },
+    {
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Bitte schlage passende Schnittpunkte vor basierend auf dem Transkript und der Beschreibung. \n Beschreibung: Die Köchin verspricht sich bei den Mengenangaben und zögert mehrmals. Bitte präsentiere nur die korrekten, selbstbewussten Anweisungen. \n Transkript: So, [0.33, 0.59] für [0.59, 0.77] unseren [0.77, 1.13] Teig [1.13, 1.44] brauchen [1.44, 1.82] wir [1.82, 1.99] 200 [1.99, 2.51] Gramm [2.51, 2.82] Mehl... [2.82, 3.22] äh, [3.22, 3.55] nein, [3.55, 3.82] 250 [3.82, 4.51] Gramm. [4.51, 4.88] Also, [4.88, 5.18] wir [5.18, 5.37] nehmen [5.37, 5.69] 250 [5.69, 6.33] Gramm [6.33, 6.64] Mehl. [6.64, 7.01] Dazu [7.01, 7.31] kommt [7.31, 7.58] ein [7.58, 7.77] Teelöffel [7.77, 8.41] Salz [8.41, 8.78] und [8.78, 8.95] ähm... [8.95, 9.88] eine [9.88, 10.08] Prise [10.08, 10.44] Zucker. [10.44, 10.91] Dann [10.91, 11.13] verrühren [11.13, 11.69] wir [11.69, 11.87] alles [11.87, 12.18] gut. [12.18, 12.51] Als [12.51, 12.73] nächstes [12.73, 13.18] geben [13.18, 13.48] wir [13.48, 13.67] 100 [13.67, 14.11] Milliliter [14.11, 14.77] Wasser [14.77, 15.22] hinzu. [15.22, 15.61] Oder [15.61, 15.82] waren [15.82, 16.07] es [16.07, 16.21] 120? [16.21, 16.77] Ja, [16.77, 16.98] 120 [16.98, 17.58] Milliliter [17.58, 18.22] lauwarmes [18.22, 18.91] Wasser. [18.91, 19.41] Und [19.41, 19.61] einen [19.61, 19.83] Esslöffel [19.83, 20.48] Öl. [20.48, 20.78] Das [20.78, 21.01] kneten [21.01, 21.41] wir [21.41, 21.58] jetzt [21.58, 21.82] zu [21.82, 21.99] einem [21.99, 22.22] glatten [22.22, 22.63] Teig. [22.63, 23.08] Das [23.08, 23.29] sollte [23.29, 23.61] dann [23.61, 23.82] so [23.82, 24.01] aussehen. [24.01, 24.61]"
+            },
+            {
+                "from": "gpt",
+                "value": "[(5.18, 8.78), (9.88, 12.51), (16.98, 24.61)]"
+            }
+        ]
+    },
+    {
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Bitte schlage passende Schnittpunkte vor basierend auf dem Transkript und der Beschreibung. \n Beschreibung: Der Politiker verspricht sich und wiederholt einen Schlüsselsatz zur Betonung, was jedoch redundant wirkt. Bitte entferne die Versprecher und die zweite Nennung des Schlüsselsatzes, um eine kraftvollere und direktere Aussage zu schaffen. \n Transkript: Meine [0.41, 0.69] Damen [0.69, 0.99] und [0.99, 1.13] Herren, [1.13, 1.62] wir [1.62, 1.79] müssen [1.79, 2.11] in [2.11, 2.25] die [2.25, 2.39] Zukunft [2.39, 2.88] unseres [2.88, 3.28] Landes [3.28, 3.69] investieren. [3.69, 4.51] Das [4.51, 4.71] ist [4.71, 4.88] unsere... [4.88, 5.51] unsere [5.51, 5.88] Verpflichtung [5.88, 6.81] gegenüber [6.81, 7.33] den [7.33, 7.51] nächsten [7.51, 7.91] Generationen. [7.91, 8.88] Bildung [8.88, 9.38] ist [9.38, 9.55] der [9.55, 9.71] Schlüssel [9.71, 10.21] zu [10.21, 10.38] Wohlstand [10.38, 11.08] und [11.08, 11.28] Innovation. [11.28, 12.11] Bildung [12.11, 12.61] ist [12.61, 12.78] der [12.78, 12.95] Schlüssel [12.95, 13.45] zu [13.45, 13.62] Wohlstand [13.62, 14.32] und [14.32, 14.52] Innovation. [14.52, 15.35] Wir [15.35, 15.53] werden [15.53, 15.82] daher [15.82, 16.13] ein [16.13, 16.33] umfassendes [16.33, 17.11] Programm [17.11, 17.62] auflegen, [17.62, 18.21] um [18.21, 18.38] unsere [18.38, 18.71] Schulen [18.71, 19.13] zu [19.13, 19.29] modernisieren [19.29, 20.28] und [20.28, 20.47] die [20.47, 20.62] Lehrer... [20.62, 21.21] die [21.21, 21.38] Lehrkräfte [21.38, 22.08] besser [22.08, 22.41] auszustatten. [22.41, 23.28] Das [23.28, 23.49] ist [23.49, 23.67] unser [23.67, 23.95] Versprechen. [23.95, 24.71]"
+            },
+            {
+                "from": "gpt",
+                "value": "[(0.41, 4.51), (5.51, 12.11), (15.35, 20.28), (21.21, 24.71)]"
+            }
+        ]
+    },
+    {
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Bitte schlage passende Schnittpunkte vor basierend auf dem Transkript und der Beschreibung. \n Beschreibung: Der Heimwerker wird von einem lauten Geräusch von draußen unterbrochen und kommentiert dies. Bitte entferne die Unterbrechung, den Kommentar und die häufigen Füllwörter 'so' und 'genau'. \n Transkript: So, [0.66, 0.99] als [0.99, 1.19] nächstes [1.19, 1.66] nehmen [1.66, 1.99] wir [1.99, 2.15] die [2.15, 2.31] Holzplatte [2.31, 3.01] und [3.01, 3.19] legen [3.19, 3.47] sie [3.47, 3.61] hier [3.61, 3.82] an. [3.82, 4.09] Genau, [4.09, 4.55] achtet [4.55, 4.88] darauf, [4.88, 5.22] dass [5.22, 5.41] sie [5.41, 5.58] bündig [5.58, 6.01] abschließt. [6.01, 6.71] Jetzt [6.71, 6.99] nehmen [6.99, 7.31] wir [7.31, 7.48] den [7.48, 7.66] Akkuschrauber... [7.66, 8.55] *LAUTES [8.55, 8.99] AUTOHUPEN* [8.99, 9.88] ...Mensch, [9.88, 10.33] was [10.33, 10.51] ist [10.51, 10.66] denn [10.66, 10.82] hier [10.82, 11.01] los? [11.01, 11.38] Naja. [11.38, 11.71] So, [11.71, 12.01] also [12.01, 12.28] jetzt [12.28, 12.51] verschrauben [12.51, 13.22] wir [13.22, 13.39] die [13.39, 13.55] Platte [13.55, 13.91] an [13.91, 14.08] drei [14.08, 14.38] Punkten. [14.38, 14.88] Einen [14.88, 15.15] hier [15.15, 15.33] links, [15.33, 15.71] einen [15.71, 15.93] rechts [15.93, 16.33] und [16.33, 16.51] einen [16.51, 16.73] in [16.73, 16.88] der [16.88, 17.02] Mitte. [17.02, 17.44] Genau. [17.44, 17.88] So, [17.88, 18.15] das [18.15, 18.33] sollte [18.33, 18.66] halten. [18.66, 19.11] Im [19.11, 19.31] nächsten [19.31, 19.71] Schritt [19.71, 20.08] wird [20.08, 20.29] dann [20.29, 20.51] geschliffen. [20.51, 21.33]"
+            },
+            {
+                "from": "gpt",
+                "value": "[(0.99, 6.71), (12.28, 17.44), (18.66, 21.33)]"
+            }
+        ]
+    },
+    {
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Bitte schlage passende Schnittpunkte vor basierend auf dem Transkript und der Beschreibung. \n Beschreibung: Der Lehrer erklärt eine Grammatikregel, merkt dann, dass es zu kompliziert ist, und formuliert die Erklärung neu, um sie verständlicher zu machen. Bitte schneide die erste, verwirrende Erklärung heraus und behalte nur die klare, neu formulierte Version. \n Transkript: Heute [0.53, 0.88] geht [0.88, 1.09] es [1.09, 1.25] um [1.25, 1.43] den [1.43, 1.59] Genitiv [1.59, 2.18] im [2.18, 2.37] Deutschen. [2.37, 3.01] Der [3.01, 3.19] Genitiv [3.19, 3.68] ist [3.68, 3.87] ein [3.87, 4.05] Kasus, [4.05, 4.51] der [4.51, 4.68] eine [4.68, 4.87] Zugehörigkeit [4.87, 5.81] oder [5.81, 6.01] Herkunft [6.01, 6.58] anzeigt, [6.58, 7.01] wobei [7.01, 7.33] das [7.33, 7.51] attributive [7.51, 8.28] Genitivattribut [8.28, 9.33] postnominal [9.33, 10.11] steht, [10.11, 10.44] es [10.44, 10.59] sei [10.59, 10.78] denn, [10.78, 11.02] es [11.02, 11.18] handelt [11.18, 11.55] sich [11.55, 11.73] um [11.73, 11.89] einen [11.89, 12.08] Eigennamen. [12.08, 12.81] Puh, [12.81, 13.11] Moment, [13.11, 13.55] das [13.55, 13.73] kann [13.73, 13.93] man [13.93, 14.13] einfacher [14.13, 14.69] sagen. [14.69, 15.08] Vergessen [15.08, 15.55] Sie [15.55, 15.71] das [15.71, 15.89] mal [15.89, 16.09] kurz. [16.09, 16.44] Stellen [17.51, 17.91] Sie [17.91, 18.08] sich [18.08, 18.28] den [18.28, 18.45] Genitiv [18.45, 19.01] einfach [19.01, 19.44] als [19.44, 19.65] die [19.65, 19.81] 'Wessen?'-Frage [19.81, 20.88] vor. [20.88, 21.18] Das [21.18, 21.39] Auto [21.39, 21.78] meines [21.78, 22.21] Vaters. [22.21, 22.81] Wessen [22.81, 23.18] Auto? [23.18, 23.61] Das [23.61, 23.81] meines [23.81, 24.18] Vaters. [24.18, 24.77] Das [24.77, 24.98] ist [24.98, 25.15] im [25.15, 25.33] Grunde [25.33, 25.68] schon [25.68, 25.91] alles. [25.91, 26.33] Mit [26.33, 26.55] dieser [26.55, 26.88] einfachen [26.88, 27.41] Regel [27.41, 27.81] kommen [27.81, 28.18] Sie [28.18, 28.37] meistens [28.37, 28.91] zurecht. [28.91, 29.44]"
+            },
+            {
+                "from": "gpt",
+                "value": "[(17.51, 29.44)]"
+            }
+        ]
+    },
+    {
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Bitte schlage passende Schnittpunkte vor basierend auf dem Transkript und der Beschreibung. \n Beschreibung: Der Filmkritiker beginnt seine Zusammenfassung, bricht ab, startet neu und verwendet mehrere Füllwörter. Bitte erstelle eine saubere Version der Filmzusammenfassung, indem du den Fehlstart und die Füllwörter entfernst. \n Transkript: Kommen [0.28, 0.59] wir [0.59, 0.73] nun [0.73, 0.92] zur [0.92, 1.09] Handlung [1.09, 1.62] des [1.62, 1.81] Films. [1.81, 2.24] Der [2.24, 2.41] Film... [2.41, 2.99] also, [2.99, 3.38] der [3.38, 3.55] Film [3.55, 3.88] handelt [3.88, 4.31] von... [4.31, 4.88] ähm... [4.88, 5.61] nee, [5.61, 5.88] anders. [5.88, 6.33] Ich [6.33, 6.49] formuliere [6.49, 7.11] das [7.11, 7.29] besser. [7.29, 7.77] In [8.81, 9.01] diesem [9.01, 9.33] visuell [9.33, 9.88] beeindruckenden [9.88, 10.88] Werk [10.88, 11.22] geht [11.22, 11.44] es [11.44, 11.61] um [11.61, 11.79] eine [11.79, 12.01] junge [12.01, 12.33] Künstlerin, [12.33, 13.01] die [13.01, 13.19] in [13.19, 13.33] einer [13.33, 13.55] dystopischen [13.55, 14.33] Zukunft [14.33, 14.81] lebt. [14.81, 15.18] Sie [15.18, 15.39] entdeckt [15.39, 15.88] eine [15.88, 16.09] verborgene [16.09, 16.68] Welt [16.68, 17.01] und [17.01, 17.19] muss [17.19, 17.44] sich [17.44, 17.65] entscheiden, [17.65, 18.33] ob [18.33, 18.49] sie [18.49, 18.65] für [18.65, 18.82] die [18.82, 18.99] Freiheit [18.99, 19.48] kämpft [19.48, 19.91] oder [19.91, 20.12] sich [20.12, 20.33] dem [20.33, 20.51] System [20.51, 21.01] fügt. [21.01, 21.44] Die [21.44, 21.62] Geschichte [21.62, 22.18] ist [22.18, 22.37] fesselnd [22.37, 22.99] und [22.99, 23.18] regt [23.18, 23.44] zum [23.44, 23.63] Nachdenken [23.63, 24.33] an. [24.33, 24.66]"
+            },
+            {
+                "from": "gpt",
+                "value": "[(0.28, 2.24), (8.81, 24.66)]"
+            }
+        ]
+    },
+    {
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Bitte schlage passende Schnittpunkte vor basierend auf dem Transkript und der Beschreibung. \n Beschreibung: In dem Interview verhaspelt sich der Experte bei der Erklärung eines Fachbegriffs und startet neu. Bitte schneide den ersten, unklaren Erklärungsversuch sowie die Denkpause heraus. \n Transkript: Moderator: [0.38, 0.99] Können [0.99, 1.28] Sie [1.28, 1.47] uns [1.47, 1.68] kurz [1.68, 1.99] den [1.99, 2.18] Begriff [2.18, 2.61] 'Blockchain' [2.61, 3.44] erklären? [3.44, 4.01] Experte: [4.01, 4.58] Sehr [4.58, 4.88] gerne. [4.88, 5.28] Also, [5.28, 5.61] eine [5.61, 5.82] Blockchain [5.82, 6.51] ist [6.51, 6.71] im [6.71, 6.88] Grunde [6.88, 7.21] eine [7.21, 7.41] Kette [7.41, 7.77] von [7.77, 7.98] Blöcken, [7.98, 8.51] die... [8.51, 9.11] also [9.11, 9.41] jeder [9.41, 9.68] Block [9.68, 10.01] hat [10.01, 10.22] Transaktionen [10.22, 11.21] und [11.21, 11.39] die [11.39, 11.55] sind [11.55, 11.77] kryptographisch [11.77, 12.88] miteinander [12.88, 13.44] verbunden. [13.44, 14.01] Das [14.01, 14.22] ist [14.22, 14.39] vielleicht [14.39, 14.82] etwas [14.82, 15.18] zu [15.18, 15.33] technisch. [15.33, 15.91] Lassen [15.91, 16.22] Sie [16.22, 16.39] es [16.39, 16.55] mich [16.55, 16.73] anders [16.73, 17.18] formulieren. [17.18, 17.91] Stellen [18.99, 19.41] Sie [19.41, 19.58] sich [19.58, 19.79] ein [19.79, 19.99] digitales [19.99, 20.61] Kassenbuch [20.61, 21.33] vor, [21.33, 21.61] das [21.61, 21.82] auf [21.82, 22.01] tausenden [22.01, 22.58] von [22.58, 22.77] Rechnern [22.77, 23.31] gleichzeitig [23.31, 24.01] gespeichert [24.01, 24.61] ist. [24.61, 24.91] Jede [24.91, 25.18] Transaktion [25.18, 26.01] wird [26.01, 26.22] als [26.22, 26.41] neuer [26.41, 26.71] 'Block' [26.71, 27.22] hinzugefügt [27.22, 28.01] und [28.01, 28.19] kann [28.19, 28.44] nachträglich [28.44, 29.21] nicht [29.21, 29.44] mehr [29.44, 29.65] verändert [29.65, 30.28] werden. [30.28, 30.71] Das [30.71, 30.93] macht [30.93, 31.22] das [31.22, 31.41] System [31.41, 31.91] extrem [31.91, 32.41] sicher [32.41, 32.88] und [32.88, 33.07] transparent. [33.07, 34.01]"
+            },
+            {
+                "from": "gpt",
+                "value": "[(0.38, 4.01), (18.99, 34.01)]"
+            }
+        ]
+    },
+    {
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Bitte schlage passende Schnittpunkte vor basierend auf dem Transkript und der Beschreibung. \n Beschreibung: Der Sprecher eines Audioguides macht eine lange Pause und wiederholt sich. Bitte schneide diese Stellen heraus, um einen flüssigen und informativen Text zu erhalten. \n Transkript: Vor [0.61, 0.82] Ihnen [0.82, 1.11] sehen [1.11, 1.43] Sie [1.43, 1.59] das [1.59, 1.78] berühmte [1.78, 2.38] Gemälde [2.38, 3.01] 'Die [3.01, 3.22] Sternennacht' [3.22, 4.18] von [4.18, 4.41] Vincent [4.41, 4.88] van [4.88, 5.08] Gogh. [5.08, 5.51] Es [5.51, 5.71] entstand [5.71, 6.22] im [6.22, 6.39] Jahr [6.39, 6.68] 1889. [6.68, 8.21] Achten [8.21, 8.61] Sie [8.61, 8.78] auf [8.78, 8.98] die [8.98, 9.15] dynamischen [9.15, 9.91] Pinselstriche [9.91, 10.88] und [10.88, 11.08] die [11.08, 11.25] leuchtenden [11.25, 11.91] Farben. [11.91, 12.44] Der [12.44, 12.62] Künstler [12.62, 13.18] drückt [13.18, 13.51] hier [13.51, 13.71] seine [13.71, 14.01] inneren [14.01, 14.41] Gefühle [14.41, 14.99] aus. [14.99, 15.33] Ähm... [15.33, 18.91] ja. [18.91, 19.22] Die [19.22, 19.41] leuchtenden [19.41, 20.08] Farben [20.08, 20.51] und [20.51, 20.71] die [20.71, 20.88] wirbelnden [20.88, 21.51] Formen [21.51, 22.01] erzeugen [22.01, 22.58] eine [22.58, 22.78] fast [22.78, 23.08] hypnotische [23.08, 23.91] Wirkung. [23.91, 24.51] Van [24.51, 24.73] Gogh [24.73, 25.01] malte [25.01, 25.38] es [25.38, 25.55] während [25.55, 25.99] seines [25.99, 26.38] Aufenthalts [26.38, 27.21] in [27.21, 27.38] der [27.38, 27.55] Heilanstalt [27.55, 28.51] von [28.51, 28.71] Saint-Rémy. [28.71, 29.88] Es [29.88, 30.08] ist [30.08, 30.25] eines [30.25, 30.58] seiner [30.58, 30.91] bekanntesten [30.91, 31.71] Werke. [31.71, 32.22]"
+            },
+            {
+                "from": "gpt",
+                "value": "[(0.61, 15.33), (20.51, 32.22)]"
+            }
+        ]
+    },
+    {
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Bitte schlage passende Schnittpunkte vor basierend auf dem Transkript und der Beschreibung. \n Beschreibung: Der CEO hält eine Ansprache, wird aber von Applaus unterbrochen und wiederholt dann seinen Satz. Bitte entferne die Unterbrechung und die Wiederholung. \n Transkript: Ich [0.28, 0.44] bin [0.44, 0.61] unglaublich [0.61, 1.28] stolz [1.28, 1.68] auf [1.68, 1.87] das, [1.87, 2.11] was [2.11, 2.31] wir [2.31, 2.48] in [2.48, 2.62] diesem [2.62, 2.99] Jahr [2.99, 3.28] erreicht [3.28, 3.81] haben. [3.81, 4.21] Wir [4.21, 4.41] haben [4.41, 4.63] unsere [4.63, 5.01] Umsatzziele [5.01, 5.81] nicht [5.81, 6.02] nur [6.02, 6.22] erreicht, [6.22, 6.78] wir [6.78, 6.95] haben [6.95, 7.18] sie [7.18, 7.33] übertroffen! [7.33, 8.21] *lauter [8.21, 8.71] Applaus [8.71, 9.88] und [9.88, 10.08] Jubel* [10.08, 10.81] Vielen [10.81, 11.18] Dank! [11.18, 11.61] Ich [11.61, 11.78] sage [11.78, 12.02] es [12.02, 12.18] nochmal: [12.18, 12.68] Wir [12.68, 12.88] haben [12.88, 13.11] unsere [13.11, 13.48] Ziele [13.48, 13.91] weit [13.91, 14.21] übertroffen. [14.21, 14.99] Das [14.99, 15.21] ist [15.21, 15.38] der [15.38, 15.55] Verdienst [15.55, 16.11] jedes [16.11, 16.41] einzelnen [16.41, 17.08] von [17.08, 17.28] Ihnen. [17.28, 17.71] Ihre [17.71, 17.98] harte [17.98, 18.31] Arbeit [18.31, 18.71] und [18.71, 18.91] Ihr [18.91, 19.08] Engagement [19.08, 19.81] haben [19.81, 20.08] uns [20.08, 20.28] hierher [20.28, 20.71] gebracht. [20.71, 21.21] Darauf [21.21, 21.58] können [21.58, 21.88] wir [21.88, 22.07] alle [22.07, 22.31] stolz [22.31, 22.68] sein. [22.68, 23.08]"
+            },
+            {
+                "from": "gpt",
+                "value": "[(0.28, 8.21), (14.99, 23.08)]"
+            }
+        ]
+    },
+    {
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Bitte schlage passende Schnittpunkte vor basierend auf dem Transkript und der Beschreibung. \n Beschreibung: In dieser Talkshow-Runde schweift der Gast ab und erzählt eine lange persönliche Geschichte, die nicht zur Frage passt. Moderatorin und Gast haben zudem einige Füllwörter. Bitte entferne die Abschweifung und die Füllwörter für ein straffes Gespräch. \n Transkript: Moderatorin: [0.44, 1.11] Also, [1.11, 1.41] die [1.41, 1.58] Frage [1.58, 1.99] ist [1.99, 2.18] ja, [2.18, 2.39] wie [2.39, 2.58] wir [2.58, 2.77] den [2.77, 2.95] Fachkräftemangel [2.95, 4.11] konkret [4.11, 4.61] angehen [4.61, 5.08] können. [5.08, 5.44] Gast: [5.44, 5.81] Ähm, [5.81, 6.22] das [6.22, 6.41] ist [6.41, 6.58] ein [6.58, 6.77] sehr [6.77, 7.02] wichtiger [7.02, 7.55] Punkt. [7.55, 8.01] Das [8.01, 8.22] erinnert [8.22, 8.68] mich [8.68, 8.88] an [8.88, 9.02] meinen [9.02, 9.31] Onkel. [9.31, 9.68] Der [9.68, 9.88] war [9.88, 10.08] Schreiner [10.08, 10.68] und [10.68, 10.88] hat [10.88, 11.08] immer [11.08, 11.39] gesagt, [11.39, 11.81] 'Gutes [11.81, 12.22] Handwerk [12.22, 12.81] hat [12.81, 13.01] goldenen [13.01, 13.51] Boden'. [13.51, 14.11] Er [14.11, 14.28] hat [14.28, 14.48] seinen [14.48, 14.81] kleinen [14.81, 15.18] Betrieb [15.18, 15.61] von [15.61, 15.81] Null [15.81, 16.08] aufgebaut. [16.08, 16.71] Das [16.71, 16.91] war [16.91, 17.08] eine [17.08, 17.28] harte [17.28, 17.61] Zeit [17.61, 17.91] damals... [17.91, 18.51] Moderatorin: [18.51, 19.11] Okay, [19.11, 19.51] aber [19.51, 19.71] zurück [19.71, 20.11] zur [20.11, 20.28] Frage. [20.28, 20.71] Gast: [20.71, 21.11] Richtig. [21.11, 21.51] Wir [21.51, 21.71] müssen [21.71, 22.08] die [22.08, 22.25] duale [22.25, 22.68] Ausbildung [22.68, 23.41] stärken. [23.41, 23.91] Das [23.91, 24.11] ist [24.11, 24.28] das [24.28, 24.45] A [24.45, 24.68] und [24.68, 24.85] O. [24.85, 25.11] Wir [25.11, 25.31] brauchen [25.31, 25.71] mehr [25.71, 25.98] Investitionen [25.98, 26.91] in [26.91, 27.08] Berufsschulen [27.08, 28.01] und [28.01, 28.21] eine [28.21, 28.41] bessere [28.41, 28.88] Bezahlung [28.88, 29.58] für [29.58, 29.78] Auszubildende. [29.78, 30.81] Nur [30.81, 31.08] so [31.08, 31.28] machen [31.28, 31.61] wir [31.61, 31.78] diese [31.78, 32.08] Berufe [32.08, 32.51] wieder [32.51, 32.88] attraktiv. [32.88, 33.61]"
+            },
+            {
+                "from": "gpt",
+                "value": "[(0.44, 2.18), (2.39, 5.81), (21.51, 33.61)]"
+            }
+        ]
+    },
+    {
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Bitte schlage passende Schnittpunkte vor basierend auf dem Transkript und der Beschreibung. \n Beschreibung: Der Sportkommentator korrigiert seine Aussage zur Spielminute und wird sehr emotional. Bitte schneide die Korrektur und den übermäßigen emotionalen Ausbruch heraus, um einen sachlicheren Kommentar zu erhalten. \n Transkript: Unglaublich! [0.55, 1.62] In [1.62, 1.79] der [1.79, 1.95] 88. [1.95, 2.71] Minute [2.71, 3.11] fällt [3.11, 3.41] hier [3.41, 3.62] der [3.62, 3.79] Ausgleich! [3.79, 4.62] Was [4.62, 4.82] für [4.82, 5.01] ein [5.01, 5.18] Tor! [5.18, 5.55] Moment, [5.55, 5.99] ich [5.99, 6.15] sehe [6.15, 6.38] gerade, [6.38, 6.78] es [6.78, 6.95] ist [6.95, 7.11] erst [7.11, 7.33] die [7.33, 7.49] 87. [7.49, 8.21] Minute. [8.21, 8.68] Aber [8.68, 8.88] egal! [8.88, 9.28] Das [9.28, 9.48] Stadion [9.48, 10.01] kocht! [10.01, 10.51] Müller [10.51, 10.91] zirkelt [10.91, 11.41] den [11.41, 11.59] Ball [11.59, 11.88] unhaltbar [11.88, 12.68] in [12.68, 12.82] den [12.82, 12.99] Winkel. [12.99, 13.51] JAAAA! [13.51, 14.51] ICH [14.51, 14.71] WERDE [14.71, 15.01] VERRÜCKT! [15.01, 15.81] DAS [15.81, 16.01] GIBT [16.01, 16.21] ES [16.21, 16.38] DOCH [16.38, 16.61] NICHT! [16.61, 17.21] So [17.21, 17.41] ein [17.41, 17.58] Tor [17.58, 17.88] haben [17.88, 18.11] Sie [18.11, 18.28] lange [18.28, 18.61] nicht [18.61, 18.82] gesehen! [18.82, 19.41] Der [19.41, 19.59] Torwart [19.59, 20.11] ist [20.11, 20.28] absolut [20.28, 20.88] chancenlos. [20.88, 21.68] Ein [21.68, 21.88] Geniestreich [21.88, 22.81] des [22.81, 23.01] Stürmers. [23.01, 23.61] Was [23.61, 23.82] für [23.82, 24.01] ein [24.01, 24.18] dramatisches [24.18, 24.91] Finale. [24.91, 25.51]"
+            },
+            {
+                "from": "gpt",
+                "value": "[(0.55, 1.62), (7.33, 8.68), (10.51, 13.51), (19.41, 25.51)]"
+            }
+        ]
+    },
+    {
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Bitte schlage passende Schnittpunkte vor basierend auf dem Transkript und der Beschreibung. \n Beschreibung: Die YouTuberin wird durch eine Benachrichtigung auf ihrem Computer abgelenkt und verliert kurz den Faden. Schneide die Ablenkung und die Pause heraus, um das Tutorial nahtlos fortzusetzen. \n Transkript: Nachdem [0.81, 1.22] ihr [1.22, 1.39] das [1.39, 1.58] Bild [1.58, 1.91] zugeschnitten [1.91, 2.68] habt, [2.68, 2.99] geht [2.99, 3.22] ihr [3.22, 3.38] zum [3.38, 3.59] Menüpunkt [3.59, 4.31] 'Filter'. [4.31, 4.91] Dort [4.91, 5.18] könnt [5.18, 5.41] ihr [5.41, 5.58] verschiedene [5.58, 6.28] Effekte [6.28, 6.81] auswählen. [6.81, 7.41] Ich [7.41, 7.59] nehme [7.59, 7.88] meistens [7.88, 8.31] den [8.31, 8.49] 'Vintage'-Look, [8.49, 9.51] weil [9.51, 9.71] der... [9.71, 10.11] *pling* [10.11, 10.81] ... [10.81, 11.21] oh, [11.21, 11.41] eine [11.41, 11.61] E-Mail. [11.61, 12.11] Sorry. [12.11, 12.51] Ähm, [12.51, 13.21] wo [13.21, 13.41] war [13.41, 13.59] ich? [13.59, 13.88] Genau, [13.88, 14.28] der [14.28, 14.45] Vintage-Look [14.45, 15.41] passt [15.41, 15.71] gut [15.71, 15.91] zu [15.91, 16.08] Porträts. [16.08, 16.71] Ihr [16.71, 16.89] könnt [16.89, 17.15] die [17.15, 17.31] Intensität [17.31, 18.11] mit [18.11, 18.29] dem [18.29, 18.45] Schieberegler [18.45, 19.41] anpassen. [19.41, 20.01] Spielt [20.01, 20.38] einfach [20.38, 20.71] ein [20.71, 20.88] bisschen [20.88, 21.28] damit [21.28, 21.61] herum, [21.61, 22.08] bis [22.08, 22.28] es [22.28, 22.45] euch [22.45, 22.68] gefällt. [22.68, 23.21] Und [23.21, 23.41] schon [23.41, 23.68] habt [23.68, 23.89] ihr [23.89, 24.05] ein [24.05, 24.22] tolles [24.22, 24.61] Ergebnis. [24.61, 25.31]"
+            },
+            {
+                "from": "gpt",
+                "value": "[(0.81, 9.71), (14.28, 25.31)]"
+            }
+        ]
+    },
+    {
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Bitte schlage passende Schnittpunkte vor basierend auf dem Transkript und der Beschreibung. \n Beschreibung: Das Interview wurde remote aufgenommen, und es gab eine kurze technische Störung (Audio-Aussetzer). Der Interviewer wiederholt seine Frage. Bitte schneide den Teil mit der Störung und der Wiederholung heraus. \n Transkript: Interviewer: [0.68, 1.31] Mein [1.31, 1.55] nächster [1.55, 2.01] Gast [2.01, 2.33] ist [2.33, 2.51] die [2.51, 2.68] Zukunftsforscherin [2.68, 3.88] Dr. [3.88, 4.11] Eva [4.11, 4.41] Neumann. [4.41, 5.01] Frau [5.01, 5.28] Neumann, [5.28, 5.81] was [5.81, 6.01] sind [6.01, 6.22] die [6.22, 6.39] größten [6.39, 6.88] Trends, [6.88, 7.31] die [7.31, 7.48] uns [7.48, 7.68] in [7.68, 7.82] den [7.82, 7.99] nächsten [7.99, 8.41] zehn [8.41, 8.71] Jahren [8.71, 9.21] *Audio [9.21, 9.61] knackt [9.61, 10.01] und [10.01, 10.18] bricht [10.18, 10.51] ab* [10.51, 10.88] Gast: [10.88, 11.28] Entschuldigung, [11.28, 12.01] ich [12.01, 12.18] habe [12.18, 12.41] Sie [12.41, 12.59] gerade [12.59, 12.99] nicht [12.99, 13.22] verstanden. [13.22, 13.99] Interviewer: [13.99, 14.61] Kein [14.61, 14.88] Problem. [14.88, 15.31] Ich [15.31, 15.48] frage [15.48, 15.81] nochmal: [15.81, 16.41] Welche [16.41, 16.81] großen [16.81, 17.21] Trends [17.21, 17.71] werden [17.71, 18.08] unsere [18.08, 18.48] Gesellschaft [18.48, 19.31] prägen? [19.31, 19.81] Gast: [19.81, 20.21] Eine [20.21, 20.44] der [20.44, 20.61] größten [20.61, 21.08] Veränderungen [21.08, 22.01] wird [22.01, 22.22] sicherlich [22.22, 22.88] die [22.88, 23.05] weitere [23.05, 23.51] Automatisierung [23.51, 24.61] sein. [24.61, 25.01] Viele [25.01, 25.31] Jobs, [25.31, 25.68] wie [25.68, 25.85] wir [25.85, 26.01] sie [26.01, 26.18] heute [26.18, 26.51] kennen, [26.51, 26.91] wird [26.91, 27.11] es [27.11, 27.28] nicht [27.28, 27.51] mehr [27.51, 27.71] geben. [27.71, 28.11] Gleichzeitig [28.11, 28.88] entstehen [28.88, 29.41] aber [29.41, 29.65] neue [29.65, 29.95] Berufsfelder [29.95, 30.91] im [30.91, 31.08] Bereich [31.08, 31.51] der [31.51, 31.68] Datenanalyse [31.68, 32.71] und [32.71, 32.88] KI-Wartung. [32.88, 33.88]"
+            },
+            {
+                "from": "gpt",
+                "value": "[(0.68, 9.21), (19.81, 33.88)]"
+            }
+        ]
+    },
+    {
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Bitte schlage passende Schnittpunkte vor basierend auf dem Transkript und der Beschreibung. \n Beschreibung: Der Wettermoderator stottert und verliest die Temperatur für die falsche Stadt. Er korrigiert sich. Bitte schneide den Stotterer und die falsche Information heraus. \n Transkript: Und [0.18, 0.39] nun [0.39, 0.62] zum [0.62, 0.81] Wetter. [0.81, 1.28] In [1.28, 1.45] Norddeutschland [1.45, 2.41] erwartet [2.41, 2.91] uns [2.91, 3.09] morgen [3.09, 3.48] ein... [3.48, 4.01] ein [4.01, 4.22] Mix [4.22, 4.51] aus [4.51, 4.69] Sonne [4.69, 5.08] und [5.08, 5.25] Wolken. [5.25, 5.81] Die [5.81, 5.99] Temperaturen [5.99, 6.81] in [6.81, 6.98] München... [6.98, 7.51] äh, [7.51, 7.78] Entschuldigung, [7.78, 8.48] in [8.48, 8.62] Hamburg [8.62, 9.21] liegen [9.21, 9.51] bei [9.51, 9.71] angenehmen [9.71, 10.41] 19 [10.41, 10.99] Grad. [10.99, 11.33] Im [11.33, 11.51] Süden [11.51, 11.88] hingegen [11.88, 12.41] bleibt [12.41, 12.71] es [12.71, 12.88] meist [12.88, 13.21] sonnig [13.21, 13.68] bei [13.68, 13.88] bis [13.88, 14.08] zu [14.08, 14.25] 24 [14.25, 14.88] Grad [14.88, 15.21] in [15.21, 15.38] München. [15.38, 15.91] Der [15.91, 16.09] Wind [16.09, 16.38] weht [16.38, 16.61] schwach [16.61, 17.08] aus [17.08, 17.28] westlicher [17.28, 17.88] Richtung. [17.88, 18.48] Das [18.48, 18.69] waren [18.69, 18.95] die [18.95, 19.11] Aussichten. [19.11, 19.81]"
+            },
+            {
+                "from": "gpt",
+                "value": "[(0.18, 3.48), (4.01, 6.81), (8.48, 19.81)]"
+            }
+        ]
+    },
+    {
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Bitte schlage passende Schnittpunkte vor basierend auf dem Transkript und der Beschreibung. \n Beschreibung: Die Anwältin erklärt einen komplexen Sachverhalt, macht eine lange Pause zum Nachdenken und wiederholt dann einen Teil ihrer Erklärung. Bitte entferne die Pause und die Wiederholung, um die Erklärung prägnanter zu machen. \n Transkript: Bei [0.71, 0.92] der [0.92, 1.08] Prüfung [1.08, 1.55] des [1.55, 1.77] Sachverhalts [1.77, 2.68] müssen [2.68, 3.08] wir [3.08, 3.25] zwischen [3.25, 3.77] dem [3.77, 3.95] objektiven [3.95, 4.71] und [4.71, 4.88] dem [4.88, 5.05] subjektiven [5.05, 5.88] Tatbestand [5.88, 6.71] unterscheiden. [6.71, 7.55] Der [7.55, 7.73] objektive [7.73, 8.44] Tatbestand [8.44, 9.11] umfasst [9.11, 9.55] alle [9.55, 9.77] äußeren [9.77, 10.22] Merkmale [10.22, 10.88] der [10.88, 11.05] Tat. [11.05, 11.41] Der [11.41, 11.59] subjektive [11.59, 12.33] Tatbestand [12.33, 13.01] hingegen [13.01, 13.55] befasst [13.55, 13.99] sich [13.99, 14.22] mit [14.22, 14.41] dem [14.41, 14.59] Willen [14.59, 14.99] des [14.99, 15.18] Täters, [15.18, 15.71] also [15.71, 15.99] dem [15.99, 16.18] Vorsatz. [16.18, 16.71] Lassen [16.71, 17.01] Sie [17.01, 17.18] mich [17.18, 17.38] überlegen... [17.38, 19.99] Ja, [19.99, 20.22] also [20.22, 20.51] nochmal [20.51, 20.99] zum [20.99, 21.19] subjektiven [21.19, 22.01] Tatbestand: [22.01, 22.88] Hier [22.88, 23.11] prüfen [23.11, 23.51] wir, [23.51, 23.77] ob [23.77, 23.95] der [23.95, 24.11] Täter [24.11, 24.48] mit [24.48, 24.68] Wissen [24.68, 25.08] und [25.08, 25.28] Wollen [25.28, 25.71] gehandelt [25.71, 26.33] hat. [26.33, 26.66] Das [26.66, 26.88] ist [26.88, 27.05] entscheidend [27.05, 27.81] für [27.81, 28.01] die [28.01, 28.18] strafrechtliche [28.18, 29.11] Bewertung. [29.11, 29.81] Die [29.81, 29.99] Unterscheidung [29.99, 30.88] ist [30.88, 31.07] also [31.07, 31.33] fundamental [31.33, 32.22] für [32.22, 32.41] den [32.41, 32.59] gesamten [32.59, 33.11] Fall. [33.11, 33.55]"
+            },
+            {
+                "from": "gpt",
+                "value": "[(0.71, 16.71), (22.88, 33.55)]"
+            }
+        ]
+    },
+    {
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Bitte schlage passende Schnittpunkte vor basierend auf dem Transkript und der Beschreibung. \n Beschreibung: Der Moderator einer Preisverleihung verliest den falschen Namen, wird korrigiert und beginnt die Ankündigung erneut. Bitte schneide den Fehler und die Korrektur heraus, sodass nur die korrekte Ankündigung zu hören ist. \n Transkript: Und [0.88, 1.09] nun [1.09, 1.33] der [1.33, 1.49] Preis [1.49, 1.88] für [1.88, 2.08] das [2.08, 2.29] Lebenswerk. [2.29, 3.11] Der [3.11, 3.29] Preis [3.29, 3.66] geht [3.66, 3.92] an... [3.92, 4.66] eine [4.66, 4.88] Legende [4.88, 5.44] des [5.44, 5.62] deutschen [5.62, 6.11] Films... [6.11, 6.88] Martin [6.88, 7.33] Schneider! [7.33, 8.11] *Stimme [8.11, 8.55] aus [8.55, 8.71] dem [8.71, 8.88] Off: [8.88, 9.22] 'Michael [9.22, 9.77] Schneider'* [9.77, 10.33] Oh! [10.33, 10.66] Entschuldigen [10.66, 11.33] Sie [11.33, 11.49] bitte! [11.49, 11.99] Mein [11.99, 12.22] Fehler. [12.22, 12.66] Ich [12.66, 12.82] bitte [12.82, 13.08] um [13.08, 13.25] Verzeihung. [13.25, 14.01] Nehmen [14.01, 14.33] wir [14.33, 14.49] das [14.49, 14.66] nochmal. [14.66, 15.22] Der [15.22, 15.39] Preis [15.39, 15.77] für [15.77, 15.95] das [15.95, 16.16] Lebenswerk [16.16, 17.01] geht [17.01, 17.28] an [17.28, 17.45] den [17.45, 17.62] einzigartigen [17.62, 18.55] Michael [18.55, 19.11] Schneider! [19.11, 19.99] *tosender [19.99, 20.55] Applaus* [20.55, 21.88] Herzlichen [21.88, 22.44] Glückwunsch! [22.44, 23.22]"
+            },
+            {
+                "from": "gpt",
+                "value": "[(0.88, 3.11), (15.22, 23.22)]"
+            }
+        ]
+    }
+]

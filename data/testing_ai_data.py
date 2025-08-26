@@ -1,7 +1,8 @@
 import json
 import re
+import ast
 
-data_file = "data/trainingsdaten3_50.json"
+data_file = "data/KI_daten.json"
 
 with open(data_file, 'r', encoding='utf-8') as datei:
     data = json.load(datei)
@@ -10,7 +11,7 @@ for num, entry in enumerate(data):
     final_text = []
     human = entry["conversations"][0]["value"]
     schnitte = entry["conversations"][1]["value"]
-    schnitte = eval(schnitte)
+    schnitte = ast.literal_eval(schnitte)
 
     match = re.search(r'Transkript: (.*)', human, re.DOTALL)
     if match:
@@ -27,7 +28,7 @@ for num, entry in enumerate(data):
         end = float(end)
 
         for cut_start, cut_end in schnitte:
-            if start >= cut_start and end <= cut_end:
+            if (start >= cut_start) and (end <= cut_end):
                 final_text.append(wort)
                 break
 
