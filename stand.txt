@@ -50,5 +50,5 @@ todos:
 
 // 28.08.2025
 
-- weitere Daten folgenden wurden überarbeitet: 34, 36, 37, 39, 42, 44, 45, 51, 55, 58, 60, 64, 69, 71, 73, 74, 77, 79, 82, 84, 87, 90, 91
+- weitere Daten folgenden wurden überarbeitet: 34, 36, 37, 39, 42, 44, 45, 51, 55, 58, 60, 64, 69, 71, 73, 74, 77, 79, 82, 84, 87, 90, 91, 92, 93, 97, 100
 - Idee: 5 weitere Cuts in Testdaten für alle mit ai daten, weil da mehrer cuts drin!!
