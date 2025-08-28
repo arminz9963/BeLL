@@ -2,7 +2,7 @@ import json
 import re
 import ast
 
-data_file = "data/KI_daten.json"
+data_file = "data/ai_data.json"
 
 with open(data_file, 'r', encoding='utf-8') as datei:
     data = json.load(datei)

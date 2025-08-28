@@ -47,3 +47,8 @@ todos:
 - Daten generieren mit Gemini erfolgreich bloß immer in 10er Steps 
 - Gemini sagen längere Beispieel sonst ganz gut
 - Daten nr 11, 12, 18, 24, 25, 27 überarbeitet wegen Unschlüssigkeiten nach dem Schneiden
+
+// 28.08.2025
+
+- weitere Daten folgenden wurden überarbeitet: 34, 36, 37, 39, 42, 44, 45, 51, 55, 58, 60, 64, 69, 71, 73, 74, 77, 79
+- Idee: 5 weitere Cuts in Testdaten für alle mit ai daten, weil da mehrer cuts drin!!

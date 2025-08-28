@@ -77,4 +77,4 @@ def fuse_ai_and_human_data(num_ai, num_human, name):
     with open(f"data/{name}.json", "w", encoding="utf-8") as file:
         json.dump(combined_data, file, ensure_ascii=False, indent=4)
 
-fuse_ai_and_human_data(30, 20, "trainingsdaten_3_50")
+fuse_ai_and_human_data(80, 20, "trainingsdaten_3_100_v1")
