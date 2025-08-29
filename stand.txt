@@ -63,3 +63,5 @@ result.py erneuert
 Rating system lowk hart
 bei kleinsten Fehler ebim syntax eiskalt 0 punkte (siehe v8 test 2)
 Plan: Qwen 2.5 (7B), DeepSeek-Qwen3 (8B), Phi-4 (14B), gpt oss (20B)
+
+v9_2 = v9 bloß bei der inferenz system prompt verwendet: neue meta für inferenz (50.58 --> 54.5)

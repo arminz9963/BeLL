@@ -1,7 +1,7 @@
 
 def main():
 
-    tests = ["tests/neu/test_result_v1.txt", "tests/neu/test_result_v2.txt", "tests/neu/test_result_v3.txt", "tests/neu/test_result_v3_2.txt", "tests/neu/test_result_v4.txt", "tests/neu/test_result_v5.txt", "tests/neu/test_result_v6.txt", "tests/neu/test_result_v7.txt", "tests/neu/test_result_v8.txt", "tests/neu/test_result_v9.txt", "tests/neu/test_result_v10.txt"]
+    tests = ["tests/neu/test_result_v9_2.txt"]
 
     for test in tests:
         scores = []
@@ -35,7 +35,7 @@ def main():
             sum += score
         end_score = round(sum / len(scores), 2)
         with open("result/results.txt", "a", encoding="utf-8") as datei:
-            datei.write(f"{test.replace("tests/neu/test_result", "model").replace(".txt", "")}:\n")
+            datei.write(f"{test}:\n")
             datei.write(f"Scores: {scores}\n")
             datei.write(f"End Score: {end_score}\n\n")
 
