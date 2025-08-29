@@ -19,6 +19,20 @@ dataset["test"]  = standardize_sharegpt(dataset["test"])
 dataset["train"] = dataset["train"].map(formatting_prompts_func, batched=True)
 dataset["test"]  = dataset["test"].map(formatting_prompts_func, batched=True)
 
+// Dataset laden für alpaca
+
+dataset = load_dataset("json", data_files="trainingsdaten3_100_v1_alpaca.json", split="train")
+
+# Split into train/eval (z.B. 90% / 10%)
+dataset = dataset.train_test_split(test_size=0.1, seed=42)
+
+# Apply formatting on both splits
+dataset = dataset.map(formatting_prompts_func, batched=True)
+
+# Zugriff:
+train_dataset = dataset["train"]
+eval_dataset  = dataset["test"]
+
 // Testen
 
 print(dataset["train"][0])

@@ -27,7 +27,7 @@ def format_schnitte(schnitte):
         neue_schnitte.append(schnitt)
     return str(neue_schnitte)
 
-def umwandeln():
+def csv_sharegpt():
     with open("data/daten.csv", "r", encoding="utf-8") as file:
         csv_reader = csv.reader(file)
         next(csv_reader)  # Überspringe die Kopfzeile, falls vorhanden
@@ -62,7 +62,6 @@ def umwandeln():
     with open("data/testdaten4.json", "w", encoding="utf-8") as json_file:
         json.dump(test_list, json_file, ensure_ascii=False, indent=4)
 
-#umwandeln()
 
 def fuse_ai_and_human_data(num_ai, num_human, name):
     with open(f"data/ai_data.json", "r", encoding="utf-8") as file:
@@ -77,4 +76,28 @@ def fuse_ai_and_human_data(num_ai, num_human, name):
     with open(f"data/{name}.json", "w", encoding="utf-8") as file:
         json.dump(combined_data, file, ensure_ascii=False, indent=4)
 
-fuse_ai_and_human_data(100, 0, "trainingsdaten3_100_v2")
+#fuse_ai_and_human_data(100, 0, "trainingsdaten3_100_v2")
+
+def sharegpt_alpaca(sharegpt, alpaca):
+    with open(f"data/{sharegpt}.json", "r", encoding="utf-8") as file:
+        sharegpt_data = json.load(file)
+
+    alpaca_entrys = []
+
+    for entry in sharegpt_data:
+        prompt = entry["conversations"][0]["value"]
+        input_value = prompt.replace("Bitte schlage passende Schnittpunkte vor basierend auf dem Transkript und der Beschreibung. \n ", "")
+
+        response = entry["conversations"][1]["value"]
+        
+        alpaca_entry = {
+            "instruction": "Schlage passende Schnittpunkte vor basierend auf der Beschreibung und dem Transkript.",
+            "input": input_value,
+            "response": response
+        }
+        alpaca_entrys.append(alpaca_entry)
+
+    with open(f"data/{alpaca}.json", "a", encoding="utf-8") as file:
+        json.dump(alpaca_entrys, file, ensure_ascii=False, indent=4)
+
+sharegpt_alpaca("testdaten3_v2", "testdaten3_v2_alpaca")
