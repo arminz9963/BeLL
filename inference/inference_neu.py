@@ -22,8 +22,13 @@ with open("data/testdaten3_v2.json", "r", encoding="utf-8") as file:
     for i, dataset in enumerate(data):
         print("########################################################################")
         print("Test Nummer:", i + 1)
-        prompt = f"{dataset['conversations'][0]['value']}\n"  
-        output = llm.create_chat_completion(messages=[{"role": "user", "content": prompt}])
+        system = "Du bist ein Video-Editing Assistant. Analysiere das folgende Transkript und gib passende Schnittvorschläge zurück, beachte hierbei die mitgegebene Beschreibung."
+        prompt = f"{dataset['conversations'][0]['value']}\n"
+        message = [
+            {"role": "system", "content": system},
+            {"role": "user", "content": prompt}
+            ]
+        output = llm.create_chat_completion(messages=message)
         answer = output['choices'][0]['message']['content'].strip()
         print(f"Ausgabe: {answer}")
         print(f"Lösung: {dataset['conversations'][1]['value']}")
