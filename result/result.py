@@ -1,83 +1,61 @@
 
 def main():
 
-    tests = ["tests/neu/test_result_v8.txt"]
+    tests = ["tests/neu/test_result_v1.txt", "tests/neu/test_result_v2.txt", "tests/neu/test_result_v3.txt", "tests/neu/test_result_v3_2.txt", "tests/neu/test_result_v4.txt", "tests/neu/test_result_v5.txt", "tests/neu/test_result_v6.txt", "tests/neu/test_result_v7.txt", "tests/neu/test_result_v8.txt", "tests/neu/test_result_v9.txt", "tests/neu/test_result_v10.txt"]
 
     for test in tests:
         scores = []
         with open(test, "r", encoding="utf-8") as datei:
             # 5 da es 5 Tests sind pro model
-            for _ in range(5):
-                _ = datei.readline()
-                asg = datei.readline().strip().replace("Ausgabe:", "")
-                asg = eval(asg)
+            while True:
+                line = datei.readline()
+                if line.startswith("Gesamtzeit:"):
+                    break
+                else:
+                    asg = datei.readline().strip().replace("Ausgabe:", "")
+
+                    # Falsche Syntax z.B. [(1, 3))))
+                    try:
+                        asg = eval(asg)
+                    except:
+                        asg = []
                 lsg = datei.readline().strip().replace("Lösung:", "")
                 lsg = eval(lsg)
-                score = get_score(asg, lsg)
+
+                # Z.B. bei Ausgabe mehrere Arrays (s. v8 Test 2)
+                try:
+                    score = get_score(asg, lsg)
+                except:
+                    score = 0
+
                 scores.append(score)
+
         sum = 0
         for score in scores:
             sum += score
         end_score = round(sum / len(scores), 2)
         with open("result/results.txt", "a", encoding="utf-8") as datei:
-            datei.write(f"{test}:\n")
+            datei.write(f"{test.replace("tests/neu/test_result", "model").replace(".txt", "")}:\n")
             datei.write(f"Scores: {scores}\n")
             datei.write(f"End Score: {end_score}\n\n")
 
 
 def get_score(asg, lsg):
 
-    result_list = []
+    overlaps = []
+    for a_start, a_end in asg:
+        for l_start, l_end in lsg:
+            # overlap => Intervall in dem beide Bereiche "aktiv" sind
+            start = max(a_start, l_start)
+            end = min(a_end, l_end)
+            if start < end:
+                overlaps.append((start, end))
 
-    if len(lsg) == len(asg):
-        for i, cut in enumerate(lsg):
-            start_lsg = cut[0]
-            end_lsg = cut[1]
-            start_asg = asg[i][0]
-            end_asg = asg[i][1]
+    overlaps_total = sum(end - start for start, end in overlaps)
+    asg_total = sum(end - start for start, end in asg)
+    lsg_total = sum(end - start for start, end in lsg)
 
-            #print(start_lsg, end_lsg, start_asg, end_asg)
-            # case 1 asg = lsg
-            if (start_lsg == start_asg) and (end_lsg == end_asg):
-                result_list.append(1)
-
-            # case 2 asg teilmenge von lsg
-            elif (start_asg >= start_lsg) and (end_asg <= end_lsg):
-                score = (end_asg - start_asg)/(end_lsg - start_lsg)
-                result_list.append(score)
-
-            # case 3 lsg teilmenge von asg
-            elif (start_asg <= start_lsg) and (end_asg >= end_lsg):
-                score = (end_lsg - start_lsg)/(end_asg - start_asg)
-                result_list.append(score)
-
-            # case 4 asg schneidet nur an lsg (asg früher als lsg)
-            elif (start_asg < start_lsg) and (end_asg < end_lsg) and ((end_asg - start_lsg) > 0):
-                overlap = end_asg - start_lsg
-                score = overlap / (end_lsg - start_asg)
-                result_list.append(score)
-
-            # case 4.2 asg schneidet nur an lsg (lsg früher als asg)
-            elif (start_asg > start_lsg) and (end_asg > end_lsg) and ((end_lsg - start_asg) > 0):
-                overlap = end_lsg - start_asg
-                score = overlap / (end_asg - start_lsg)
-                result_list.append(score)
-
-            # case 5 asg und lsg kein schnitt
-            else:
-                result_list.append(0)
-
-    else:
-        # vorübergehend
-        result_list.append(0)
-
-
-    sum = 0
-    for result in result_list:
-        sum += result
-
-    # arithmetisches Mittel
-    end_score = 100*sum / len(result_list)
+    end_score = overlaps_total / (asg_total + lsg_total - overlaps_total) * 100
 
     return round(end_score, 3)
 

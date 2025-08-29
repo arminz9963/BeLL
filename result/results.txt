@@ -1,24 +1,44 @@
-tests/neu/test_result_v2.txt:
-Scores: [11.981, 0.0, 94.969, 0.0, 41.818]
-End Score: 29.75
-
-tests/neu/test_result_v3.txt:
-Scores: [0.0, 0.0, 0.0, 50.19, 26.136]
-End Score: 15.27
-
-tests/neu/test_result_v3_2.txt:
+model_v1:
 Scores: [0.0, 0.0, 0.0, 0.0, 0.0]
 End Score: 0.0
 
-tests/neu/test_result_v4.txt:
+model_v2:
+Scores: [11.981, 0.0, 94.969, 0.0, 41.818]
+End Score: 29.75
+
+model_v3:
+Scores: [0.0, 0.0, 0.0, 50.19, 26.136]
+End Score: 15.27
+
+model_v3_2:
+Scores: [0.0, 0.0, 0.0, 0.0, 0.0]
+End Score: 0.0
+
+model_v4:
 Scores: [85.791, 0.0, 0.0, 11.837, 0.0]
 End Score: 19.53
 
-tests/neu/test_result_v5.txt:
+model_v5:
 Scores: [1.403, 0.0, 11.809, 31.37, 0.0]
 End Score: 8.92
 
-tests/neu/test_result_v6.txt:
+model_v6:
 Scores: [85.791, 34.439, 0.0, 12.75, 0.0]
 End Score: 26.6
+
+model_v7:
+Scores: [0.224, 0.0, 0.0, 0.0, 0.0]
+End Score: 0.04
+
+model_v8:
+Scores: [85.791, 0, 13.55, 11.26, 0.0, 77.549, 57.209, 58.76, 68.428, 7.681]
+End Score: 38.02
+
+model_v9:
+Scores: [74.553, 36.371, 27.395, 0, 5.139, 63.896, 57.209, 88.805, 63.517, 88.873]
+End Score: 50.58
+
+model_v10:
+Scores: [74.129, 0.161, 48.61, 0.0, 6.749, 92.395, 53.562, 97.472, 56.864, 86.806]
+End Score: 51.67
 
