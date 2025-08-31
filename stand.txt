@@ -75,3 +75,10 @@ mögliche Modelle zum weiter trainieren:
 - Qwen3 14B: braucht auch reasoning (sollte ohne auch gehen)
 - phi4 14B: zu ezz
 - gemma3 4B: eig ez aber ka wieso nicht geht
+
+// 31.08.2025
+
+v13 & v14 & v15 trainiert
+v15_1 = Qwen 14B ohne reasoning 
+v15_2 = Qwen 14B mit reasoning 
+15_2 schlechter als 15_1 trotz reasoning weil es keine Trainingsdaten mit reasoning gab ==> Interessante Erkenntnis

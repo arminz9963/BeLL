@@ -1,7 +1,7 @@
 
 def main():
 
-    tests = ["tests/neu/test_result_v12.txt"]
+    tests = ["tests/neu/test_result_v16.txt"]
 
     for test in tests:
         scores = []
