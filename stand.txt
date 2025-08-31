@@ -62,6 +62,16 @@ die 5 weiteren Daten kommen auch von 'Gemini, deise wurden gründlich überprüf
 result.py erneuert
 Rating system lowk hart
 bei kleinsten Fehler ebim syntax eiskalt 0 punkte (siehe v8 test 2)
-Plan: Qwen 2.5 (7B), DeepSeek-Qwen3 (8B), Phi-4 (14B), gpt oss (20B)
+Plan: Qwen 2.5 (7B), gemma3 (4B), qwen 3 (14B), gpt oss (20B), (DeepSeek-Qwen3 (8B))
 
 v9_2 = v9 bloß bei der inferenz system prompt verwendet: neue meta für inferenz (50.58 --> 54.5)
+
+// 30.08.2025 
+Finetuning v11 erfolgreich
+mögliche Modelle zum weiter trainieren:
+- gpt oss 20B: braucht reasoning ig (sollte ohne auch gehen)
+- Misteral Nemo 12B: ez
+- DeepSeek 8B: sieht hella kompliziert aus
+- Qwen3 14B: braucht auch reasoning (sollte ohne auch gehen)
+- phi4 14B: zu ezz
+- gemma3 4B: eig ez aber ka wieso nicht geht
