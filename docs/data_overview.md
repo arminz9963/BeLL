@@ -61,4 +61,4 @@ Dieses Dokument dient zur Übersicht aller Datensets in `data/`
 
 ## Hinweis
 
-Innerhalb der einzelnen Datensets gibt es keine Überschneidungen zwischen Trainings- und Testdaten. Jeder Eintrag wird in genau einem der beiden Sets verwendet. Dadurch wird sichergestellt, dass das LLM bei der Inferenz auf Daten trifft, mit denen es zuvor nicht gefinetuned wurde.
+Innerhalb der Datensets gibt es keine Überschneidungen zwischen Trainings- und Testdaten. Kein Eintrag wird in beiden Sets verwendet. Dadurch wird sichergestellt, dass das LLM bei der Inferenz auf Daten trifft, mit denen es zuvor nicht gefinetuned wurde.
