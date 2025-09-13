@@ -10,8 +10,8 @@ from transformers import DataCollatorForSeq2Seq
 trainer = SFTTrainer(
     model = model,
     tokenizer = tokenizer,
-    train_dataset = dataset["train"],   # <-- nur train Split
-    eval_dataset = dataset["test"],     # <-- eval Split dazu
+    train_dataset = dataset["train"],   
+    eval_dataset = dataset["test"],     
     dataset_text_field = "text",
     max_seq_length = max_seq_length,
     data_collator = DataCollatorForSeq2Seq(tokenizer = tokenizer),
@@ -23,11 +23,11 @@ trainer = SFTTrainer(
         max_steps = 30,
         learning_rate = 5e-5,
         logging_steps = 1,
-        eval_strategy = "steps",  # <-- eval während Training
-        eval_steps = 1,                 # alle 10 Schritte eval
-        save_strategy = "steps",         # speichern während Training
+        eval_strategy = "steps",  
+        eval_steps = 1,                 
+        save_strategy = "steps",         
         save_steps = 1,
-        save_total_limit = 2,            # nur die letzten 2 Saves behalten
+        save_total_limit = 2,            
         optim = "adamw_8bit",
         weight_decay = 0.01,
         lr_scheduler_type = "linear",

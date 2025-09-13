@@ -6,9 +6,9 @@ def main():
     for test in tests:
         scores = []
         with open(test, "r", encoding="utf-8") as datei:
-            # 5 da es 5 Tests sind pro model
             while True:
                 line = datei.readline()
+                # Ende der Datei
                 if line.startswith("Gesamtzeit:"):
                     break
                 else:
@@ -22,7 +22,7 @@ def main():
                 lsg = datei.readline().strip().replace("Lösung:", "")
                 lsg = eval(lsg)
 
-                # Z.B. bei Ausgabe mehrere Arrays (s. v8 Test 2)
+                # z.B. bei Ausgabe mehrere Arrays (s. v8 Test 2)
                 try:
                     score = get_score(asg, lsg)
                 except:
@@ -41,8 +41,13 @@ def main():
 
 
 def get_score(asg, lsg):
-
+    """
+    Berechnet den Score zwischen zwei Schnittlisten.
+    asg: AI Schnitte (ausgabe)
+    lsg: Lösungsschnitte (lösung)
+    """
     overlaps = []
+    # Vergleicht alle Schnitte miteinander
     for a_start, a_end in asg:
         for l_start, l_end in lsg:
             # overlap => Intervall in dem beide Bereiche "aktiv" sind
@@ -55,6 +60,7 @@ def get_score(asg, lsg):
     asg_total = sum(end - start for start, end in asg)
     lsg_total = sum(end - start for start, end in lsg)
 
+    # overlap / Gesamtbereich beider Schnitte
     end_score = overlaps_total / (asg_total + lsg_total - overlaps_total) * 100
 
     return round(end_score, 3)

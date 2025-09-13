@@ -13,7 +13,7 @@ start_time = time.time()
 
 llm = Llama(
     model_path="models/model_v11.Q4_K_M.gguf",
-    n_ctx=15000,
+    n_ctx=15000, # Maximale Kontextlänge
     verbose=False
 )
 
@@ -23,12 +23,13 @@ with open("data/testdaten3_v2_alpaca.json", "r", encoding="utf-8") as file:
         print("########################################################################")
         print("Test Nummer:", i + 1)
         system = "Du bist ein Video-Editing Assistant. Analysiere das folgende Transkript und gib passende Schnittvorschläge zurück, beachte hierbei die mitgegebene Beschreibung."
-        #prompt = f"{dataset['conversations'][0]['value']}\n"
+        # Prompt in Message Format
         prompt = f"{dataset['instruction']} \n{dataset['input']}"
         message = [
             {"role": "system", "content": system},
             {"role": "user", "content": prompt}
             ]
+        # Prompt an LLM senden und Antwort erhalten
         output = llm.create_chat_completion(messages=message)
         answer = output['choices'][0]['message']['content'].strip()
         print(f"Ausgabe: {answer}")

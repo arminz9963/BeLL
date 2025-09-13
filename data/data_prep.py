@@ -26,6 +26,10 @@ def format_schnitte(schnitte):
     return str(neue_schnitte)
 
 def csv_sharegpt():
+    """
+    Funktion die die CSV Datei in das ShareGPT Format umwandelt.
+    """
+
     data_list = []
     test_list = []
     with open("data/daten.csv", "r", encoding="utf-8") as file:
@@ -64,6 +68,10 @@ def csv_sharegpt():
 
 
 def fuse_ai_and_human_data(num_ai, num_human, name_ai, name_human, new_name):
+    """
+    Funktion die AI und Human Daten kombiniert.
+    """
+
     with open(f"data/{name_ai}.json", "r", encoding="utf-8") as file:
         ai_data = json.load(file)
 
@@ -77,6 +85,10 @@ def fuse_ai_and_human_data(num_ai, num_human, name_ai, name_human, new_name):
         json.dump(combined_data, file, ensure_ascii=False, indent=4)
 
 def sharegpt_alpaca(sharegpt, alpaca):
+    """
+    Funktion die ShareGPT Daten in das Alpaca Format umwandelt.
+    """
+
     with open(f"data/{sharegpt}.json", "r", encoding="utf-8") as file:
         sharegpt_data = json.load(file)
 
@@ -98,9 +110,10 @@ def sharegpt_alpaca(sharegpt, alpaca):
     with open(f"data/{alpaca}.json", "w", encoding="utf-8") as file:
         json.dump(alpaca_entrys, file, ensure_ascii=False, indent=4)
 
-# sharegpt_alpaca("testdaten3_v2", "testdaten3_v2_alpaca")
-
 def roh_alpaca(alpaca):
+    """
+    Funktion, die die Rohdaten (Daten von Herrn Rose) in das Alpaca Format umwandelt.
+    """
     with open(f"data/roh.json", "r", encoding="utf-8") as file:
         roh_data = json.load(file)
 
@@ -115,6 +128,7 @@ def roh_alpaca(alpaca):
         time_parts = output.split("|")
         times = [tuple(eval(part)) for part in time_parts]
 
+        # Regex: "Video[12.5,13.1]" --> "Video", "12.5", "13.1"
         pattern = r"(.*?)\[(\d+\.?\d*),(\d+\.?\d*)\]"
         matches = re.findall(pattern, transkript)
 
@@ -138,37 +152,3 @@ def roh_alpaca(alpaca):
 
     with open(f"data/{alpaca}.json", "w", encoding="utf-8") as file:
         json.dump(alpaca_entrys, file, ensure_ascii=False, indent=4)
-
-# roh_alpaca("trainingsdaten_roh_alpaca")
-
-# sharegpt_alpaca("ai_data", "ai_data_alpaca")
-
-# fuse_ai_and_human_data(100, 306, "ai_data_alpaca", "trainingsdaten_roh_alpaca", "trainingsdaten_lo_alpaca")
-
-# sharegpt_alpaca("trainingsdaten3", "trainingsdaten3_alpaca")
-
-# fuse_ai_and_human_data(426, 20, "trainingsdaten_lo_alpaca", "trainingsdaten3_alpaca", "trainingsdaten_end_alpaca")
-
-
-# fuse_ai_and_human_data(100, 20, "ai_data_alpaca", "trainingsdaten3_alpaca", "sigma")
-
-# fuse_ai_and_human_data(10, 10, "testdaten3_v2_alpaca", "trainingsdaten_roh_alpaca", "testdaten3_v3_alpaca")
-
-### Für den letzten Datensatz
-
-# with open("data/sigma.json", "r", encoding="utf-8") as file:
-#     sigma_data = json.load(file)
-
-# with open("data/trainingsdaten_roh_alpaca.json", "r", encoding="utf-8") as file:
-#     data = json.load(file)
-
-# fused_data = data[10:] + sigma_data
-
-# with open("data/trainingsdaten_end_alpaca.json", "w", encoding="utf-8") as file:
-#     json.dump(fused_data, file, ensure_ascii=False, indent=4)
-
-
-with open("data/testdaten3_v3_alpaca.json", "r", encoding="utf-8") as file:
-    end_data = json.load(file)
-
-print(len(end_data))  # Ausgabe der Anzahl der Einträge

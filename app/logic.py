@@ -7,6 +7,10 @@ def convert_mp4_to_mp3(input_file, output_file):
     input_file: Pfad zur MP4-Datei
     output_file: Pfad zur MP3-Datei
     """
+
+    # ab: Audio Bitrate
+    # ar: Audio Sampling Rate in Hz
+    # libmp3lame: MP3 Encoder
     command = ["ffmpeg", "-i", input_file, "-vn",
                "-acodec", "libmp3lame", "-ab", "192k", "-ar", "44100", "-y", output_file]
     

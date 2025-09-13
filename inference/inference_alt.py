@@ -6,7 +6,7 @@ start_time = time.time()
 
 llm = Llama(
     model_path="models/model_v4.Q4_K_m.gguf",
-    n_ctx=22000,
+    n_ctx=22000, # Maximale Kontextlänge
     verbose=False
 )
 
@@ -15,7 +15,8 @@ with open("data/testdaten3.json", "r", encoding="utf-8") as file:
     for i, dataset in enumerate(data):
         print("########################################################################")
         print("Test Nummer:", i + 1)
-        prompt = f"{dataset['conversations'][0]['value']}\n"  
+        prompt = f"{dataset['conversations'][0]['value']}\n" 
+        # Prompt an LLM senden und Antwort erhalten 
         output = llm(prompt)
         answer = output['choices'][0]['text'].strip()
         print(f"Ausgabe: {answer}")

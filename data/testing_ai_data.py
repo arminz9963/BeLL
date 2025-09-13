@@ -11,14 +11,16 @@ for num, entry in enumerate(data):
     final_text = []
     human = entry["conversations"][0]["value"]
     schnitte = entry["conversations"][1]["value"]
+    # wie eval bloß sicherer
     schnitte = ast.literal_eval(schnitte)
 
     match = re.search(r'Transkript: (.*)', human, re.DOTALL)
     if match:
         transkript = match.group(1).strip()
 
+    # Splitte das Transkript in einzelne Wörter mit Timestamps
     transkript_list = transkript.split("]")
-
+    # Entfernung des "[" --> "Wort Start, Ende"
     transkript_list = [wort.replace("[", "") for wort in transkript_list if wort != "" ]
 
     for wort_complex in transkript_list:
@@ -27,6 +29,7 @@ for num, entry in enumerate(data):
         start = float(start)
         end = float(end)
 
+        # Wort nur hinzufügen, wenn das Wort in einem der Schnittbereiche liegt
         for cut_start, cut_end in schnitte:
             if (start >= cut_start) and (end <= cut_end):
                 final_text.append(wort)

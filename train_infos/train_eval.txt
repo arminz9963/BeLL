@@ -5,17 +5,13 @@ Standart Notebook von unsloth ai verwendet, mit folgenden Änderungen:
 from datasets import load_dataset
 from unsloth.chat_templates import standardize_sharegpt
 
-# 1. Ganze Datei laden
 dataset = load_dataset("json", data_files="trainingsdaten3.json")
 
-# 2. In train/test aufteilen (z.B. 90% train, 10% eval)
 dataset = dataset["train"].train_test_split(test_size=0.1, seed=42)
 
-# 3. Standardisieren für Unsloth (immer auf den einzelnen Split!)
 dataset["train"] = standardize_sharegpt(dataset["train"])
 dataset["test"]  = standardize_sharegpt(dataset["test"])
 
-# 4. Chat-Template anwenden
 dataset["train"] = dataset["train"].map(formatting_prompts_func, batched=True)
 dataset["test"]  = dataset["test"].map(formatting_prompts_func, batched=True)
 
@@ -23,13 +19,10 @@ dataset["test"]  = dataset["test"].map(formatting_prompts_func, batched=True)
 
 dataset = load_dataset("json", data_files="trainingsdaten3_100_v1_alpaca.json", split="train")
 
-# Split into train/eval (z.B. 90% / 10%)
 dataset = dataset.train_test_split(test_size=0.1, seed=42)
 
-# Apply formatting on both splits
 dataset = dataset.map(formatting_prompts_func, batched=True)
 
-# Zugriff:
 train_dataset = dataset["train"]
 eval_dataset  = dataset["test"]
 
@@ -47,8 +40,8 @@ from transformers import DataCollatorForSeq2Seq
 trainer = SFTTrainer(
     model = model,
     tokenizer = tokenizer,
-    train_dataset = dataset["train"],   # <-- nur train Split
-    eval_dataset = dataset["test"],     # <-- eval Split dazu
+    train_dataset = dataset["train"],   
+    eval_dataset = dataset["test"],     
     dataset_text_field = "text",
     max_seq_length = max_seq_length,
     data_collator = DataCollatorForSeq2Seq(tokenizer = tokenizer),
@@ -60,7 +53,7 @@ trainer = SFTTrainer(
         max_steps = 60,
         learning_rate = 2e-4,
         logging_steps = 1,
-        eval_strategy = "steps",  # <-- eval während Training
+        eval_strategy = "steps",  
         eval_steps = 10,                 # alle 10 Schritte eval
         save_strategy = "steps",         # speichern während Training
         save_steps = 10,
