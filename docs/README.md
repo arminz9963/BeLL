@@ -31,7 +31,7 @@ Erstelle einen API key auf [groq.cloud](https://console.groq.com/keys) und speic
 ## Projektstruktur
 
 - **app/**: Flask Backend
-- **data/**: siehe [Dateiübersicht](docs/data_overview.md)
+- **data/**: siehe [Dateiübersicht](data_overview.md)
 - **docs/**: Projektdokumentationen
 - **inference/**: Code zum Testen der Modelle (alt: normaler Pormpt, neu: Prompt im Message Format)
 - **result/**: Asuwertung der Testergebnisse
