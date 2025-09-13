@@ -1,15 +1,19 @@
 # BeLL Videoschnitt-KI
 
-> Dieses Projekt entstand im Rahmen meiner Besonderen Lernleistung.
+Dieses Projekt entstand im Rahmen meiner Besonderen Lernleistung.
 
 ---
 
-> Auf der Webseite kann man ein MP4-Video hochladen, diese nach Belieben schneiden und anschließend absenden.  
-> Die Daten (Transkript mit word-level Timestamps, Schnittpunkte, Beschreibung) werden gespeichert.
+Auf der Webseite kann man ein MP4-Video hochladen, diese nach Belieben schneiden und anschließend absenden.  
+Die Daten (Transkript mit word-level Timestamps, Schnittpunkte, Beschreibung) werden gespeichert.
 
 ---
 
-> Anschließend wurden die Daten verarbeitet, aufbereitet und mithilfe von [unsloth.ai](https://docs.unsloth.ai/) wurden mehrere LLMs gefinetuned
+Anschließend wurden die Daten verarbeitet, aufbereitet und mithilfe von [unsloth.ai](https://docs.unsloth.ai/) wurden mehrere LLMs gefinetuned
+
+---
+
+Die trainierten LLMs sind unter [huggingface.co](https://huggingface.co/arminz9963/bell/tree/main) zu finden. Für mehr Informationen über die verschiedenen Modelle: [Modellübersicht](model_overview.md)
 
 ## Voraussetzungen
 
@@ -17,28 +21,35 @@
 
 - Python 3.12 oder höher
 - Node.js 16 oder höher
-- FFmpeg (für Videobearbeitung)
+- [FFmpeg](https://www.ffmpeg.org/download.html) (zum PATH hinzufügen)
 
-**Python Libarys** <br>
-`python -m pip install flask flask-cors groq`
+**Python Libarys**
 
-**TailwindCSS** <br>
-`npm install`
+```
+python -m pip install flask flask-cors groq
+```
 
-**API Key**
+**TailwindCSS**
+
+```
+npm install
+```
+
+**API Key** <br>
 Erstelle einen API key auf [groq.cloud](https://console.groq.com/keys) und speichere ihn in in der Datei `app/api_key.txt`.
 
 ## Projektstruktur
 
 - **app/**: Flask Backend
+- **archive/**: HTML und JS vor dem Design von DeepSeek
 - **data/**: siehe [Dateiübersicht](data_overview.md)
 - **docs/**: Projektdokumentationen
 - **inference/**: Code zum Testen der Modelle (alt: normaler Pormpt, neu: Prompt im Message Format)
-- **result/**: Asuwertung der Testergebnisse
+- **result/**: Auswertung der Testergebnisse
 - **static/**: Javascript des Frontends, TailwindCSS Input/Output und Icon der Webseite
 - **templates/**: HTML Webseite vom Frontend
 - **tests/**: Testergebnisse der Modelle
-- **train_infos/**: Sonstige Informationen bezüglich des Trainings (Beispieländerungen die im Notebook gemacht wurden, wie train/eval)
+- **train_infos/**: sonstige Informationen bezüglich des Trainings (Beispieländerungen die im Notebook gemacht wurden, wie train/eval)
 
 ## Ausführung der Webseite
 
@@ -58,5 +69,7 @@ Erstelle einen API key auf [groq.cloud](https://console.groq.com/keys) und speic
    ```
 
 5. Die Webseite ist nun unter `http://localhost:5000` erreichbar
+
+---
 
 _Ein Projekt von Armin Z., betreut von Herrn Seifert und Herrn Rose_
