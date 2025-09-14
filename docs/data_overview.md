@@ -9,7 +9,7 @@ Dieses Dokument dient zur Übersicht aller Datensets in `data/`
 - **roh.json**: Daten von meinem externen Betreuer Herrn Rose (316 Einträge)
 - **roh_alpaca.json**: Daten von meinem externen Betreuer Herrn Rose (316 Einträge) im Alpaca Format
 - **ai_data.json**: Daten im ShareGPT, die mithilfe von Gemini 2.5 generiert wurden (105 Einträge)
-- **ai_data_alpaca.json**: Daten im Alpaca Format, die mithilfe von Gemini 2.5 generiert wurden (120 Einträge)
+- **ai_data_alpaca.json**: Daten im Alpaca Format, die mithilfe von Gemini 2.5 generiert wurden (105 Einträge)
 
 ## Datensets
 
