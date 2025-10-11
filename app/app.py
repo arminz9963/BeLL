@@ -10,7 +10,7 @@ import time
 
 
 api_key = get_api_key("api_key.txt")
-csv_path = "../daten.csv"
+csv_path = "../data/daten.csv"
 
 app = Flask(__name__, template_folder='../templates', static_folder='../static')
 
