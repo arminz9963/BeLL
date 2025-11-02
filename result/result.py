@@ -1,7 +1,7 @@
 
 def main():
     nums = ["1", "2", "3_1", "3_2", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15_1", "15_2", "16", "13_100", "17"]
-    tests = [f"tests/neu/test_result_v{num}.txt" for num in nums]
+    tests = [f"tests/test_result_v{num}.txt" for num in nums]
 
     for test in tests:
         scores = []

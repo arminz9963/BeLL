@@ -63,7 +63,7 @@ videoInput.addEventListener("change", function () {
 });
 
 
-// Wird aufgerufen, wenn der Schnitt hinzuügen Button geklickt wird 
+// Wird aufgerufen, wenn der Schnitt hinzufügen Button geklickt wird
 addNewCutBtn.addEventListener("click", function () {
     cutSectionCount++;
     Schnitte.push([0, videoPlayer.duration]);
