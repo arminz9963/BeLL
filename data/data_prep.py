@@ -17,7 +17,7 @@ def format_transkript(transkript):
 
 def format_schnitte(schnitte):
     """
-    Funktion die die Schnitteformat umwandelt
+    Funktion, die die Schnitteformat umwandelt
     """
     neue_schnitte = []
     for schnitt in schnitte:
@@ -27,31 +27,29 @@ def format_schnitte(schnitte):
 
 def csv_sharegpt():
     """
-    Funktion die die CSV Datei in das ShareGPT Format umwandelt.
+    Funktion, die die CSV Datei in das ShareGPT Format umwandelt.
     """
 
     data_list = []
     test_list = []
     with open("data/daten.csv", "r", encoding="utf-8") as file:
         csv_reader = csv.reader(file)
-        next(csv_reader)  # Überspringe die Kopfzeile, falls vorhanden
+        next(csv_reader)  # Überspringe die Kopfzeile
         for i, row in enumerate(csv_reader):
             transkript = json.loads(row[0])
             schnitte = json.loads(row[1])
             beschreibung = json.loads(row[2])
 
-            # Formatieren des Transkripts in ShareGPT Format
-            # bei v5, folgende Line bei value from human hinzugefügt: Gib die Schnitte im folgenden Format wieder: [(start1, ende1), (start2, ende2), (start3, ende3), ...]
             data = {
                 "conversations": [
                     {
                         "from": "human",
-                        "value": f"Bitte schlage passende Schnittpunkte vor basierend auf dem Transkript und der Beschreibung. \n Beschreibung: {beschreibung} \n Transkript: {format_transkript(transkript)}" 
+                        "value": f"Bitte schlage passende Schnittpunkte vor basierend auf dem Transkript und der Beschreibung. \n Beschreibung: {beschreibung} \n Transkript: {transkript}" 
                     },
                     
                     {
                         "from": "gpt",
-                        "value": format_schnitte(schnitte)
+                        "value": schnitte
                     }
                 ]
             }

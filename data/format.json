@@ -1,0 +1,14 @@
+[
+    {
+        "conversations": [
+            {
+                "from": "human",
+                "value": "Bitte schlage passende Schnittpunkte vor basierend auf dem Transkript und der Beschreibung. \n Beschreibung: Beschreibung \n Transkript: Transkript"
+            },
+            {
+                "from": "gpt",
+                "value": "Schnitte"
+            }
+        ]
+    }
+]
