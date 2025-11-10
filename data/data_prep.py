@@ -58,10 +58,10 @@ def csv_sharegpt():
             else:
                 test_list.append(data)
 
-    with open("data/trainingsdaten4.json", "w", encoding="utf-8") as json_file:
+    with open("data/trainingsdaten1.json", "w", encoding="utf-8") as json_file:
         json.dump(data_list, json_file, ensure_ascii=False, indent=4)
 
-    with open("data/testdaten4.json", "w", encoding="utf-8") as json_file:
+    with open("data/testdaten1.json", "w", encoding="utf-8") as json_file:
         json.dump(test_list, json_file, ensure_ascii=False, indent=4)
 
 

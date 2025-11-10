@@ -24,7 +24,7 @@ with open("data/testdaten1.json", "r", encoding="utf-8") as file:
         print("Test Nummer:", i + 1)
         system = "Du bist ein Video-Editing Assistant. Analysiere das folgende Transkript und gib passende Schnittvorschläge zurück, beachte hierbei die mitgegebene Beschreibung."
         # Prompt in Message Format
-        prompt = f"{dataset['instruction']} \n{dataset['input']}"
+        prompt = f"{dataset['conversations'][0]['value']}"
         message = [
             {"role": "system", "content": system},
             {"role": "user", "content": prompt}
@@ -33,9 +33,9 @@ with open("data/testdaten1.json", "r", encoding="utf-8") as file:
         output = llm.create_chat_completion(messages=message)
         answer = output['choices'][0]['message']['content'].strip()
         print(f"Ausgabe: {answer}")
-        print(f"Lösung: {dataset['response']}")
+        print(f"Lösung: {dataset['conversations'][1]['value']}")
         with open("tests/test_result_v1.txt", "a", encoding="utf-8") as datei:
-            datei.writelines(f"Test {i+1}\nAusgabe: {answer}\nLösung: {dataset['response']}\n")
+            datei.writelines(f"Test {i+1}\nAusgabe: {answer}\nLösung: {dataset['conversations'][1]['value']}\n")
 total_time = time.time() - start_time
 print(f"Gesamtzeit: {total_time:.2f} Sekunden")
 with open("tests/test_result_v1.txt", "a", encoding="utf-8") as datei:

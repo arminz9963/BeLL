@@ -6,13 +6,9 @@ model_v2:
 Scores: [11.981, 0.0, 94.969, 0.0, 41.818]
 End Score: 29.75
 
-model_v3_1:
+model_v3:
 Scores: [0.0, 0.0, 0.0, 50.19, 26.136]
 End Score: 15.27
-
-model_v3_2:
-Scores: [0.0, 0.0, 0.0, 0.0, 0.0]
-End Score: 0.0
 
 model_v4:
 Scores: [85.791, 0.0, 0.0, 11.837, 0.0]
