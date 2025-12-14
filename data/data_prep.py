@@ -125,6 +125,7 @@ def roh_alpaca(alpaca):
         # Umwandeln des Schnittformat ins eigene:
         time_parts = output.split("|")
         times = [tuple(eval(part)) for part in time_parts]
+        response = [(round(start, 2), round(end, 2)) for start, end in times]
 
         # Regex: "Video[12.5,13.1]" --> "Video", "12.5", "13.1"
         pattern = r"(.*?)\[(\d+\.?\d*),(\d+\.?\d*)\]"
@@ -137,9 +138,6 @@ def roh_alpaca(alpaca):
             parts.append(f"{word.strip()} [{start}, {end}]")
 
         transkript = " ".join(parts)
-
-        # Runden der Zeiten im Transkript & Cuts
-        response = [(round(start, 2), round(end, 2)) for start, end in times]
 
         alpaca_entry = {
             "instruction": "Schlage passende Schnittpunkte vor basierend auf der Beschreibung und dem Transkript.",
