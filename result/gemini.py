@@ -2,6 +2,7 @@ import google.generativeai as genai
 import json
 from time import time
 
+### api key unter https://aistudio.google.com/api-keys erstellen und in result/gemini_key.txt speichern
 with open("result/gemini_key.txt", "r") as f:
     api_key = f.read().strip()
 

@@ -2,6 +2,7 @@ from groq import Groq
 from time import time
 import json
 
+### Api Key unter https://console.groq.com/keys erstellen und in result/llama_key.txt speichern
 with open("result/llama_key.txt", "r") as f:
     api_key = f.read().strip()
 

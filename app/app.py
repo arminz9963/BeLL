@@ -8,9 +8,9 @@ from flask_cors import CORS
 import time
 
 
-
+### api key unter https://console.groq.com/keys erstellen und in app/api_key.txt speichern
 api_key = get_api_key("app/api_key.txt")
-csv_path = "../data/daten.csv"
+csv_path = "data/daten.csv"
 
 app = Flask(__name__, template_folder='../templates', static_folder='../static')
 

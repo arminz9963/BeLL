@@ -9,13 +9,28 @@ Die Daten (Transkript mit word-level Timestamps, Schnittpunkte, Beschreibung) we
 
 ---
 
-Anschließend wurden die Daten verarbeitet, aufbereitet und mithilfe von [unsloth.ai](https://docs.unsloth.ai/) wurden mehrere LLMs gefinetuned
+Anschließend wurden die Daten verarbeitet, aufbereitet und mithilfe von [unsloth.ai](https://docs.unsloth.ai/) wurden mehrere LLMs feinabgestimmt
 
 ---
 
 Die trainierten LLMs sind unter [huggingface.co](https://huggingface.co/arminz9963/bell/tree/main) zu finden. Für mehr Informationen über die verschiedenen Modelle: [Modellübersicht](model_overview.md)
 
-## Voraussetzungen
+## Projektstruktur
+
+- **ai_answers/**: Quellenangabe für die Dokumentation
+- **app/**: Flask Backend
+- **archive/**: HTML und JS vor dem Design von DeepSeek
+- **data/**: siehe [Dateiübersicht](data_overview.md)
+- **docs/**: Projektdokumentationen
+- **inference/**: Code zum Testen der Modelle
+- **result/**: Auswertung der Testergebnisse, sowie Testung von 3 nicht-feinabgestimmten Modellen
+- **static/**: Javascript des Frontend, TailwindCSS Input/Output und Icon der Webseite
+- **templates/**: HTML Webseite vom Frontend
+- **tests/**: Testergebnisse der Modelle
+
+## Benutzen der Webseite
+
+### Voraussetzungen
 
 **Software:**
 
@@ -38,20 +53,7 @@ npm install
 **API Key** <br>
 Erstelle einen API key auf [groq.cloud](https://console.groq.com/keys) und speichere ihn in in der Datei `app/api_key.txt`.
 
-## Projektstruktur
-
-- **app/**: Flask Backend
-- **archive/**: HTML und JS vor dem Design von DeepSeek
-- **data/**: siehe [Dateiübersicht](data_overview.md)
-- **docs/**: Projektdokumentationen
-- **inference/**: Code zum Testen der Modelle (alt: normaler Pormpt, neu: Prompt im Message Format)
-- **result/**: Auswertung der Testergebnisse
-- **static/**: Javascript des Frontends, TailwindCSS Input/Output und Icon der Webseite
-- **templates/**: HTML Webseite vom Frontend
-- **tests/**: Testergebnisse der Modelle
-- **train_infos/**: sonstige Informationen bezüglich des Trainings (Beispieländerungen die im Notebook gemacht wurden, wie train/eval)
-
-## Ausführung der Webseite
+### Ausführung
 
 1. Gehe in den CMD und navigiere in den Porjektordner
 2. Starte TaiwlwindCSS:

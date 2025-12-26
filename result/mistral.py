@@ -2,6 +2,7 @@ from mistralai import Mistral
 import json
 from time import time
 
+### api_key unter https://admin.mistral.ai/organization/api-keys erstellen und in result/mistral_key.txt speichern
 with open("result/mistral_key.txt", "r") as f:
     api_key = f.read().strip()
 
