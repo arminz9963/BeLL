@@ -29,7 +29,7 @@ with open("data/testdaten5.json", "r", encoding="utf-8") as file:
         },
         ]
         )
-
+        # extrahieren der Antwort
         response = chat_response.choices[0].message.content
         lsg = dataset['conversations'][1]['value']
         print(f"Ausgabe: {response}")

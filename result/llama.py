@@ -31,7 +31,7 @@ with open("data/testdaten5.json", "r", encoding="utf-8") as file:
             ],
             stream=False
         )
-
+        # extrahieren der Antwort
         response = completion.choices[0].message.content
 
         lsg = dataset['conversations'][1]['value']

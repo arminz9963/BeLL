@@ -32,6 +32,7 @@ with open("data/testdaten1.json", "r", encoding="utf-8") as file:
             ]
         # Prompt an LLM senden und Antwort erhalten
         output = llm.create_chat_completion(messages=message)
+        # Antwort extrahieren
         answer = output['choices'][0]['message']['content'].strip()
         print(f"Ausgabe: {answer}")
         print(f"Lösung: {dataset['conversations'][1]['value']}")
