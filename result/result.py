@@ -1,7 +1,28 @@
-
 def main():
-    nums = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15_1", "15_2", "16", "13_100", "17"]
-    tests = [f"tests/test_result_v{num}.txt" for num in nums]
+    tests = [
+        "tests/test_result_v1.txt",
+        "tests/test_result_v2.txt",
+        "tests/test_result_v3.txt",
+        "tests/test_result_v4.txt",
+        "tests/test_result_v5.txt",
+        "tests/test_result_v6.txt",
+        "tests/test_result_v7.txt",
+        "tests/test_result_v8.txt",
+        "tests/test_result_v9.txt",
+        "tests/test_result_v10.txt",
+        "tests/test_result_v11.txt",
+        "tests/test_result_v12.txt",
+        "tests/test_result_v13.txt",
+        "tests/test_result_v13_100.txt",
+        "tests/test_result_v14.txt",
+        "tests/test_result_v15_1.txt",
+        "tests/test_result_v15_2.txt",
+        "tests/test_result_v16.txt",
+        "tests/test_result_v17.txt",
+        "tests/test_result_gemini.txt",
+        "tests/test_result_mistral.txt",
+        "tests/test_result_llama.txt"
+        ]
 
     for test in tests:
         scores = []
@@ -35,7 +56,7 @@ def main():
             sum += score
         end_score = round(sum / len(scores), 2)
         with open("result/results.txt", "a", encoding="utf-8") as datei:
-            datei.write(f"{test.replace('tests/neu/test_result', 'model').replace('.txt', '')}:\n")
+            datei.write(f"{test.replace('tests/test_result_', '').replace('.txt', '')}:\n")
             datei.write(f"Scores: {scores}\n")
             datei.write(f"End Score: {end_score}\n\n")
 

@@ -46,10 +46,10 @@ Dieses Dokument dient zur Übersicht aller Datensets in `data/`
 
 - **trainingsdaten5_50.json**: 50 Einträge im ShareGPT Format, wobei 20 aus `daten.csv` und 30 aus `ai_data.json` stammen. Transkript und Schnitteformat sind wie bei `trainingsdaten3.json`
 - **trainingsdaten5_100_v1.json**: wie `trainingsdaten3_50.json`, bloß bestehend aus 100 Einträgen, wobei 20 aus `daten.csv` und 80 aus `ai_data.json`
-- **trainingsdaten5_100_v1_alpaca.json**: wie `trainingsdaten3_100.json` bloß im Alpaca Format
-- **trainingsdaten5_100_v2.json**: wie `trainingsdaten3_50.json`, bloß bestehend aus 100 Einträgen, die alle aus `ai_data.json` stammen
+- **trainingsdaten5_100_v1_alpaca.json**: wie `trainingsdaten5_100.json` bloß im Alpaca Format
+- **trainingsdaten5_100_v2.json**: wie `trainingsdaten5_50.json`, bloß bestehend aus 100 Einträgen, die alle aus `ai_data.json` stammen
 - **testdaten5.json**: wie `testdaten3.json`, zusätzlich 5 weitere Einträgen aus `ai_data.json` (Insgesamt 10 Einträge)
-- **testdaten5_alpaca.json**: wie `testdaten3_v2.json`, bloß im Alpaca Format
+- **testdaten5_alpaca.json**: wie `testdaten5.json`, bloß im Alpaca Format
 - **testdaten5_v2_alpaca.json**: 100 Einträge im Alpaca Format aus `roh_alpaca.json`
 
 ---

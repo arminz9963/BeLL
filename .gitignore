@@ -3,5 +3,7 @@ __pycache__/
 node_modules/
 api_key.txt
 unsloth_compiled_cache/
-models/
 notizen.txt
+gemini_key.txt
+llama_key.txt
+mistral_key.txt

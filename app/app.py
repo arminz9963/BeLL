@@ -9,7 +9,7 @@ import time
 
 
 
-api_key = get_api_key("api_key.txt")
+api_key = get_api_key("app/api_key.txt")
 csv_path = "../data/daten.csv"
 
 app = Flask(__name__, template_folder='../templates', static_folder='../static')
