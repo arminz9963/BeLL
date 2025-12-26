@@ -3,13 +3,6 @@ from llama_cpp import Llama
 import json
 start_time = time.time()
 
-# llm =Llama.from_pretrained(
-#     repo_id="arminz9963/bell",
-#     filename="model_v8.Q4_K_M.gguf",
-#     n_ctx=15000,
-#     verbose=False
-# )
-
 
 llm = Llama(
     model_path="models/model_v1.Q4_K_M.gguf",
