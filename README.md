@@ -4,6 +4,10 @@ Dieses Projekt entstand im Rahmen meiner Besonderen Lernleistung.
 
 ---
 
+Der Code ist ebenfalls unter [github.com](https://github.com/arminz9963/BeLL) zu finden.
+
+---
+
 Auf der Webseite kann man ein MP4-Video hochladen, diese nach Belieben schneiden und anschließend absenden.  
 Die Daten (Transkript mit word-level Timestamps, Schnittpunkte, Beschreibung) werden gespeichert.
 
