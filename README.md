@@ -17,14 +17,14 @@ Anschließend wurden die Daten verarbeitet, aufbereitet und mithilfe von [unslot
 
 ---
 
-Die trainierten LLMs sind unter [huggingface.co](https://huggingface.co/arminz9963/bell/tree/main) zu finden. Für mehr Informationen über die verschiedenen Modelle: [Modellübersicht](model_overview.md)
+Die trainierten LLMs sind unter [huggingface.co](https://huggingface.co/arminz9963/bell/tree/main) zu finden. Für mehr Informationen über die verschiedenen Modelle: [Modellübersicht](docs/model_overview.md)
 
 ## Projektstruktur
 
 - **ai_answers/**: Quellenangabe für die Dokumentation
 - **app/**: Flask Backend
 - **archive/**: HTML und JS vor dem Design von DeepSeek
-- **data/**: siehe [Dateiübersicht](data_overview.md)
+- **data/**: siehe [Dateiübersicht](docs/data_overview.md)
 - **docs/**: Projektdokumentationen
 - **inference/**: Code zum Testen der Modelle
 - **result/**: Auswertung der Testergebnisse, sowie Testung von 3 nicht-feinabgestimmten Modellen
